@@ -1,0 +1,178 @@
+#+BEGIN_OPTIONS
+#+AUTHOR: William F. Schneider
+#+TITLE: CBE 60546 Outline
+#+EMAIL: wschneider@nd.edu
+#+LATEX_CLASS_OPTIONS: [11pt]
+#+LATEX_HEADER:\usepackage{geometry}
+#+LATEX_HEADER:\geometry{margin=1.0in}
+#+LATEX_HEADER:\usepackage{outline}
+#+LATEX_HEADER:\usepackage{amsmath}
+#+LATEX_HEADER:\usepackage{graphicx}
+#+LATEX_HEADER:\usepackage{epstopdf}
+#+LATEX_HEADER:\usepackage{fancyhdr}
+#+LATEX_HEADER:\usepackage{hyperref}
+#+LATEX_HEADER:\usepackage[labelfont=bf]{caption}
+#+LATEX_HEADER:\setlength{\headheight}{15.2pt}
+#+LATEX_HEADER:\def\dbar{{\mathchar'26\mkern-12mu d}}
+#+LATEX_HEADER:\pagestyle{fancy}
+#+LATEX_HEADER:\fancyhf{}
+#+LATEX_HEADER:\renewcommand{\headrulewidth}{0.5pt}
+#+LATEX_HEADER:\renewcommand{\footrulewidth}{0.5pt}
+#+LATEX_HEADER:\lfoot{\today}
+#+LATEX_HEADER:\cfoot{\copyright\ 2017 W.\ F.\ Schneider}
+#+LATEX_HEADER:\rfoot{\thepage}
+#+LATEX_HEADER:\lhead{\em{Advanced Chemical Reaction Engineering}}
+#+LATEX_HEADER:\rhead{ND CBE 60546}
+
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+OPTIONS: toc:nil
+#+OPTIONS: H:3 num:3
+#+OPTIONS: ':t
+#+END_OPTIONS
+* Stoichiometry and reactions
+1. Molecules and reactions
+2. Stoichiometric coefficients
+3. Advancements
+* Chemical thermodynamics and equilibria
+    1. Chemical reactions
+    2. Thermodynamic potential differences
+       1. Standard states
+       2. Reaction entropy $\Delta S^\circ (T) =  S^\circ_\mathrm{B}(T)-S^\circ_\mathrm{A}(T)$
+       3. Reaction energy $\Delta U^\circ (T) = U^\circ_\mathrm{B}(T)-U^\circ_\mathrm{A}(T)+\Delta E(0)$
+       4. Gibbs-Helmholtz
+    3. Equilibrium-closed system
+       1. Equilibrium constants and algebraic solutions
+       2. Free energy minimization
+       3. Parallel reactions
+    4. Equilibrium-open system
+       1. Reaction phase diagrams
+    5. Partition functions and $K_{eq}$
+    6. Non-ideal activities
+    7. Electrochemical reactions
+
+# %     \item {\bf Lecture 18: Chemical reactions and equilibrium}
+# %       \begin{enumerate}
+# %       \item Standard states
+# %         \begin{enumerate}
+# %           \item Translational partition function depends on concentration $N/V$
+# %           \item ``Standard state'' corresponds to some standard choice for $N/V$, $c^\circ$
+# %           \item For ideal gas, related to pressure by $P^\circ = c^\circ k_B T$
+# %         \end{enumerate}
+# %       \item Chemical reaction $A \rightarrow B$
+# %         \item Equilibrium condition---equate chemical potentials, $\mu_A(N,V,T) = \mu_B(N,V,T)$
+# %         \item Equilibrium constant---evaluate from partition functions directly
+# %           or indirectly from thermodynamic potentials
+# % \item Le'Chatlier's principle
+# %   \begin{enumerate}
+# %     \item Response to temperature: Boltzmann distribution favors higher energy
+# %       things as $T$ increases
+# %     \item Response to volume chance: particle-in-a-box states increasingly favor
+# %       side with more molecules as volume increases
+# %   \end{enumerate}
+# % \end{enumerate}
+
+#+BEGIN_EXPORT LaTeX
+ \begin{table}
+ \begin{center}
+     \caption{\large{Equilibrium and Rate Constants}}
+    \begin{description}
+    \item[Equilibrium Constants] $a~\text{A} + b~\text{B} \rightleftharpoons c~\text{C} + d~\text{D} $
+      \begin{eqnarray*}
+        K_{eq}(T) &=& e^{\Delta S^\circ(T,V)/k_B}e^{-\Delta H^\circ(T,V)/k_BT}
+        \\ \\
+             K_c(T) &=&
+            \left(\frac{1}{c^\circ}\right)^{\nu_c+\nu_d-\nu_a-\nu_b}\frac{(q_c/V)^{\nu_c}(q_d/V)^{\nu_d}}{(q_a/V)^{\nu_a}(q_b/V)^{\nu_b}}e^{-\Delta
+             E(0)\beta}\\ \\
+             K_p(T) &=&
+           \left(\frac{k_BT}{P^\circ}\right)^{\nu_c+\nu_d-\nu_a-\nu_b}\frac{(q_c/V)^{\nu_c}(q_d/V)^{\nu_d}}{(q_a/V)^{\nu_a}(q_b/V)^{\nu_b}}e^{-\Delta
+             E(0)\beta}
+ \end{eqnarray*}
+ \item[Unimolecular Reaction] $\text[A] \rightleftharpoons [\text{A} ]^\ddagger
+   \rightarrow C$
+       \begin{displaymath}
+         k(T)=\nu^\ddagger \bar K^\ddagger=\frac{k_B T}{h} \frac{\bar{q}_\ddagger(T)/V}{q_A(T)/V}
+           e^{-\Delta E^\ddagger(0)\beta}
+       \end{displaymath}
+ \begin{center}
+       \begin{tabular}{cc}
+       $ \displaystyle E_a =\Delta H^{\circ\ddagger}+k_B T $
+       & $ \displaystyle A = e^1\frac{k_B T}{h} e^{\Delta S^{\circ\ddagger}} $
+       \end{tabular}
+ \end{center}
+ \item[Bimolecular Reaction] $
+         \mathrm{A} + \mathrm{B} \rightleftharpoons [ \mathrm{AB}]^\ddagger
+         \rightarrow \text{C}$
+       \begin{displaymath}
+         k(T)=\nu^\ddagger \bar K^\ddagger=\frac{k_B T}{h} \frac{q_\ddagger(T)/V}{(q_A(T)/V)(q_B(T)/V)}\left
+           (\frac{1}{c^\circ}\right )^{-1}
+         e^{-\Delta E^\ddagger(0)\beta}
+       \end{displaymath}
+       \begin{center}
+         \begin{tabular}{cc}
+         $ \displaystyle E_a  =\Delta H^{\circ\ddagger}+2 k_B T $ & $ \displaystyle
+         A  = e^2\frac{k_B T}{h} e^{\Delta S^{\circ\ddagger}} $
+       \end{tabular}
+       \end{center}
+    \end{description}
+  \end{center}
+  \end{table}
+#+END_EXPORT
+
+** Non-equilibrium thermodynamics :noexport:
+#+BEGIN_EXPORT LaTeX
+\begin{table}
+\begin{center}
+\caption{Physical units}
+\begin{tabular}{|lrlrl|}
+  \hline
+  $N_\mathrm{Av}$: & $6.02214 \times 10^{23}$& mol$^{-1}$  & & \\
+  1 amu: & $1.6605\times 10^{-27}$ & kg & & \\
+  $k_\mathrm{B}$: & $1.38065\times 10^{-23}$ & J~K$^{-1}$ & $8.61734\times
+  10^{-5}$ & eV K$^{-1}$\\
+  $R$: & 8.314472 & J K$^{-1}$ mol$^{-1}$ & $8.2057 \times 10^{-2}$ & l atm mol$^{-1}$ K$^{-1}$\\
+  $\sigma_\mathrm{SB}$: & $5.6704\times 10^{-8}$ & J s$^{-1}$ m$^{-2}$ K$^{-4}$ & & \\
+  $c$: & $2.99792458\times 10^8$ & m s$^{-1}$ & & \\
+  $h$: & $6.62607\times 10^{-34}$ & J s & $4.13566\times 10^{-15}$ & eV s
+  \\
+  $\hbar$: & $1.05457\times 10^{-34}$ & J s & $6.58212\times 10^{-16}$&  eV s \\
+  $hc$: & 1239.8 & eV nm  & & \\
+  $e$: & $1.60218\times 10^{-19}$ &  C & & \\
+  $m_e:$ & $9.10938215\times 10^{-31}$ & kg &0.5109989 & MeV c$^{-2}$  \\
+  $\epsilon_0$: & $8.85419 \times 10^{-12}$ & C$^2$ J$^{-1}$ m$^{-1}$ & $5.52635\times
+  10^{-3}$ & $e^2$ \AA$^{-1}$ eV$^{-1}$ \\
+  $e^2/4\pi\epsilon_0$: & $2.30708 \times 10^{-28}$&  J m & 14.39964 & eV \AA\\
+  $a_0$: & $0.529177 \times 10^{-10}$ & m & 0.529177 & \AA\\
+  $E_\mathrm{H} $: & 1 & Ha & 27.212 & eV \\
+  \hline
+\end{tabular}
+\end{center}
+\end{table}
+#+END_EXPORT
+
+
+
+* Empirical kinetics
+1. rates
+2. rate expressions
+3. rate orders
+4. apparent orders, Arrhenius expression
+5. integrated rate expressions
+6. analyzing reactor data?
+
+* Molecular basis
+1. reaction pathway, detailed balance
+2. bimolecular, collision theory, TST
+3. unimolecular reactions
+
+* Mechanisms
+1. QSSA
+2. Pre-equilibrium
+
+* Heterogeneous reactions
+1. adsorption, L-H
+2. TPD
+3. catalysis
+4. Sabatier analysis
+
+* Liquid-phase reactions
+
