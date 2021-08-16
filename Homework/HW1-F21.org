@@ -1,0 +1,88 @@
+#+BEGIN_OPTIONS
+#+AUTHOR: William F. Schneider
+#+TITLE: CBE 60546 Homework
+#+EMAIL: wschneider@nd.edu
+#+LATEX_CLASS_OPTIONS: [11pt]
+#+LATEX_HEADER:\usepackage[left=1in, right=1in, top=1in, bottom=1in, nohead]{geometry}
+#+LATEX_HEADER:\geometry{margin=1.0in}
+#+LATEX_HEADER:\usepackage{hyperref}
+#+LATEX_HEADER:\usepackage{amsmath}
+#+LATEX_HEADER:\usepackage{graphicx}
+#+LATEX_HEADER:\usepackage{epstopdf}
+#+LATEX_HEADER:\usepackage{fancyhdr}
+#+LATEX_HEADER:\pagestyle{fancy}
+#+LATEX_HEADER:\fancyhf{}
+#+LATEX_HEADER:\usepackage[labelfont=bf]{caption}
+#+LATEX_HEADER:\usepackage{setspace}
+#+LATEX_HEADER:\setlength{\headheight}{10.2pt}
+#+LATEX_HEADER:\setlength{\headsep}{20pt}
+#+LATEX_HEADER:\renewcommand{\headrulewidth}{0.5pt}
+#+LATEX_HEADER:\renewcommand{\footrulewidth}{0.5pt}
+#+LATEX_HEADER:\lfoot{\today}
+#+LATEX_HEADER:\cfoot{\copyright\ 2021 W.\ F.\ Schneider}
+#+LATEX_HEADER:\rfoot{\thepage}
+#+LATEX_HEADER:\chead{\bf{Advanced Chemical Reaction Engineering (CBE 60546)\vspace{12pt}}}
+#+LATEX_HEADER:\lhead{\bf{Homework 1}}
+#+LATEX_HEADER:\rhead{\bf{Due September 1, 2021}}
+#+LATEX_HEADER:\usepackage{titlesec}
+#+LATEX_HEADER:\titlespacing*{\section}
+#+LATEX_HEADER:{0pt}{0.6\baselineskip}{0.2\baselineskip}
+#+LATEX_HEADER:\title{University of Notre Dame\\Advanced Chemical Engineering Thermodynamics\\(CBE 60553)}
+#+LATEX_HEADER:\author{Prof. William F.\ Schneider}
+#+LATEX_HEADER:\usepackage{siunitx}
+#+LATEX_HEADER:\usepackage[version=3]{mhchem}
+#+LATEX_HEADER:\def\dbar{{\mathchar'26\mkern-12mu d}}
+
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+OPTIONS: toc:nil
+#+OPTIONS: H:3 num:3
+#+OPTIONS: ':t
+#+END_OPTIONS
+
+\noindent *Solve each problem on separate sheets of paper, and clearly indicate the problem number and your name on each.  Carefully and neatly document your answers.  You may use a mathematical solver like Jupyter/iPython. Use plotting software for all plots.*
+
+* Key ideas :noexport:
+- heat and work
+- path functions
+- equations of state
+- multivariate calculus
+
+* All in balance
+** One way under consideration for removing harmful "\ce{NO_x}" (\ce{NO} + \ce{NO2}) from flue gas is the thermal deNOx process, in which \ce{NH3} is used to reduce the \ce{NO} to \ce{NO2}:
+
+#+BEGIN_CENTER
+\ce{ \_ NO(g) + \_ O2 (g) + \_ NH3(g) -> \_ N2 (g) + \_ H2O (g) }
+#+END_CENTER
+\noindent The research lab has several gas tanks available to study this reaction, including one containg 2.0% \ce{NO} in an \ce{N2} diluent, one containing 10% \ce{O2} in an \ce{N2} diluent, and a bottle of 4% anhydrous ammonia in \ce{N2}. You can assume all gases behave ideally.
+
+1. Balance the thermal deNOx reaction, assuming each \ce{NH3} titrates one \ce{NO}.
+
+2. What mass flow rates are necessary to create a stoichiometric mixture at \SI{1}{bar} total pressure, \SI{400}{\celsius}, and \SI{10}{l/s} total volumetric flow rate?
+
+3. Plot the molar flow rates of all five gases as a function of reaction advancement.
+
+4. Plot the total volumetric flow rate as a function of reaction advancement.
+
+** \ce{NH3} oxidation is an undesirable side-reaction of thermal deNOx:
+
+#+BEGIN_CENTER
+\ce{ \_ NH3(g) + \_ O2 (g)  -> \_ NO (g) + \_ H2O (g) }
+#+END_CENTER
+5. Balance the \ce{NH3} oxidation reaction.
+
+6. Under the stoichiometric conditions described above, the reactor generates \SI{0.036}{g/s} \ce{NO} and \SI{0.017}{g/s} \ce{NH3}. How effectively is the \ce{NH3} being used for thermal deNOx? (/Hint:/ What are the advancements of the two reactions?)
+
+* NOx, NOx, who's there?
+** A simpler and confounding reaction of \ce{NO} is it's oxidation to \ce{NO2}:
+#+BEGIN_CENTER
+\ce{ \_ NO(g) + \_ O2 (g)  -> \_ NO2 (g)}
+#+END_CENTER
+\noindent You can assume all gases behave ideally under the conditions considered in this problem.
+
+1. Determine  \(\Delta H^\circ (\SI{298}{K})\),  \(\Delta S^\circ (\SI{298}{K})\), \(\Delta G^\circ (\SI{298}{K})\), and  \(K_p (\SI{298}{K})\) for the NO oxidation reaction. Be sure to specify your source and the standard state.
+
+2. Calculate the equilibrium partial pressure ratio of \ce{NO2} to \ce{NO} in the atmosphere near the surface of the earth. Assume the mixing ratio of \ce{O2} to be $0.2$ and a temperature of \SI{25}{\celsius}.
+
+3. From standard compilations and at \SI{1}{atm} standard state, \(\Delta H^\circ (\SI{250}{\celcius}) = \SI{-116.532}{\kJ\per\mol}\) and \(\Delta S^\circ (\SI{250}{\celcius}) = \SI{-152.179}{J\per\mol\per\kelvin}\).  Use the van't Hoff relationship to plot \(\Delta G^\circ (T)\) vs \(T\) from room temperature to \SI{1000}{C}. Add a point on your plot for the \(\Delta G^\circ (\SI{298}{K})\) you found from a tabulation.
+
+4. NO oxidation is catalyzed over diesel oxidation catalysts (DOCs) on diesel vehicles. Plot the equilibrium conversion of \ce{NO} to \ce{NO2} vs \(T\) from room temperature to \SI{1000}{C} for an isobaric \SI{1}{atm} reactor presented with 0.1% \ce{NO} and 5% \ce{O2}, and balance \ce{N2}.
