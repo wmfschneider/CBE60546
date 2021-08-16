@@ -85,4 +85,4 @@
 
 3. From standard compilations and at \SI{1}{atm} standard state, \(\Delta H^\circ (\SI{250}{\celcius}) = \SI{-116.532}{\kJ\per\mol}\) and \(\Delta S^\circ (\SI{250}{\celcius}) = \SI{-152.179}{J\per\mol\per\kelvin}\).  Use the van't Hoff relationship to plot \(\Delta G^\circ (T)\) vs \(T\) from room temperature to \SI{1000}{C}. Add a point on your plot for the \(\Delta G^\circ (\SI{298}{K})\) you found from a tabulation.
 
-4. NO oxidation is catalyzed over diesel oxidation catalysts (DOCs) on diesel vehicles. Plot the equilibrium conversion of \ce{NO} to \ce{NO2} vs \(T\) from room temperature to \SI{1000}{C} for an isobaric \SI{1}{atm} reactor presented with 0.1% \ce{NO} and 5% \ce{O2}, and balance \ce{N2}.
+4. NO oxidation is catalyzed over diesel oxidation catalysts (DOCs) on diesel vehicles. Plot the equilibrium conversion of \ce{NO} to \ce{NO2} vs \(T\) from room temperature to \SI{1000}{\celsius} for an isobaric \SI{1}{atm} reactor presented with 0.1% \ce{NO} and 5% \ce{O2}, and balance \ce{N2}.
