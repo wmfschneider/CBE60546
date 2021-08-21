@@ -29,8 +29,42 @@
 #+OPTIONS: H:3 num:3
 #+OPTIONS: ':t
 #+END_OPTIONS
+* Lecture 0: Intro to Reaction Engineering
+1. Reaction engineering
+#+BEGIN_QUOTE
+Understanding, modeling, designing, using, controlling, analyzing, improving anything in which chemical reactions happen.
+#+END_QUOTE
+1. Reaction engineering applications
+   1. Traditional
+      1. Industrial chemical/petroleum processes
+      2. Fine chemical/pharmaceutical processes
+      3. Emerging, eg biorefinergy, shale gas, [[http://cistar.us]]
+   2. Energy storage, batteries, fuel cells
+   3. Environmental systems
+      1. Atmosphere, lake, bioreactor (water purification), catalytic convertor
+   4. Biological systems
+      1. Cell, organ, body
+   5. Laboratory reactors - interrogate, quantify
+   6. Research - improved materials (catalysts), improved processes, understand limitations
+      1. Sabatier plot, [[https://doi.org/10.1038/nchem.121]]
+2. Course structure
+   1. Quantifying chemical reactions
+      1. Stoichiometry
+      2. Thermodynamics - heat flow, direction, equilibrium
+      3. Kinetics - rates, mechanisms
+   2. Physical/chemical interactions
+      1. Transport, mixing, diffusion resistance, ...
+   3. Chemical reactors
+      1. Ideal 0 and 1-dimensional
+      2. Non-ideal
+      3. Non-isothermal
+      4. Non-steady state
+      5. Multiphase
+   4. Chemical processes (beyond us)
+   5. Markets (beyond us)
+
 * Stoichiometry and reactions
-1. Molecules and reactions
+1. Substances and amounts
 2. Stoichiometric coefficients
 3. Advancements
 * Chemical thermodynamics and equilibria

@@ -2,11 +2,13 @@
 
 This one semester course deals with the fundamentals of chemical reaction kinetics and their behavior in reactors. 
 
-Syllabus available [here](./syllabus.org)
+Syllabus available [here](./CBE60546-syllabus.org)
 
 Homework assignments and solutions available [here](./homework.org)
 
 Course outline available [here](./Outline/CBE60546-outline.org)
+
+Lectures and other resources available [here](./lectures.org)
 
 Introduction to Jupyter notebooks [here](https://jupyter.org)
 
