@@ -48,7 +48,7 @@
 - multivariate calculus
 
 * All in balance
-** One way under consideration for removing harmful "\ce{NO_x}" (\ce{NO} + \ce{NO2}) from flue gas is the thermal deNOx process, in which \ce{NH3} is used to reduce the \ce{NO} to \ce{NO2}:
+** One way under consideration for removing harmful "\ce{NO_x}" (\ce{NO} + \ce{NO2}) from flue gas is the thermal deNOx process, in which \ce{NH3} is used to reduce the \ce{NO} to \ce{N2}:
 
 #+BEGIN_CENTER
 \ce{ \_ NO(g) + \_ O2 (g) + \_ NH3(g) -> \_ N2 (g) + \_ H2O (g) }
@@ -70,7 +70,7 @@
 #+END_CENTER
 5. Balance the \ce{NH3} oxidation reaction.
 
-6. Under the stoichiometric conditions described above, the reactor generates \SI{0.036}{g/s} \ce{NO} and \SI{0.017}{g/s} \ce{NH3}. How effectively is the \ce{NH3} being used for thermal deNOx? (/Hint:/ What are the advancements of the two reactions?)
+6. Under the stoichiometric conditions described above, the reactor generates \SI{0.036}{g/s} \ce{NO} and \SI{0.017}{g/s} \ce{N2}. How effectively is the \ce{NH3} being used for thermal deNOx? (/Hint:/ What are the advancements of the two reactions?)
 
 * NOx, NOx, who's there?
 ** A simpler and confounding reaction of \ce{NO} is it's oxidation to \ce{NO2}:
