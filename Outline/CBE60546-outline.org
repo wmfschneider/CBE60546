@@ -64,25 +64,25 @@ Understanding, modeling, designing, using, controlling, analyzing, improving any
    5. Markets (beyond us)
 
 * Stoichiometry and reactions
-1. Substances and amounts
-2. Stoichiometric coefficients
-3. Advancements
+1. Substances, amounts, compositions
+2. Reactions and stoichiometric coefficients
+   1. Advancements
 * Chemical thermodynamics and equilibria
-    1. Chemical reactions
-    2. Thermodynamic potential differences
-       1. Standard states
-       2. Reaction entropy $\Delta S^\circ (T) =  S^\circ_\mathrm{B}(T)-S^\circ_\mathrm{A}(T)$
-       3. Reaction energy $\Delta U^\circ (T) = U^\circ_\mathrm{B}(T)-U^\circ_\mathrm{A}(T)+\Delta E(0)$
-       4. Gibbs-Helmholtz
-    3. Equilibrium-closed system
-       1. Equilibrium constants and algebraic solutions
-       2. Free energy minimization
-       3. Parallel reactions
-    4. Equilibrium-open system
-       1. Reaction phase diagrams
-    5. Partition functions and $K_{eq}$
-    6. Non-ideal activities
-    7. Electrochemical reactions
+1. Chemical reactions
+2. Thermodynamic potential differences
+   1. Standard states
+   2. Reaction entropy $\Delta S^\circ (T) =  S^\circ_\mathrm{B}(T)-S^\circ_\mathrm{A}(T)$
+   3. Reaction energy $\Delta U^\circ (T) = U^\circ_\mathrm{B}(T)-U^\circ_\mathrm{A}(T)+\Delta E(0)$
+   4. Gibbs-Helmholtz
+3. Equilibrium-closed system
+   1. Equilibrium constants and algebraic solutions
+   2. Free energy minimization
+   3. Parallel reactions
+4. Equilibrium-open system
+   1. Reaction phase diagrams
+5. Partition functions and $K_{eq}$
+6. Non-ideal activities
+7. Electrochemical reactions
 
 # %     \item {\bf Lecture 18: Chemical reactions and equilibrium}
 # %       \begin{enumerate}
