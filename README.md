@@ -17,4 +17,6 @@ Tutorial on Python at [![Open in Colab](https://colab.research.google.com/assets
 Git cheat sheet [here](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf)
 
 ## Office hours
-TBD
+James Carpenter, T 11-12, 366 NSH
+Bo Wei Cynthia Chen, Th 11-12
+
