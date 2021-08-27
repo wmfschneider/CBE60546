@@ -14,6 +14,8 @@ Introduction to Jupyter notebooks [here](https://jupyter.org)
 
 Tutorial on Python at [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/wmfschneider/CHE30324/blob/master/Resources/Python_Tutorial.ipynb) and [![Open in Viewer](./Resources/nbviewer.svg)](https://nbviewer.jupyter.org/github/wmfschneider/CHE30324/blob/master/Resources/Python_Tutorial.ipynb)
 
+More varsity Python tutorial and plotting and curve fitting. Great for experimentalists who want a better way to process their data. [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jtcrum/plotting_ws/blob/master/CBEGSO_plotting_workshop.ipynb)
+
 Git cheat sheet [here](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf)
 
 ## Office hours
