@@ -6,6 +6,8 @@ Syllabus available [here](./CBE60546-syllabus.org)
 
 Homework assignments and solutions available [here](./homework.org)
 
+Submit homework [here](https://gradescope.com). You will need to choose Notre Dame as your school and authenticate 
+
 Course outline available [here](./Outline/CBE60546-outline.org)
 
 Lectures and other resources available [here](./lectures.org)
