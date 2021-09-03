@@ -71,10 +71,10 @@
 
 
 * Langmuir adsorption
-** The table below shows the mass of carbon monoxide taken up by a 10%(m/m) Ru on alumina sample (i.e., particles of Ru on an inert support) as a function of \ce{CO} pressure at \SI{100}{\celsius}. CO is known to only adsorb on Ru at these conditions.
+** The table below shows the mass of carbon monoxide taken up by a 10 wt% Ru on alumina sample (i.e., particles of Ru on an inert support) as a function of \ce{CO} pressure at \SI{100}{\celsius}. CO is known to only adsorb on Ru at these conditions.
 
-| $P_\text{CO}  (torr)            |  100 |  150 |  200 |  250 |  300 |  400 |
-| CO adsorbed (\mu{}mol/ g sample | 1.28 | 1.63 | 1.77 | 1.94 | 2.06 | 2.21 |
+| $P_\text{CO}$  (torr)            |  100 |  150 |  200 |  250 |  300 |  400 |
+| CO adsorbed (\mu{}mol/ g sample) | 1.28 | 1.63 | 1.77 | 1.94 | 2.06 | 2.21 |
 
 1. Plot the data and use non-linear regression to estimate the value of the uptake equilibrium constant.
 2. Plot the model error vs pressure. Do you have confidence in the model?
