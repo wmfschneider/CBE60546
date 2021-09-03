@@ -67,6 +67,7 @@ Understanding, modeling, designing, using, controlling, analyzing, improving any
 1. Substances, amounts, compositions
 2. Reactions and stoichiometric coefficients
    1. Advancements
+   2. Limiting reagents
 * Chemical thermodynamics and equilibria
 1. Chemical reactions
 2. Thermodynamic potential differences
@@ -78,11 +79,13 @@ Understanding, modeling, designing, using, controlling, analyzing, improving any
    1. Equilibrium constants and algebraic solutions
    2. Free energy minimization
    3. Parallel reactions
-4. Equilibrium-open system
+4. Le'Chatlier principle - system at equilibrium responds to oppose any perturbation
+   1. Pressure, composition, temperature
+5. Equilibrium-open system
    1. Reaction phase diagrams
-5. Partition functions and $K_{eq}$
-6. Non-ideal activities
-7. Electrochemical reactions
+6. The molecular interpretation
+7. Non-ideal activities
+8. Electrochemical reactions
 
 # %     \item {\bf Lecture 18: Chemical reactions and equilibrium}
 # %       \begin{enumerate}
@@ -187,11 +190,13 @@ Understanding, modeling, designing, using, controlling, analyzing, improving any
 
 * Empirical kinetics
 1. rates
-2. rate expressions
-3. rate orders
-4. apparent orders, Arrhenius expression
-5. integrated rate expressions
-6. analyzing reactor data?
+2. reactor mass balance
+3. rate expressions
+4. rate orders
+5. apparent orders
+6. integrated rate expressions
+7. temperature and Arrhenius expression
+8. analyzing reactor data
 
 * Molecular basis
 1. reaction pathway, detailed balance

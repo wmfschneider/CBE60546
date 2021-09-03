@@ -1,0 +1,9 @@
+** Thermal ethane dehydrogenation occurs in is plagued by the generation of ``coke,'' or a cake of primarily carbon. An alternative way to create ethylene is through oxidative dehydrogenation:
+#+BEGIN_CENTER
+\ce{ C2H6 (g) + O2 (g) -> C2H4(g) + H2O (g) }
+#+END_CENTER
+\noindent At \SI{600}{K} over some catalyst the reaction is half-order in ethane, first-order in \ce{O2}, zero order in products, and has a pseudohomogeneous rate constant of 5.0 $\text{M}^{-1/2}\text{s}^{-1}$. You plan to run the reaction in an isothermal, constant pressure reactor starting with a 20 mole % excess of ethane at \SI{2}{bar} total pressure.
+
+1. Plot the rate of disappearance of \ce{C2H6} and of \ce{O2} vs \ce{C2H6} conversion (don't forget to balance the reaction!).
+
+2. Plot the concentrations (in M) of all species vs residence time in the reactor.  How long will it take for half the ethane to be consumed?

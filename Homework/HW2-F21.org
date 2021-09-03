@@ -22,8 +22,8 @@
 #+LATEX_HEADER:\cfoot{\copyright\ 2021 W.\ F.\ Schneider}
 #+LATEX_HEADER:\rfoot{\thepage}
 #+LATEX_HEADER:\chead{\bf{Advanced Chemical Reaction Engineering (CBE 60546)\vspace{12pt}}}
-#+LATEX_HEADER:\lhead{\bf{Homework 1}}
-#+LATEX_HEADER:\rhead{\bf{Due September 1, 2021}}
+#+LATEX_HEADER:\lhead{\bf{Homework 2}}
+#+LATEX_HEADER:\rhead{\bf{Due September 8, 2021}}
 #+LATEX_HEADER:\usepackage{titlesec}
 #+LATEX_HEADER:\titlespacing*{\section}
 #+LATEX_HEADER:{0pt}{0.6\baselineskip}{0.2\baselineskip}
@@ -39,7 +39,7 @@
 #+OPTIONS: ':t
 #+END_OPTIONS
 
-\noindent *Solve each problem on separate sheets of paper, and clearly indicate the problem number and your name on each.  Carefully and neatly document your answers.  You may use a mathematical solver like Jupyter/iPython. Use plotting software for all plots.*
+\noindent *Carefully and neatly document your answers.  You may use a mathematical solver like Jupyter/iPython. Use plotting software for all plots.*
 
 * Key ideas :noexport:
 - multiple equilibria
@@ -53,44 +53,31 @@
 
 \ce{C2H6 (g) -> C2H2 (g) + 2 H2 (g) }
 #+END_CENTER
-\noindent The attached thermodynamic data is from the [[https://onesearch.library.nd.edu/permalink/f/1phik6l/ndu_aleph002720619][CRC Handbook]] and is based on a \SI{1}{bar} standard state. All the gases can be considered to be ideal over the range of interest here.
+\noindent The thermodynamic data [[./HW2-thermo.csv][here]] is from the [[https://onesearch.library.nd.edu/permalink/f/1phik6l/ndu_aleph002720619][CRC Handbook]] and is based on a \SI{1}{bar} standard state. All the gases can be considered to be ideal over the range of interest here.
 
-1. Plot the enthalpy of ethane vs $T$ from $600$ to \SI{1200}{K}. What does the slope of the plot correspond to?
+1. Plot the standard state enthalpy of ethane vs $T$ from $600$ to \SI{1200}{K}. What does the slope of the plot correspond to?
 
-2. Plot the entropy of ethane vs $T$ from $600$ to \SI{1200}{K}. What does the slope of the plot correspond to?
+2. Plot the standard state entropy of ethane vs $T$ from $600$ to \SI{1200}{K}. What does the slope of the plot correspond to?
 
-3. Consider the ethane to ethylene reaction. Plot the standard state reaction enthalpy,  $T$ times the standard state reaction entropy, and the standard state reaction Gibbs energy vs $T$ from $600$ to \SI{1200}{K}.
+3. Consider the ethane to ethylene reaction. Plot the standard state reaction enthalpy, $T$ times the standard state reaction entropy, and the standard state reaction Gibbs energy vs $T$ from $600$ to \SI{1200}{K}.
 
 4. What do the plots tell you about the conditions necessary to run these reactions thermally? About what contributes to the free energy change with $T$?
 
-5. Plot the free energy of the ethane to ethylene reaction vs ethane conversion at $800$, $1000$, and \SI{1200}{K}.  
+5. Plot the free energy of the ethane to ethylene reaction vs ethane conversion at $800$, $1000$, and \SI{1200}{K} and \SI{1}{bar}.  Determine the equilibrium conversion of ethane at each temperature if this was the only reaction that occurs.
 
-6. What mass flow rates are necessary to create a stoichiometric mixture at \SI{1}{bar} total pressure, \SI{400}{\celsius}, and \SI{10}{l/s} total volumetric flow rate?
+6. Imagine a semi-permeable membrane through which you could control the partial pressure (chemical potential) of hydrogen in a reaction vessel. Plot the mole fractions of ethane and ethylene as a function of $\ln P_\ce{H2}$ at \SI{1000}{K}. (Assume the \ce{H2} does not contribute to the total moles in the vessel.)
 
-7. Plot the molar flow rates of all five gases as a function of reaction advancement.
+7. Now consider both reactions simultaneously. Determine the equilibrium ratio of ethylene to acetylene,  starting from pure ethane, at \SI{1000}{K} and $1$, $10$, and \SI{100}{bar} total pressure (again, assume ideal behavior at all conditions).  Can you explain the result?
 
-8. Plot the total volumetric flow rate as a function of reaction advancement.
 
-** \ce{NH3} oxidation is an undesirable side-reaction of thermal deNOx:
+* Langmuir adsorption
+** The table below shows the mass of carbon monoxide taken up by a 10%(m/m) Ru on alumina sample (i.e., particles of Ru on an inert support) as a function of \ce{CO} pressure at \SI{100}{\celsius}. CO is known to only adsorb on Ru at these conditions.
 
-#+BEGIN_CENTER
-\ce{ \_ NH3(g) + \_ O2 (g)  -> \_ NO (g) + \_ H2O (g) }
-#+END_CENTER
-5. Balance the \ce{NH3} oxidation reaction.
+| $P_\text{CO}  (torr)            |  100 |  150 |  200 |  250 |  300 |  400 |
+| CO adsorbed (\mu{}mol/ g sample | 1.28 | 1.63 | 1.77 | 1.94 | 2.06 | 2.21 |
 
-6. Under the stoichiometric conditions described above, the reactor generates \SI{0.036}{g/s} \ce{NO} and \SI{0.017}{g/s} \ce{N2}. How effectively is the \ce{NH3} being used for thermal deNOx? (/Hint:/ What are the advancements of the two reactions?)
+1. Plot the data and use non-linear regression to estimate the value of the uptake equilibrium constant.
+2. Plot the model error vs pressure. Do you have confidence in the model?
+3. Use the data to estimate the fraction of exposed Ru atoms.
 
-* NOx, NOx, who's there?
-** A simpler and confounding reaction of \ce{NO} is it's oxidation to \ce{NO2}:
-#+BEGIN_CENTER
-\ce{ \_ NO(g) + \_ O2 (g)  -> \_ NO2 (g)}
-#+END_CENTER
-\noindent You can assume all gases behave ideally under the conditions considered in this problem.
 
-1. Determine  \(\Delta H^\circ (\SI{298}{K})\),  \(\Delta S^\circ (\SI{298}{K})\), \(\Delta G^\circ (\SI{298}{K})\), and  \(K_p (\SI{298}{K})\) for the NO oxidation reaction. Be sure to specify your source and the standard state.
-
-2. Calculate the equilibrium partial pressure ratio of \ce{NO2} to \ce{NO} in the atmosphere near the surface of the earth. Assume the mixing ratio of \ce{O2} to be $0.2$ and a temperature of \SI{25}{\celsius}.
-
-3. From standard compilations and at \SI{1}{atm} standard state, \(\Delta H^\circ (\SI{250}{\celcius}) = \SI{-116.532}{\kJ\per\mol}\) and \(\Delta S^\circ (\SI{250}{\celcius}) = \SI{-152.179}{J\per\mol\per\kelvin}\).  Use the van't Hoff relationship to plot \(\Delta G^\circ (T)\) vs \(T\) from room temperature to \SI{1000}{C}. Add a point on your plot for the \(\Delta G^\circ (\SI{298}{K})\) you found from a tabulation.
-
-4. NO oxidation is catalyzed over diesel oxidation catalysts (DOCs) on diesel vehicles. Plot the equilibrium conversion of \ce{NO} to \ce{NO2} vs \(T\) from room temperature to \SI{1000}{\celsius} for an isobaric \SI{1}{atm} reactor presented with 0.1% \ce{NO} and 5% \ce{O2}, and balance \ce{N2}.

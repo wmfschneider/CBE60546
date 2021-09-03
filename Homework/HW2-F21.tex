@@ -1,0 +1,118 @@
+% Created 2021-09-03 Fri 09:17
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage[top=1in, bottom=1.in, left=1in, right=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{marvosym}
+\usepackage{wasysym}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[theorems, skins]{tcolorbox}
+\usepackage[version=3]{mhchem}
+\usepackage[numbers,super,sort&compress]{natbib}
+\usepackage{natmove}
+\usepackage{url}
+\usepackage[cache=false]{minted}
+\usepackage[strings]{underscore}
+\usepackage[linktocpage,pdfstartview=FitH,colorlinks,
+linkcolor=blue,anchorcolor=blue,
+citecolor=blue,filecolor=blue,menucolor=blue,urlcolor=blue]{hyperref}
+\usepackage{attachfile}
+\usepackage{setspace}
+\usepackage[left=1in, right=1in, top=1in, bottom=1in, nohead]{geometry}
+\geometry{margin=1.0in}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\usepackage[labelfont=bf]{caption}
+\usepackage{setspace}
+\setlength{\headheight}{10.2pt}
+\setlength{\headsep}{20pt}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+\lfoot{\today}
+\cfoot{\copyright\ 2021 W.\ F.\ Schneider}
+\rfoot{\thepage}
+\chead{\bf{Advanced Chemical Reaction Engineering (CBE 60546)\vspace{12pt}}}
+\lhead{\bf{Homework 2}}
+\rhead{\bf{Due September 8, 2021}}
+\usepackage{titlesec}
+\titlespacing*{\section}
+{0pt}{0.6\baselineskip}{0.2\baselineskip}
+\title{University of Notre Dame\\Advanced Chemical Engineering Thermodynamics\\(CBE 60553)}
+\author{Prof. William F.\ Schneider}
+\usepackage{siunitx}
+\usepackage[version=3]{mhchem}
+\def\dbar{{\mathchar'26\mkern-12mu d}}
+\setcounter{secnumdepth}{3}
+\author{William F. Schneider}
+\date{\today}
+\title{CBE 60546 Homework}
+\begin{document}
+
+\begin{OPTIONS}
+\end{OPTIONS}
+
+\noindent \textbf{Carefully and neatly document your answers.  You may use a mathematical solver like Jupyter/iPython. Use plotting software for all plots.}
+
+\section{Shale, shale everywhere}
+\label{sec:org1a8a2a7}
+\subsection{Your nation has stumbled upon an enormous reserve of ethane (that's really true!), which you propose to use as a feedstock to produce ethylene, acetylene, and hydrogen via thermal dehydrogenation:}
+\label{sec:org61b349c}
+
+\begin{center}
+\ce{ C2H6 (g) -> C2H4(g) + H2 (g) }
+
+\ce{C2H6 (g) -> C2H2 (g) + 2 H2 (g) }
+\end{center}
+\noindent The thermodynamic data \href{./HW2-thermo.csv}{here} is from the \href{https://onesearch.library.nd.edu/permalink/f/1phik6l/ndu\_aleph002720619}{CRC Handbook} and is based on a \SI{1}{bar} standard state. All the gases can be considered to be ideal over the range of interest here.
+
+\begin{enumerate}
+\item Plot the standard state enthalpy of ethane vs \(T\) from \(600\) to \SI{1200}{K}. What does the slope of the plot correspond to?
+
+\item Plot the standard state entropy of ethane vs \(T\) from \(600\) to \SI{1200}{K}. What does the slope of the plot correspond to?
+
+\item Consider the ethane to ethylene reaction. Plot the standard state reaction enthalpy, \(T\) times the standard state reaction entropy, and the standard state reaction Gibbs energy vs \(T\) from \(600\) to \SI{1200}{K}.
+
+\item What do the plots tell you about the conditions necessary to run these reactions thermally? About what contributes to the free energy change with \(T\)?
+
+\item Plot the free energy of the ethane to ethylene reaction vs ethane conversion at \(800\), \(1000\), and \SI{1200}{K} and \SI{1}{bar}.  Determine the equilibrium conversion of ethane at each temperature if this was the only reaction that occurs.
+
+\item Imagine a semi-permeable membrane through which you could control the partial pressure (chemical potential) of hydrogen in a reaction vessel. Plot the mole fractions of ethane and ethylene as a function of \(\ln P_\ce{H2}\) at \SI{1000}{K}. (Assume the \ce{H2} does not contribute to the total moles in the vessel.)
+
+\item Now consider both reactions simultaneously. Determine the equilibrium ratio of ethylene to acetylene,  starting from pure ethane, at \SI{1000}{K} and \(1\), \(10\), and \SI{100}{bar} total pressure (again, assume ideal behavior at all conditions).  Can you explain the result?
+\end{enumerate}
+
+
+\section{Langmuir adsorption}
+\label{sec:org8fc4b91}
+\subsection{The table below shows the mass of carbon monoxide taken up by a 10\%(m/m) Ru on alumina sample (i.e., particles of Ru on an inert support) as a function of \ce{CO} pressure at \SI{100}{\celsius}. CO is known to only adsorb on Ru at these conditions.}
+\label{sec:orgc74783f}
+
+\begin{center}
+\begin{tabular}{lrrrrrr}
+\$P\_\text\{CO\}  (torr) & 100 & 150 & 200 & 250 & 300 & 400\\
+CO adsorbed (\(\mu\)mol/ g sample & 1.28 & 1.63 & 1.77 & 1.94 & 2.06 & 2.21\\
+\end{tabular}
+\end{center}
+
+\begin{enumerate}
+\item Plot the data and use non-linear regression to estimate the value of the uptake equilibrium constant.
+\item Plot the model error vs pressure. Do you have confidence in the model?
+\item Use the data to estimate the fraction of exposed Ru atoms.
+\end{enumerate}
+\end{document}
