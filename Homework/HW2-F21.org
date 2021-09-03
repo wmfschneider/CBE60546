@@ -53,7 +53,7 @@
 
 \ce{C2H6 (g) -> C2H2 (g) + 2 H2 (g) }
 #+END_CENTER
-\noindent The thermodynamic data [[./HW2-thermo.csv][here]] is from the [[https://onesearch.library.nd.edu/permalink/f/1phik6l/ndu_aleph002720619][CRC Handbook]] and is based on a \SI{1}{bar} standard state. All the gases can be considered to be ideal over the range of interest here.
+\noindent The thermodynamic data [[https://github.com/wmfschneider/CBE60546/blob/main/Homework/HW2-thermo.csv][here]] is from the [[https://onesearch.library.nd.edu/permalink/f/1phik6l/ndu_aleph002720619][CRC Handbook]] and is based on a \SI{1}{bar} standard state. All the gases can be considered to be ideal over the range of interest here.
 
 1. Plot the standard state enthalpy of ethane vs $T$ from $600$ to \SI{1200}{K}. What does the slope of the plot correspond to?
 
