@@ -64,96 +64,38 @@ Understanding, modeling, designing, using, controlling, analyzing, improving any
    5. Markets (beyond us)
 
 * Stoichiometry and reactions
-1. Substances, amounts, compositions
-2. Reactions and stoichiometric coefficients
-   1. Advancements
-   2. Limiting reagents
+1. Substances
+2. Amounts
+   1. mass, moles, volumes
+   2. flow rates
+3. compositions
+   1. amount/total amount
+4. Reactions and stoichiometric coefficients
+   1. Advancements \(n_j = \sum_i \nu_{ij} \xi_i \)
+   2. Limiting reagents 
 * Chemical thermodynamics and equilibria
-1. Chemical reactions
+1. Chemical reactions \( \sum_j \nu_j A_j = 0 \)
 2. Thermodynamic potential differences
    1. Standard states
-   2. Reaction entropy $\Delta S^\circ (T) =  S^\circ_\mathrm{B}(T)-S^\circ_\mathrm{A}(T)$
-   3. Reaction energy $\Delta U^\circ (T) = U^\circ_\mathrm{B}(T)-U^\circ_\mathrm{A}(T)+\Delta E(0)$
-   4. Gibbs-Helmholtz
+   2. Formation reactions
+   3. Reaction enthalpy $\Delta H^\circ (T) = \sum_j \vu_j H^\circ_j (T) = \sum_j \nu_j H^\circ_{f,j}(T)$
+   4. Reaction entropy $\Delta S^\circ (T) =  \sum_j \vu_j S^\circ_j (T)$
 3. Equilibrium-closed system
-   1. Equilibrium constants and algebraic solutions
-   2. Free energy minimization
-   3. Parallel reactions
+   1. Free energy vs reaction advancement, \(G(\xi,T) = \sum_j n_j\mu_j = \sum_j \left (n_{j0} + \nu_j \xi \right ) \left (\mu_j^\circ(T) + RT \ln a(\xi,T) \right ) \)
+   2. Equilibrium \( (\partial G / \partial \xi)_{T,P} = 0 \)
+   3. Equilibrium constants and algebraic solutions
+   4. Multiple reactions
 4. Le'Chatlier principle - system at equilibrium responds to oppose any perturbation
-   1. Pressure, composition, temperature
+   1. Pressure, composition
+   2. Temperature: Gibbs-Helmholtz and van't Hoff
 5. Equilibrium-open system
-   1. Reaction phase diagrams
+   1. Reaction phase diagrams, see [[http://pubs.acs.org/doi/abs/10.1021/jacs.6b02651]] for an example
+   2. Electrochemical reactions
 6. The molecular interpretation
 7. Non-ideal activities
-8. Electrochemical reactions
+8. Surface adsorption
+   1. Langmuir
 
-# %     \item {\bf Lecture 18: Chemical reactions and equilibrium}
-# %       \begin{enumerate}
-# %       \item Standard states
-# %         \begin{enumerate}
-# %           \item Translational partition function depends on concentration $N/V$
-# %           \item ``Standard state'' corresponds to some standard choice for $N/V$, $c^\circ$
-# %           \item For ideal gas, related to pressure by $P^\circ = c^\circ k_B T$
-# %         \end{enumerate}
-# %       \item Chemical reaction $A \rightarrow B$
-# %         \item Equilibrium condition---equate chemical potentials, $\mu_A(N,V,T) = \mu_B(N,V,T)$
-# %         \item Equilibrium constant---evaluate from partition functions directly
-# %           or indirectly from thermodynamic potentials
-# % \item Le'Chatlier's principle
-# %   \begin{enumerate}
-# %     \item Response to temperature: Boltzmann distribution favors higher energy
-# %       things as $T$ increases
-# %     \item Response to volume chance: particle-in-a-box states increasingly favor
-# %       side with more molecules as volume increases
-# %   \end{enumerate}
-# % \end{enumerate}
-
-#+BEGIN_EXPORT LaTeX
- \begin{table}
- \begin{center}
-     \caption{\large{Equilibrium and Rate Constants}}
-    \begin{description}
-    \item[Equilibrium Constants] $a~\text{A} + b~\text{B} \rightleftharpoons c~\text{C} + d~\text{D} $
-      \begin{eqnarray*}
-        K_{eq}(T) &=& e^{\Delta S^\circ(T,V)/k_B}e^{-\Delta H^\circ(T,V)/k_BT}
-        \\ \\
-             K_c(T) &=&
-            \left(\frac{1}{c^\circ}\right)^{\nu_c+\nu_d-\nu_a-\nu_b}\frac{(q_c/V)^{\nu_c}(q_d/V)^{\nu_d}}{(q_a/V)^{\nu_a}(q_b/V)^{\nu_b}}e^{-\Delta
-             E(0)\beta}\\ \\
-             K_p(T) &=&
-           \left(\frac{k_BT}{P^\circ}\right)^{\nu_c+\nu_d-\nu_a-\nu_b}\frac{(q_c/V)^{\nu_c}(q_d/V)^{\nu_d}}{(q_a/V)^{\nu_a}(q_b/V)^{\nu_b}}e^{-\Delta
-             E(0)\beta}
- \end{eqnarray*}
- \item[Unimolecular Reaction] $\text[A] \rightleftharpoons [\text{A} ]^\ddagger
-   \rightarrow C$
-       \begin{displaymath}
-         k(T)=\nu^\ddagger \bar K^\ddagger=\frac{k_B T}{h} \frac{\bar{q}_\ddagger(T)/V}{q_A(T)/V}
-           e^{-\Delta E^\ddagger(0)\beta}
-       \end{displaymath}
- \begin{center}
-       \begin{tabular}{cc}
-       $ \displaystyle E_a =\Delta H^{\circ\ddagger}+k_B T $
-       & $ \displaystyle A = e^1\frac{k_B T}{h} e^{\Delta S^{\circ\ddagger}} $
-       \end{tabular}
- \end{center}
- \item[Bimolecular Reaction] $
-         \mathrm{A} + \mathrm{B} \rightleftharpoons [ \mathrm{AB}]^\ddagger
-         \rightarrow \text{C}$
-       \begin{displaymath}
-         k(T)=\nu^\ddagger \bar K^\ddagger=\frac{k_B T}{h} \frac{q_\ddagger(T)/V}{(q_A(T)/V)(q_B(T)/V)}\left
-           (\frac{1}{c^\circ}\right )^{-1}
-         e^{-\Delta E^\ddagger(0)\beta}
-       \end{displaymath}
-       \begin{center}
-         \begin{tabular}{cc}
-         $ \displaystyle E_a  =\Delta H^{\circ\ddagger}+2 k_B T $ & $ \displaystyle
-         A  = e^2\frac{k_B T}{h} e^{\Delta S^{\circ\ddagger}} $
-       \end{tabular}
-       \end{center}
-    \end{description}
-  \end{center}
-  \end{table}
-#+END_EXPORT
 
 ** Non-equilibrium thermodynamics :noexport:
 #+BEGIN_EXPORT LaTeX
@@ -215,3 +157,49 @@ Understanding, modeling, designing, using, controlling, analyzing, improving any
 
 * Liquid-phase reactions
 
+#+BEGIN_EXPORT LaTeX
+ \begin{table}
+ \begin{center}
+     \caption{\large{Equilibrium and Rate Constants}}
+    \begin{description}
+    \item[Equilibrium Constants] $a~\text{A} + b~\text{B} \rightleftharpoons c~\text{C} + d~\text{D} $
+      \begin{eqnarray*}
+        K_{eq}(T) &=& e^{\Delta S^\circ(T,V)/k_B}e^{-\Delta H^\circ(T,V)/k_BT}
+        \\ \\
+             K_c(T) &=&
+            \left(\frac{1}{c^\circ}\right)^{\nu_c+\nu_d-\nu_a-\nu_b}\frac{(q_c/V)^{\nu_c}(q_d/V)^{\nu_d}}{(q_a/V)^{\nu_a}(q_b/V)^{\nu_b}}e^{-\Delta
+             E(0)\beta}\\ \\
+             K_p(T) &=&
+           \left(\frac{k_BT}{P^\circ}\right)^{\nu_c+\nu_d-\nu_a-\nu_b}\frac{(q_c/V)^{\nu_c}(q_d/V)^{\nu_d}}{(q_a/V)^{\nu_a}(q_b/V)^{\nu_b}}e^{-\Delta
+             E(0)\beta}
+ \end{eqnarray*}
+ \item[Unimolecular Reaction] $\text[A] \rightleftharpoons [\text{A} ]^\ddagger
+   \rightarrow C$
+       \begin{displaymath}
+         k(T)=\nu^\ddagger \bar K^\ddagger=\frac{k_B T}{h} \frac{\bar{q}_\ddagger(T)/V}{q_A(T)/V}
+           e^{-\Delta E^\ddagger(0)\beta}
+       \end{displaymath}
+ \begin{center}
+       \begin{tabular}{cc}
+       $ \displaystyle E_a =\Delta H^{\circ\ddagger}+k_B T $
+       & $ \displaystyle A = e^1\frac{k_B T}{h} e^{\Delta S^{\circ\ddagger}} $
+       \end{tabular}
+ \end{center}
+ \item[Bimolecular Reaction] $
+         \mathrm{A} + \mathrm{B} \rightleftharpoons [ \mathrm{AB}]^\ddagger
+         \rightarrow \text{C}$
+       \begin{displaymath}
+         k(T)=\nu^\ddagger \bar K^\ddagger=\frac{k_B T}{h} \frac{q_\ddagger(T)/V}{(q_A(T)/V)(q_B(T)/V)}\left
+           (\frac{1}{c^\circ}\right )^{-1}
+         e^{-\Delta E^\ddagger(0)\beta}
+       \end{displaymath}
+       \begin{center}
+         \begin{tabular}{cc}
+         $ \displaystyle E_a  =\Delta H^{\circ\ddagger}+2 k_B T $ & $ \displaystyle
+         A  = e^2\frac{k_B T}{h} e^{\Delta S^{\circ\ddagger}} $
+       \end{tabular}
+       \end{center}
+    \end{description}
+  \end{center}
+  \end{table}
+#+END_EXPORT

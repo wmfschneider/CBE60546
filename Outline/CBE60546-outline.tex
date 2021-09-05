@@ -1,4 +1,4 @@
-% Created 2021-08-15 Sun 10:02
+% Created 2021-09-05 Sun 13:18
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -57,38 +57,159 @@ citecolor=blue,filecolor=blue,menucolor=blue,urlcolor=blue]{hyperref}
 
 \begin{OPTIONS}
 \end{OPTIONS}
-\section{Stoichiometry and reactions}
-\label{sec:orgfb8e38e}
+\section{Lecture 0: Intro to Reaction Engineering}
+\label{sec:org336f145}
 \begin{enumerate}
-\item Molecules and reactions
-\item Stoichiometric coefficients
-\item Advancements
+\item Reaction engineering
+\end{enumerate}
+\begin{quote}
+Understanding, modeling, designing, using, controlling, analyzing, improving anything in which chemical reactions happen.
+\end{quote}
+\begin{enumerate}
+\item Reaction engineering applications
+\begin{enumerate}
+\item Traditional
+\begin{enumerate}
+\item Industrial chemical/petroleum processes
+\item Fine chemical/pharmaceutical processes
+\item Emerging, eg biorefinergy, shale gas, \url{http://cistar.us}
+\end{enumerate}
+\item Energy storage, batteries, fuel cells
+\item Environmental systems
+\begin{enumerate}
+\item Atmosphere, lake, bioreactor (water purification), catalytic convertor
+\end{enumerate}
+\item Biological systems
+\begin{enumerate}
+\item Cell, organ, body
+\end{enumerate}
+\item Laboratory reactors - interrogate, quantify
+\item Research - improved materials (catalysts), improved processes, understand limitations
+\begin{enumerate}
+\item Sabatier plot, \url{https://doi.org/10.1038/nchem.121}
+\end{enumerate}
+\end{enumerate}
+\item Course structure
+\begin{enumerate}
+\item Quantifying chemical reactions
+\begin{enumerate}
+\item Stoichiometry
+\item Thermodynamics - heat flow, direction, equilibrium
+\item Kinetics - rates, mechanisms
+\end{enumerate}
+\item Physical/chemical interactions
+\begin{enumerate}
+\item Transport, mixing, diffusion resistance, \ldots{}
+\end{enumerate}
+\item Chemical reactors
+\begin{enumerate}
+\item Ideal 0 and 1-dimensional
+\item Non-ideal
+\item Non-isothermal
+\item Non-steady state
+\item Multiphase
+\end{enumerate}
+\item Chemical processes (beyond us)
+\item Markets (beyond us)
+\end{enumerate}
+\end{enumerate}
+
+\section{Stoichiometry and reactions}
+\label{sec:orgafd6ae8}
+\begin{enumerate}
+\item Substances
+\item Amounts
+\begin{enumerate}
+\item mass, moles, volumes
+\item flow rates
+\end{enumerate}
+\item compositions
+\begin{enumerate}
+\item amount/total amount
+\end{enumerate}
+\item Reactions and stoichiometric coefficients
+\begin{enumerate}
+\item Advancements \(n_j = \sum_i \nu_{ij} \xi_i\)
+\item Limiting reagents
+\end{enumerate}
 \end{enumerate}
 \section{Chemical thermodynamics and equilibria}
-\label{sec:orgd5654f7}
+\label{sec:orgbf01243}
 \begin{enumerate}
-\item Chemical reactions
+\item Chemical reactions \(\sum_j \nu_j A_j = 0\)
 \item Thermodynamic potential differences
 \begin{enumerate}
 \item Standard states
-\item Reaction entropy \(\Delta S^\circ (T) =  S^\circ_\mathrm{B}(T)-S^\circ_\mathrm{A}(T)\)
-\item Reaction energy \(\Delta U^\circ (T) = U^\circ_\mathrm{B}(T)-U^\circ_\mathrm{A}(T)+\Delta E(0)\)
-\item Gibbs-Helmholtz
+\item Formation reactions
+\item Reaction enthalpy \(\Delta H^\circ (T) = \sum_j \vu_j H^\circ_j (T) = \sum_j \nu_j H^\circ_{f,j}(T)\)
+\item Reaction entropy \(\Delta S^\circ (T) =  \sum_j \vu_j S^\circ_j (T)\)
 \end{enumerate}
 \item Equilibrium-closed system
 \begin{enumerate}
+\item Free energy vs reaction advancement, \(G(\xi,T) = \sum_j n_j\mu_j = \sum_j \left (n_{j0} + \nu_j \xi \right ) \left (\mu_j^\circ(T) + RT \ln a(\xi,T) \right )\)
+\item Equilibrium \((\partial G / \partial \xi)_{T,P} = 0\)
 \item Equilibrium constants and algebraic solutions
-\item Free energy minimization
-\item Parallel reactions
+\item Multiple reactions
+\end{enumerate}
+\item Le'Chatlier principle - system at equilibrium responds to oppose any perturbation
+\begin{enumerate}
+\item Pressure, composition
+\item Temperature: Gibbs-Helmholtz and van't Hoff
 \end{enumerate}
 \item Equilibrium-open system
 \begin{enumerate}
-\item Reaction phase diagrams
-\end{enumerate}
-\item Partition functions and \(K_{eq}\)
-\item Non-ideal activities
+\item Reaction phase diagrams, see \url{http://pubs.acs.org/doi/abs/10.1021/jacs.6b02651} for an example
 \item Electrochemical reactions
 \end{enumerate}
+\item The molecular interpretation
+\item Non-ideal activities
+\item Surface adsorption
+\begin{enumerate}
+\item Langmuir
+\end{enumerate}
+\end{enumerate}
+
+
+
+\section{Empirical kinetics}
+\label{sec:orge8494f0}
+\begin{enumerate}
+\item rates
+\item reactor mass balance
+\item rate expressions
+\item rate orders
+\item apparent orders
+\item integrated rate expressions
+\item temperature and Arrhenius expression
+\item analyzing reactor data
+\end{enumerate}
+
+\section{Molecular basis}
+\label{sec:orgc49cd49}
+\begin{enumerate}
+\item reaction pathway, detailed balance
+\item bimolecular, collision theory, TST
+\item unimolecular reactions
+\end{enumerate}
+
+\section{Mechanisms}
+\label{sec:orgb1fcbd5}
+\begin{enumerate}
+\item QSSA
+\item Pre-equilibrium
+\end{enumerate}
+
+\section{Heterogeneous reactions}
+\label{sec:orgc3d38fa}
+\begin{enumerate}
+\item adsorption, L-H
+\item TPD
+\item catalysis
+\item Sabatier analysis
+\end{enumerate}
+
+\section{Liquid-phase reactions}
+\label{sec:orgb9fd19e}
 
 \begin{table}
 \begin{center}
@@ -134,44 +255,4 @@ citecolor=blue,filecolor=blue,menucolor=blue,urlcolor=blue]{hyperref}
    \end{description}
  \end{center}
  \end{table}
-
-
-
-\section{Empirical kinetics}
-\label{sec:orgeff5955}
-\begin{enumerate}
-\item rates
-\item rate expressions
-\item rate orders
-\item apparent orders, Arrhenius expression
-\item integrated rate expressions
-\item analyzing reactor data?
-\end{enumerate}
-
-\section{Molecular basis}
-\label{sec:orga99dea5}
-\begin{enumerate}
-\item reaction pathway, detailed balance
-\item bimolecular, collision theory, TST
-\item unimolecular reactions
-\end{enumerate}
-
-\section{Mechanisms}
-\label{sec:orgb189527}
-\begin{enumerate}
-\item QSSA
-\item Pre-equilibrium
-\end{enumerate}
-
-\section{Heterogeneous reactions}
-\label{sec:orgcf4fcd0}
-\begin{enumerate}
-\item adsorption, L-H
-\item TPD
-\item catalysis
-\item Sabatier analysis
-\end{enumerate}
-
-\section{Liquid-phase reactions}
-\label{sec:org389020c}
 \end{document}
