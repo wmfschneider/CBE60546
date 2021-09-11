@@ -101,10 +101,10 @@ yourself from class.
 
 * Teaching Assistants and Office Hours
 
-| Bo Wei Cynthia Chen | [[mailto:bchen8@nd.edu][bchen8@nd.edu]]     | Th 11-12 |         |
-| James Carpenter     | [[mailto:jcarpen3@nd.edu][jcarpen3@nd.edu]]   | T 11-12  | NSH 366 |
-| Mark McCready       | [[mailto:mjm@nd.edu][mjm@nd.edu]]        |          |         |
-| Bill Schneider      | [[mailto:wschneider@nd.edu][wschneider@nd.edu]] | Th 4-5   | [[https://www.google.com/url?q=https://notredame.zoom.us/j/94668744704?pwd%3DbXF2Q1RuSTZOamYxc2RpZUNSM1BKUT09&sa=D&source=calendar&ust=1629999731737672&usg=AOvVaw3KPyMONj9lQaVPwtRlCPVG][Zoom]]    |
+| Bo Wei Cynthia Chen | [[mailto:bchen8@nd.edu][bchen8@nd.edu]]     | M 1-2   | 303 McCourtney |
+| James Carpenter     | [[mailto:jcarpen3@nd.edu][jcarpen3@nd.edu]]   | T 11-12 | 366 Nieuwland  |
+| Mark McCready       | [[mailto:mjm@nd.edu][mjm@nd.edu]]        |         |                |
+| Bill Schneider      | [[mailto:wschneider@nd.edu][wschneider@nd.edu]] | Th 4-5  | [[https://www.google.com/url?q=https://notredame.zoom.us/j/94668744704?pwd%3DbXF2Q1RuSTZOamYxc2RpZUNSM1BKUT09&sa=D&source=calendar&ust=1629999731737672&usg=AOvVaw3KPyMONj9lQaVPwtRlCPVG][Zoom]]           |
 
 * Health and Well-Being
 Resources for students experiencing stress or difficulty coping are available at [[http://care.nd.edu]]. COVID has certainly added to everyone's stress level in one way or another. Information regarding University policies is available at http://covid.nd.edu.  Please feel free to raise any questions or concerns with the instructors.
