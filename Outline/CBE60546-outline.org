@@ -140,14 +140,63 @@ Understanding, modeling, designing, using, controlling, analyzing, improving any
 7. temperature and Arrhenius expression
 8. analyzing reactor data
 
+#+BEGIN_SRC python
+import numpy as np               #this lets up handles arrays of data
+import matplotlib.pyplot as plt
+from scipy.integrate import odeint, solve_ivp
+
+def dCdt(C,t,k):
+    dC_Adt = -k*C[0]*C[1]     # A + B -> C;  r = k CA CB
+    dC_Bdt = -k*C[0]*C[1]
+    dC_Cdt =  k*C[0]*C[1]
+    dCdt = [dC_Adt,dC_Bdt,dC_Cdt] 
+    return dCdt
+
+# initialize concentrations
+C_0 = [1., 1.5, 0.]
+
+# initialize k's
+k = 2.
+
+# Range of time to solve over
+t = np.arange(0,10,0.1) 
+t_span = (0., 10.)
+
+p = (k,) # turn parameters into a tuple
+# Solve two ODEs with odeint
+#C = solve_ivp(dCdt,t_span,C_0,p,method='LSODA')
+C = odeint(dCdt,C_0,t,p)
+
+C_A = C.transpose()[0] # Get C_A from C
+C_B = C.transpose()[1] # Get C_B from C
+C_C = C.transpose()[2]
+plt.figure()
+plt.plot(t,C_A,'-',label=r'$C_{\rm A}$')
+plt.plot(t,C_B,'-',label=r'$C_{\rm B}$')
+plt.plot(t,C_C,'-',label=r'$C_{\rm C}$')
+plt.xlabel('Time (s)')
+plt.ylabel('Concentration (mol/L)')
+plt.legend()
+plt.savefig('./conc.png')
+#+END_SRC
+
+#+RESULTS:
+
+[[./conc.png]]
+#+RESULTS:
+
 * Molecular basis
 1. reaction pathway, detailed balance
 2. bimolecular, collision theory, TST
 3. unimolecular reactions
 
 * Mechanisms
-1. QSSA
-2. Pre-equilibrium
+1. simple reaction network
+2. free energy surface
+3. QSSA
+4. Pre-equilibrium
+5. Selectivity
+6. Rate control
 
 * Heterogeneous reactions
 1. adsorption, L-H
