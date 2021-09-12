@@ -8,5 +8,7 @@ Reference book: [[https://authors.library.caltech.edu/25070/][Davis and Davis, F
 |           |                      |       |
 | Lecture 2 | Thermodynamics       | [[./Lectures/2-Thermodynamics.pdf][notes]] |
 |           |                      |       |
-| Lecture 3 | Elements of Kinetics |       |
+| Lecture 3 | Elements of Kinetics | [['./Lectures/3-Essential Kinetics.pdf'][notes]] |
+|           |                      |       |
+| Lecture 4 | Reaction rate theory |       |
 
