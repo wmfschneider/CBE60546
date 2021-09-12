@@ -1,0 +1,195 @@
+% Created 2021-09-11 Sat 22:16
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage[top=1in, bottom=1.in, left=1in, right=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{marvosym}
+\usepackage{wasysym}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[theorems, skins]{tcolorbox}
+\usepackage[version=3]{mhchem}
+\usepackage[numbers,super,sort&compress]{natbib}
+\usepackage{natmove}
+\usepackage{url}
+\usepackage[cache=false]{minted}
+\usepackage[strings]{underscore}
+\usepackage[linktocpage,pdfstartview=FitH,colorlinks,
+linkcolor=blue,anchorcolor=blue,
+citecolor=blue,filecolor=blue,menucolor=blue,urlcolor=blue]{hyperref}
+\usepackage{attachfile}
+\usepackage{setspace}
+\usepackage[left=1in, right=1in, top=1in, bottom=1in, nohead]{geometry}
+\geometry{margin=1.0in}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\usepackage[labelfont=bf]{caption}
+\usepackage{setspace}
+\setlength{\headheight}{10.2pt}
+\setlength{\headsep}{20pt}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+\lfoot{\today}
+\cfoot{\copyright\ 2021 W.\ F.\ Schneider}
+\rfoot{\thepage}
+\chead{\bf{Advanced Chemical Reaction Engineering (CBE 60546)\vspace{12pt}}}
+\lhead{\bf{Homework 3}}
+\rhead{\bf{Due September 16, 2021}}
+\usepackage{titlesec}
+\titlespacing*{\section}
+{0pt}{0.6\baselineskip}{0.2\baselineskip}
+\title{University of Notre Dame\\Advanced Chemical Engineering Thermodynamics\\(CBE 60553)}
+\author{Prof. William F.\ Schneider}
+\usepackage{siunitx}
+\usepackage[version=3]{mhchem}
+\def\dbar{{\mathchar'26\mkern-12mu d}}
+\setcounter{secnumdepth}{3}
+\author{William F. Schneider}
+\date{\today}
+\title{CBE 60546 Homework}
+\begin{document}
+
+\begin{OPTIONS}
+\end{OPTIONS}
+
+\noindent \textbf{Carefully and neatly document your answers.  You may use a mathematical solver like Jupyter/iPython. Use plotting software for all plots.}
+
+\section{Too hot in here}
+\label{sec:org86e0c98}
+Thermal ethane dehydrogenation, which you studied in the last homework, occurs at high \(T\) and is plagued by the generation of ``coke,'' or a cake of primarily carbon. An alternative way to create ethylene is through oxidative dehydrogenation:
+\begin{center}
+\ce{ C2H6 (g) + O2 (g) -> C2H4(g) + H2O (g) }
+\end{center}
+\noindent At \SI{600}{K} over some catalyst the reaction is half-order in ethane, first-order in \ce{O2}, zero order in products, and has a pseudohomogeneous rate constant of 5.0 \(\text{M}^{-1/2}\text{s}^{-1}\). (Note, I am completely making this up!) You plan to run the reaction in an isothermal, constant volume reactor starting with an 70:20:10 mixture of \ce{N2}:\ce{C2H6}:\ce{O2} at \SI{2}{bar} total pressure.
+
+\subsection{Plot the rate of disappearance of \ce{C2H6} and of \ce{O2} vs \ce{C2H6} conversion (don't forget to balance the reaction!).}
+\label{sec:orge3bd349}
+
+\subsection{Plot the concentrations of all species vs residence time in the reactor.}
+\label{sec:orgdbc7d8a}
+
+\section{Not a laughing matter}
+\label{sec:org408b57e}
+Nitrous oxide (\ce{N2O}) decomposes to \ce{N2} and \ce{O2} at high temperature. Experiments were performed at constant \(T\) in a constant volume batch reactor. You can assume the reaction rate has the form \(k P_{\ce{N2O}}^a\).
+
+\begin{center}
+\begin{tabular}{rrr}
+\hline
+\(P_{\ce{N2O},0}\) (torr) & \(T\) (K) & half-life (s)\\
+\hline
+82.5 & 1030 & 860\\
+139 & 1030 & 470\\
+296 & 1030 & 255\\
+360 & 1030 & 212\\
+345 & 1085 & 53\\
+360 & 1030 & 212\\
+294 & 967 & 1520\\
+\hline
+\end{tabular}
+\end{center}
+\subsection{What is the reaction order?}
+\label{sec:org0f6fe30}
+\subsection{What is the apparent activation energy?}
+\label{sec:orgd369e6c}
+
+\section{I'm getting dehydrated}
+\label{sec:org826ed74}
+\emph{tert}-butanol can be dehydrated to isobutylene over an ion-exchange resin. An experiment was performed to follow the concentration of butanol vs time at 338 K. You can assume the reaction rate is only dependent on the concentration of \emph{tert}-butanol under these reaction conditions.
+
+\begin{center}
+\begin{tabular}{rr}
+\hline
+Time (h) & Butanol (M)\\
+\hline
+0 & 1.00\\
+0.25 & 0.94\\
+0.50 & 0.90\\
+0.70 & 0.86\\
+1.10 & 0.80\\
+1.50 & 0.72\\
+1.90 & 0.66\\
+2.50 & 0.59\\
+3.00 & 0.55\\
+4.00 & 0.43\\
+5.10 & 0.35\\
+6.00 & 0.28\\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Write down the balanced reaction.}
+\label{sec:org6f13789}
+
+\subsection{What is the reaction order?}
+\label{sec:org436598f}
+
+\subsection{What is the rate constant at this temperature?}
+\label{sec:org5ed83ea}
+
+\section{Pressure packed}
+\label{sec:org094b3e8}
+\ce{NH3} synthesis from \ce{N2} and \ce{H2} was studied in a constant volume reactor (0.315 l) over a Ru catalyst, in a clever setup in which the \ce{NH3} was continuously removed from the reactor.  The total pressure in the reactor was followed vs time at three different compositions and at \SI{350}{\celsius}. The pressures are reported as their equivalent values at 298 K (ie \(N/V = P/R\times \SI{298}{K}\)).
+
+\begin{center}
+\ce{N2}:\ce{H2}:\ce{He} = 3:1:0
+\end{center}
+\begin{center}
+\begin{tabular}{lrrrrr}
+\hline
+Pressure (torr) & 766.2 & 731.9 & 711.9 & 686.2 & 661.5\\
+Time (min) & 0 & 18 & 30 & 42 & 54\\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{center}
+\ce{N2}:\ce{H2}:\ce{He} = 1:1:2
+\end{center}
+\begin{center}
+\begin{tabular}{lrrrrr}
+\hline
+Pressure (torr) & 753.4 & 737.5 & 726.6 & 709.5 & 700.3\\
+Time (min) & 0 & 15 & 30 & 45 & 54\\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{center}
+\ce{N2}:\ce{H2}:\ce{He} = 1:3:0
+\end{center}
+\begin{center}
+\begin{tabular}{lrrrrr}
+\hline
+Pressure (torr) & 707.1 & 700.2 & 693.2 & 683.5 & 675.5\\
+Time (min) & 0 & 15 & 30 & 45 & 55\\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Write down the balanced reaction.}
+\label{sec:org2a386ba}
+
+\subsection{Plot the \ce{N2} and \ce{H2} concentrations (mol/vol) vs time for each initial condition.}
+\label{sec:org574d394}
+
+\subsection{Use finite differences to make a table of reaction rates (moles/time/volume) vs composition (mol/vol \ce{N2} and \ce{H2}).}
+\label{sec:orgbcc826c}
+
+\subsection{Use your rate data to determine a rate law and rate constant for the reaction at these conditions.}
+\label{sec:org4061cb0}
+\end{document}
