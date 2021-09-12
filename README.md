@@ -12,6 +12,8 @@ Course outline available [here](./Outline/CBE60546-outline.org)
 
 Lectures and other resources available [here](./lectures.org)
 
+Lecture recordings (limited) available [here](https://notredame.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx?folderID=418475ec-9e6b-4435-950c-ada1011c0e44)
+
 Introduction to Jupyter notebooks [here](https://jupyter.org)
 
 Tutorial on Python at [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/wmfschneider/CHE30324/blob/master/Resources/Python_Tutorial.ipynb) and [![Open in Viewer](./Resources/nbviewer.svg)](https://nbviewer.jupyter.org/github/wmfschneider/CHE30324/blob/master/Resources/Python_Tutorial.ipynb)
