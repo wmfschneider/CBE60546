@@ -41,10 +41,11 @@
 
 \noindent *Carefully and neatly document your answers.  You may use a mathematical solver like Jupyter/iPython. Use plotting software for all plots.*
 
-* Concepts :noexport:
-- integrating a rate law
-- Arrhenius plot
-- 
+* Key ideas                                                        :noexport:
+- rates laws
+- half-lives
+- integrated rate laws
+- differential rate laws
 * Too hot in here
 Thermal ethane dehydrogenation, which you studied in the last homework, occurs at high $T$ and is plagued by the generation of ``coke,'' or a cake of primarily carbon. An alternative way to create ethylene is through oxidative dehydrogenation:
 #+BEGIN_CENTER

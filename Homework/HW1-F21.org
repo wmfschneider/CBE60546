@@ -42,10 +42,10 @@
 \noindent *Solve each problem on separate sheets of paper, and clearly indicate the problem number and your name on each.  Carefully and neatly document your answers.  You may use a mathematical solver like Jupyter/iPython. Use plotting software for all plots.*
 
 * Key ideas :noexport:
-- heat and work
-- path functions
-- equations of state
-- multivariate calculus
+- stoichiometry
+- mass balances
+- standard reaction energies
+- equilibrium
 
 * All in balance
 ** One way under consideration for removing harmful "\ce{NO_x}" (\ce{NO} + \ce{NO2}) from flue gas is the thermal deNOx process, in which \ce{NH3} is used to reduce the \ce{NO} to \ce{N2}:

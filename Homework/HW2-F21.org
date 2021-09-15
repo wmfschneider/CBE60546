@@ -42,8 +42,11 @@
 \noindent *Carefully and neatly document your answers.  You may use a mathematical solver like Jupyter/iPython. Use plotting software for all plots.*
 
 * Key ideas :noexport:
+- entropy, enthalpy, free energy
+- free energy vs conversion and equilibria
 - multiple equilibria
 - Le'Chatlier principle
+- Langmuir model
 
 * Shale, shale everywhere
 ** Your nation has stumbled upon an enormous reserve of ethane (that's really true!), which you propose to use as a feedstock to produce ethylene, acetylene, and hydrogen via thermal dehydrogenation:
