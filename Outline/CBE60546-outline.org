@@ -155,7 +155,7 @@ def dCdt(C,t,k):
 C_0 = [1., 1.5, 0.]
 
 # initialize k's
-k = 2.
+k = 0.2
 
 # Range of time to solve over
 t = np.arange(0,10,0.1) 
