@@ -7,6 +7,8 @@
 |   |             |                                                                    |             |
 | 3 | 16 Sep 2021 | [[./Homework/HW3-F21.pdf][pdf]] [[./HW3-F21.org][org]]   [[https://colab.research.google.com/github/wmfschneider/CBE60546/blob/master/Homework/HW3-F21.ipynb][https://colab.research.google.com/assets/colab-badge.svg]] | [[./Homework/HW3-F21-soln.pdf][pdf]]   [[http://nbviewer.jupyter.org/github/wmfschneider/CBE60546/blob/main/Homework/HW3-F21-soln.ipynb][ipynb]] |
 |   |             |                                                                    |             |
+|   |             | [[./Homework/Exam1-F21-soln.pdf][Exam 1 solution]]                                                    |             |
+|   |             |                                                                    |             |
 | 4 | 29 Sep 2021 | [[./Homework/HW4-Fa17.pdf][pdf]]                                                                | [[./Homework/HW4-Fa17-soln.pdf][pdf]]         |
 |   |             |                                                                    |             |
 | 5 | 6 Oct 2021  | [[./Homework/HW5-Fa17.pdf][pdf]]                                                                | [[./Homework/HW5-Fa17-soln.pdf][pdf]]         |
