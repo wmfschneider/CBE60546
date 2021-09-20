@@ -1,4 +1,4 @@
-% Created 2021-09-15 Wed 09:46
+% Created 2021-09-19 Sun 23:34
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -58,7 +58,7 @@ citecolor=blue,filecolor=blue,menucolor=blue,urlcolor=blue]{hyperref}
 \begin{OPTIONS}
 \end{OPTIONS}
 \section{Lecture 0: Intro to Reaction Engineering}
-\label{sec:orga470b42}
+\label{sec:org5dddefe}
 \begin{enumerate}
 \item Reaction engineering
 \end{enumerate}
@@ -115,7 +115,7 @@ Understanding, modeling, designing, using, controlling, analyzing, improving any
 \end{enumerate}
 
 \section{Stoichiometry and reactions}
-\label{sec:org5ea52e1}
+\label{sec:orgd5a9fbe}
 \begin{enumerate}
 \item Substances
 \item Amounts
@@ -134,7 +134,7 @@ Understanding, modeling, designing, using, controlling, analyzing, improving any
 \end{enumerate}
 \end{enumerate}
 \section{Chemical thermodynamics and equilibria}
-\label{sec:orga88d2fc}
+\label{sec:org34ef235}
 \begin{enumerate}
 \item Chemical reactions \(\sum_j \nu_j A_j = 0\)
 \item Thermodynamic potential differences
@@ -172,16 +172,32 @@ Understanding, modeling, designing, using, controlling, analyzing, improving any
 
 
 \section{Empirical kinetics}
-\label{sec:org44c9d61}
+\label{sec:orgf833fd1}
 \begin{enumerate}
-\item rates
+\item rates: number per unit time per unit something
 \item reactor mass balance
-\item rate expressions
+\item rate expressions, Functions of \(T\), \(P\), composition \(C_i\)
 \item rate orders
 \item apparent orders
 \item integrated rate expressions
-\item temperature and Arrhenius expression
+\item temperature and Arrhenius expression, \(k=A e^{-E_a/k_BT}\)
+\begin{enumerate}
+\item Arrhenius plot, \(\ln k\) vs \(1/T\)
 \end{enumerate}
+\end{enumerate}
+
+\begin{table}[htbp]
+\caption{Basic kinetic rate laws}
+\centering
+\begin{tabular}{llll}
+\hline
+ & differential rate & integrated rate & half-life\\
+\hline
+First order & \(r = kC_A\) & \(C_A = C_{A0} e^{-k \tau}\) & \(\ln 2/k\)\\
+Second order & \(r = kC_A^2\) & \(1/C_A = 1/C_{A0} + k \tau\) & \(1/kC_{A0}\)\\
+\end{tabular}
+\end{table}
+
 
 \begin{minted}[frame=lines,fontsize=\scriptsize,linenos]{python}
 import numpy as np               #this lets up handles arrays of data
@@ -199,7 +215,7 @@ def dCdt(C,t,k):
 C_0 = [1., 1.5, 0.]
 
 # initialize k's
-k = 2.
+k = 0.2
 
 # Range of time to solve over
 t = np.arange(0,10,0.1) 
@@ -228,7 +244,7 @@ plt.savefig('./conc.png')
 \end{center}
 
 \section{Analyzing reactor data}
-\label{sec:orgae48c81}
+\label{sec:org0adc49a}
 \begin{enumerate}
 \item Differential methods
 \begin{enumerate}
@@ -324,35 +340,123 @@ k = 1.450860
 \end{center}
 
 \section{Molecular basis}
-\label{sec:org849e6ea}
+\label{sec:orged18ccb}
 \begin{enumerate}
 \item reaction pathway, detailed balance
 \item bimolecular, collision theory, TST
 \item unimolecular reactions
 \end{enumerate}
 
-\section{Mechanisms}
-\label{sec:org9fa1c65}
+\section{Chemical kinetics}
+\label{sec:org7cd3bee}
+\subsubsection{Reaction mechanisms}
+\label{sec:org8403234}
 \begin{enumerate}
-\item simple reaction network
-\item free energy surface
-\item QSSA
-\item Pre-equilibrium
-\item Selectivity
-\item Rate control
+\item Elementary steps and molecularity
+\item Detailed balance and reversibility
+\item Ozone decomposition, rate second-order at high \(P_{\ce{O2}}\), first-order at low \(P_{\ce{O2}}\)
+\begin{center}
+\begin{tabular}{l}
+\ce{2 O3 -> 3 O2}\\
+\hline
+\ce{O3 ->[k_1] O2 + O}\\
+\ce{O2 + O ->[k_-1] O3}\\
+\ce{O + O3 ->[k_2] 2 O2}\\
+\end{tabular}
+\end{center}
+\item Collision theory
+\begin{enumerate}
+\item A + B \(\rightarrow\) products
+\item rate proportional to A/B collision frequency \(z_{AB}\) weighted by fraction of collisions with energy \(> E_a\)
+\begin{displaymath}
+   r = k C_A C_B , k = \left ( \frac{8 k_B T}{\pi \mu} \right )^{1/2} \sigma_{AB} N_{av} e^{-E_a/k_BT}
+\end{displaymath}
+\item upper bound on real rates
+\end{enumerate}
+\end{enumerate}
+\subsubsection{Transition state theory (TST)}
+\label{sec:org85d2558}
+\begin{enumerate}
+\item Assumptions
+\begin{enumerate}
+\item Existence of reaction coordinate (PES)
+\item Existence of dividing surface
+\item Equilibrium between reactants and ``transition state''
+\item Harmonic approximation for transition state
+\end{enumerate}
+\item rate proportional to concentration of ``activated complex'' over reactants times crossing frequency
+\begin{eqnarray*}
+   r & = & k C_AC_B \\
+     & = & k^\ddagger C_{AB}^\ddagger \\
+     & = & \nu^\ddagger K^\ddagger C_A C_ B \\
+     & = & \nu^\ddagger \frac{k_BT}{h\nu^\ddagger}\bar{K}^\ddagger(T) C_A C_B \\
+     & = & \frac{k_B T}{h} \frac{q^\ddagger(T)}{q_A(T) q_B(T)}  e^{-{\Delta E(0)/k_BT}} C_A C_B
+\end{eqnarray*}
+\item application to atom - atom collision
+\item application to two molecules - vinyl alcohol to acetaldehyde
+\item microscopic reversibility
+\item equilibrium requirement \(K_{eq}(T) = k_f(T)/k_r(T)\)
 \end{enumerate}
 
-\section{Heterogeneous reactions}
-\label{sec:org3ae5bb4}
+\begin{center}
+\includegraphics[width=0.6\textwidth]{./Images/PES.png}
+\end{center}
+\subsubsection{Locating transition states computationally}
+\label{sec:orgf9a29db}
+\subsubsection{Thermodynamic connection}
+\label{sec:orgcec0b5b}
 \begin{enumerate}
-\item adsorption, L-H
-\item TPD
-\item catalysis
-\item Sabatier analysis
+\item Relate activated complex equilibrium constant to activation free energy
+\[ \(\bar{K}^\ddagger(T) = e^{-\Delta G^{\circ \ddagger}(T)/kT} = e^{-\Delta H^{\circ \ddagger}(T)/k_BT}e^{\Delta S^{\circ \ddagger}(T)/k_B} \]
+\item Compare to Arrhenius expression 
+\[E_a = \Delta H^{\circ \ddagger}(T) + kT, A = \frac{k_B T}{h}e^1e^{\Delta S^{\circ \ddagger}(T)/k_B}\]
 \end{enumerate}
 
-\section{Liquid-phase reactions}
-\label{sec:orga84d53c}
+\begin{verbatim}
+Vinyl alcohol to TS  216 kJ/mol
+\end{verbatim}
+
+
+\begin{table}
+   \caption{Vinyl alcohol to acetaldehyde}
+\begin{tabular}{cc}
+\includegraphics[scale=0.5]{./Images/kTh.png} & \includegraphics[scale=0.5]{./Images/qratio.png} \\ \includegraphics[scale=0.5]{./Images/expEa.png} & \includegraphics[scale=0.5]{./Images/halflife.png} \\
+\includegraphics[scale=0.5]{./Images/arrhenius.png} & 
+\includegraphics[scale=0.3]{./Images/Path.png} 
+\end{tabular}
+\end{table}
+
+\subsubsection{Application: gas-phase reactions}
+\label{sec:orgfb8eff5}
+\begin{enumerate}
+\item Ethane pyrolysis, \ce{C2H6 -> C2H4 + H2}, \href{https://pubs.acs.org/doi/10.1021/jp206503d}{doi:10.1021/jp206503d}
+\end{enumerate}
+\subsubsection{Heterogeneous reactions and catalysis}
+\label{sec:org8543c4b}
+\begin{enumerate}
+\item molecule-surface collisions
+\item surface reactions
+\item Ammonia oxidation, \ce{NH3 + O2 -> NO, N2}, \href{http://pubs.acs.org/doi/10.1021/acscatal.8b04251}{doi:10.1021/acscatal.8b04251}
+\end{enumerate}
+
+\begin{table}
+   \caption{DFT PES for ethylene dissociation on Ni2P}
+\begin{tabular}{cc}
+\includegraphics[scale=0.33]{./Images/ethylene-001.png} & \includegraphics[scale=0.33]{./Images/ethylene-002.png} \\ \includegraphics[scale=0.33]{./Images/ethylene-003.png} & \includegraphics[scale=0.33]{./Images/ethylene-004.png} \\
+\includegraphics[scale=0.33]{./Images/ethylene-005.png} & 
+\includegraphics[scale=0.18]{./Images/ethylene-pes-animation.png} 
+\end{tabular}
+\end{table}
+
+\url{./Images/TS-Ethylene.gif}
+\subsubsection{Diffusion-controlled reactions}
+\label{sec:org58e2351}
+\begin{enumerate}
+\item Intermediate complex
+\item Steady-state approximation
+\item Diffusion-controlled limit (\(k_D = 4\pi (r_A + r_B) D_{AB}\))
+\item Reaction-controlled limit (\(k_{app}=(k_D/k_{-D})k_r\))
+\end{enumerate}
 
 \begin{table}
 \begin{center}
@@ -360,10 +464,10 @@ k = 1.450860
    \begin{description}
    \item[Equilibrium Constants] $a~\text{A} + b~\text{B} \rightleftharpoons c~\text{C} + d~\text{D} $
      \begin{eqnarray*}
-       K_{eq}(T) &=& e^{\Delta S^\circ(T,V)/k_B}e^{-\Delta H^\circ(T,V)/k_BT}
+       K_{eq}(T) &=& e^{\Delta S^\circ(T)/k_B}e^{-\Delta H^\circ(T)/k_BT}
        \\ \\
             K_c(T) &=&
-           \left(\frac{1}{c^\circ}\right)^{\nu_c+\nu_d-\nu_a-\nu_b}\frac{(q_c/V)^{\nu_c}(q_d/V)^{\nu_d}}{(q_a/V)^{\nu_a}(q_b/V)^{\nu_b}}e^{-\Delta
+          \left(\frac{1}{c^\circ}\right)^{\nu_c+\nu_d-\nu_a-\nu_b}\frac{(q_c/V)^{\nu_c}(q_d/V)^{\nu_d}}{(q_a/V)^{\nu_a}(q_b/V)^{\nu_b}}e^{-\Delta
             E(0)\beta}\\ \\
             K_p(T) &=&
           \left(\frac{k_BT}{P^\circ}\right)^{\nu_c+\nu_d-\nu_a-\nu_b}\frac{(q_c/V)^{\nu_c}(q_d/V)^{\nu_d}}{(q_a/V)^{\nu_a}(q_b/V)^{\nu_b}}e^{-\Delta
@@ -398,4 +502,28 @@ k = 1.450860
    \end{description}
  \end{center}
  \end{table}
+
+
+\section{Mechanisms}
+\label{sec:orgcacd694}
+\begin{enumerate}
+\item simple reaction network
+\item free energy surface
+\item QSSA
+\item Pre-equilibrium
+\item Selectivity
+\item Rate control
+\end{enumerate}
+
+\section{Heterogeneous reactions}
+\label{sec:org7a73fc3}
+\begin{enumerate}
+\item adsorption, L-H
+\item TPD
+\item catalysis
+\item Sabatier analysis
+\end{enumerate}
+
+\section{Liquid-phase reactions}
+\label{sec:org2f795da}
 \end{document}

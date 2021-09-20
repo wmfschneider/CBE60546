@@ -131,13 +131,22 @@ Understanding, modeling, designing, using, controlling, analyzing, improving any
 
 
 * Empirical kinetics
-1. rates
+1. rates: number per unit time per unit something
 2. reactor mass balance
-3. rate expressions
+3. rate expressions, Functions of $T$, $P$, composition $C_i$
 4. rate orders
 5. apparent orders
 6. integrated rate expressions
-7. temperature and Arrhenius expression
+7. temperature and Arrhenius expression, $k=A e^{-E_a/k_BT}$
+   1. Arrhenius plot, \(\ln k\) vs \(1/T\)
+
+#+CAPTION: Basic kinetic rate laws
+|--------------+-------------------+-----------------------------+---------------|
+|              | differential rate | integrated rate             | half-life     |
+|--------------+-------------------+-----------------------------+---------------|
+| First order  | $r = kC_A$        | $C_A = C_{A0} e^{-k \tau}$  | $\ln 2/k$     |
+| Second order | $r = kC_A^2$      | $1/C_A = 1/C_{A0} + k \tau$ | $1/kC_{A0}$   |
+
 
 #+BEGIN_SRC python
 import numpy as np               #this lets up handles arrays of data
@@ -277,13 +286,297 @@ plt.savefig('./xylene-int-model.png')
 2. bimolecular, collision theory, TST
 3. unimolecular reactions
 
+* Chemical kinetics
+*** Reaction mechanisms
+1. Elementary steps and molecularity
+2. Detailed balance and reversibility
+3. Ozone decomposition, rate second-order at high \(P_{\ce{O2}}\), first-order at low \(P_{\ce{O2}}\)
+   | \ce{2 O3 -> 3 O2}        |
+   |--------------------------|
+   | \ce{O3 ->[k_1] O2 + O}   |
+   | \ce{O2 + O ->[k_-1] O3}     |
+   | \ce{O + O3 ->[k_2] 2 O2} |
+4. Collision theory
+   1. A + B \rightarrow products
+   2. rate proportional to A/B collision frequency $z_{AB}$ weighted by fraction of collisions with energy $> E_a$
+      \begin{displaymath}
+         r = k C_A C_B , k = \left ( \frac{8 k_B T}{\pi \mu} \right )^{1/2} \sigma_{AB} N_{av} e^{-E_a/k_BT}
+      \end{displaymath}
+   3. upper bound on real rates
+*** Transition state theory (TST)
+1. Assumptions
+   1. Existence of reaction coordinate (PES)
+   2. Existence of dividing surface
+   3. Equilibrium between reactants and "transition state"
+   4. Harmonic approximation for transition state
+2. rate proportional to concentration of "activated complex" over reactants times crossing frequency
+   \begin{eqnarray*}
+      r & = & k C_AC_B \\
+        & = & k^\ddagger C_{AB}^\ddagger \\
+        & = & \nu^\ddagger K^\ddagger C_A C_ B \\
+        & = & \nu^\ddagger \frac{k_BT}{h\nu^\ddagger}\bar{K}^\ddagger(T) C_A C_B \\
+        & = & \frac{k_B T}{h} \frac{q^\ddagger(T)}{q_A(T) q_B(T)}  e^{-{\Delta E(0)/k_BT}} C_A C_B
+   \end{eqnarray*}
+3. application to atom - atom collision
+4. application to two molecules - vinyl alcohol to acetaldehyde
+5. microscopic reversibility
+6. equilibrium requirement \(K_{eq}(T) = k_f(T)/k_r(T)\)
+
+#+ATTR_ORG: :width 600
+#+ATTR_LATEX: :width 0.6\textwidth
+[[./Images/PES.png]]
+*** Locating transition states computationally
+*** Thermodynamic connection
+1. Relate activated complex equilibrium constant to activation free energy
+   \[ \(\bar{K}^\ddagger(T) = e^{-\Delta G^{\circ \ddagger}(T)/kT} = e^{-\Delta H^{\circ \ddagger}(T)/k_BT}e^{\Delta S^{\circ \ddagger}(T)/k_B} \] 
+2. Compare to Arrhenius expression 
+   \[E_a = \Delta H^{\circ \ddagger}(T) + kT, A = \frac{k_B T}{h}e^1e^{\Delta S^{\circ \ddagger}(T)/k_B}\]
+
+#+BEGIN_SRC python :exports results 
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.optimize import fsolve
+
+kB = 8.61733e-5      # eV /K
+h = 4.13566766e-15  # eV s
+eVtokJ = 96.485332
+autoeV= 27.212      # eV
+Nav = 6.022e23      # Avogadro's number 
+amutoeVc2 = 931494095.17 # convert amu to eV/c^2
+R0 = kB * eVtokJ * 1000.       # gas constant in J/mol K
+c = 299792458 # m / s
+
+class Molecule(object):
+    def __init__(self, name, mass, energy, rot, vib, helmholtz):
+        self.name = name
+        self.mass = mass
+        self.energy = energy
+        self.rot = rot
+        self.vib = vib
+        self.helmholtz = helmholtz
+
+    def Hello(self):
+        return "Hello {}".format(self.name)
+
+    def Lambda(self, T):
+        m = self.mass * amutoeVc2
+        return h/np.sqrt(2*np.pi*m*kB*T)*c
+
+    def qtrans(self,T):  #  mole/m^3
+        m = self.mass * amutoeVc2
+        l = h/np.sqrt(2*np.pi*m*kB*T)*c
+        return (1./Nav)*(1./l)**3
+
+    def qrot(self,T):
+        if self.rot[1] > 0:
+            return np.sqrt((np.pi*(T/self.rot[0])*(T/self.rot[1])*(T/self.rot[2])))
+        else:
+            return T/self.rot[0]
+
+    def qvib(self,T):
+        qvib = 1
+        for mode in self.vib:
+            qvib = qvib*(1.-np.exp(-mode/T))**-1
+        return qvib
+
+    def qtot(self,T):
+        return self.qtrans(T)*self.qrot(T)*self.qvib(T)
+
+    def ZPE(self):
+        ZPE=0.
+        for mode in self.vib:
+            ZPE = ZPE + mode
+        return ZPE * (0.5)*kB
+
+    def Utrans(self,T):
+        return 1.5*kB*T
+
+    def Urot(self,T):
+        return 1.5*kB*T
+
+    def Uvib(self,T):
+        Uvib=0.
+        for mode in self.vib:
+            Uvib=Uvib+kB*(mode/(np.exp(mode/T)-1.0))
+        return Uvib
+
+    def Utot(self,T):
+        return self.Utrans(T)+self.Urot(T)+self.Uvib(T)
+
+# Fundamental relationships
+def A(q):
+   return -kB*T*np.log(q)
+
+def S(A,U,T):
+   return (U - A)/T
+
+def Delta(nu,A):
+    return np.dot(nu,A)
+
+VA = Molecule("Vinyl alcohol", 44., -153.802227784, [3.06869, 0.49808, 0.42852],[342.12,   692.39,  1032.15,  1198.36,  1386.62, 1411.99,  1670.11,  1880.98,  1967.27,  2101.01, 2532.91,  4541.20,  4591.62,  4716.63,  5454.14],[])
+
+Ac = Molecule("Acetaldehyde", 44., -153.830119460, [2.72923, 0.48351, 0.43371], [222.94,  729.92,  1121.87,  1285.63,  1636.17, 1646.79,  2018.97,  2080.76, 2143.85,  2157.44,  2651.18,  4169.12,  4379.22,  4459.71,  4553.14],[])
+
+TS = Molecule("TS", 44., -153.714172988, [2.33148, 0.58652, 0.48832], [857.94,   939.84,  1148.55,  1395.88,  1536.40, 1678.69,  1744.34,  1877.98,  2155.56,  2261.86, 2665.34,  4471.92,  4522.04,  4596.48], [])
+
+T = np.linspace(600,1500,500)
+
+#
+# Ethane dehydrogenation at 1 bar
+#
+stdconc = (1e5/(R0*T)) # (1 bar/ R T) = mol/m3
+
+Ea0 = (TS.energy-VA.energy)*autoeV + (TS.ZPE() - VA.ZPE())
+
+print('Vinyl alcohol to TS {:4.0f} kJ/mol'.format(Ea0*eVtokJ))
+
+kTh = (kB/h) * T 
+qratio = (TS.qtot(T)/VA.qtot(T))
+Exp = np.exp(-Ea0/(kB*T))
+k  = kTh * qratio * Exp
+
+thalf = np.log(2)/k
+
+plt.figure()
+plt.plot(T,kTh,label="kB T/h")
+plt.xlabel("Temperature (K)")
+plt.ylabel("1/s")
+plt.legend()
+plt.savefig("./Images/kTh.png")
+
+plt.figure()
+plt.title("q TS/q vinyl acetate")
+plt.plot(T,qratio,label="qratio")
+plt.xlabel("Temperature (K)")
+plt.legend()
+plt.savefig("./Images/qratio.png")
+
+plt.figure()
+plt.title("Exp(-Ea(0)/kT")
+plt.plot(T,Exp,label="exp(-Ea/kT")
+plt.xlabel("Temperature (K)")
+plt.legend()
+plt.savefig("./Images/expEa.png")
+
+plt.figure()
+plt.title("Half life")
+plt.plot(T,thalf,label="half life")
+plt.xlabel("Temperature (K)")
+plt.ylabel("s")
+plt.legend()
+plt.savefig("./Images/halflife.png")
+
+plt.figure()
+plt.title("Arrhenius plot")
+plt.plot(1./T,np.log(k),label="ln(k)")
+plt.xlabel("1/Temperature (1/K)")
+plt.ylabel("s")
+plt.legend()
+plt.savefig("./Images/arrhenius.png")
+
+
+deltaUd = TS.Utot(T) - VA.Utot(T)
+deltaHd = deltaUd + kB*T
+
+deltaAd = A(TS.qtot(T)) - A(VA.qtot(T))
+deltaSd = S(deltaAd,deltaUd,T)
+
+#+END_SRC
+
+#+RESULTS:
+: Vinyl alcohol to TS  216 kJ/mol
+
+#+BEGIN_EXPORT latex
+\begin{table}
+   \caption{Vinyl alcohol to acetaldehyde}
+\begin{tabular}{cc}
+\includegraphics[scale=0.5]{./Images/kTh.png} & \includegraphics[scale=0.5]{./Images/qratio.png} \\ \includegraphics[scale=0.5]{./Images/expEa.png} & \includegraphics[scale=0.5]{./Images/halflife.png} \\
+\includegraphics[scale=0.5]{./Images/arrhenius.png} & 
+\includegraphics[scale=0.3]{./Images/Path.png} 
+\end{tabular}
+\end{table}
+#+END_EXPORT
+
+*** Application: gas-phase reactions
+1. Ethane pyrolysis, \ce{C2H6 -> C2H4 + H2}, [[https://pubs.acs.org/doi/10.1021/jp206503d][doi:10.1021/jp206503d]]
+*** Heterogeneous reactions and catalysis
+1. molecule-surface collisions
+2. surface reactions
+3. Ammonia oxidation, \ce{NH3 + O2 -> NO, N2}, [[http://pubs.acs.org/doi/10.1021/acscatal.8b04251][doi:10.1021/acscatal.8b04251]] 
+
+#+BEGIN_EXPORT latex
+\begin{table}
+   \caption{DFT PES for ethylene dissociation on Ni2P}
+\begin{tabular}{cc}
+\includegraphics[scale=0.33]{./Images/ethylene-001.png} & \includegraphics[scale=0.33]{./Images/ethylene-002.png} \\ \includegraphics[scale=0.33]{./Images/ethylene-003.png} & \includegraphics[scale=0.33]{./Images/ethylene-004.png} \\
+\includegraphics[scale=0.33]{./Images/ethylene-005.png} & 
+\includegraphics[scale=0.18]{./Images/ethylene-pes-animation.png} 
+\end{tabular}
+\end{table}
+#+END_EXPORT
+
+[[./Images/TS-Ethylene.gif]]
+*** Diffusion-controlled reactions
+1. Intermediate complex
+2. Steady-state approximation
+3. Diffusion-controlled limit ($k_D = 4\pi (r_A + r_B) D_{AB}$)
+4. Reaction-controlled limit ($k_{app}=(k_D/k_{-D})k_r$)
+
+#+BEGIN_EXPORT latex
+\begin{table}
+\begin{center}
+    \caption{\large{Equilibrium and Rate Constants}}
+   \begin{description}
+   \item[Equilibrium Constants] $a~\text{A} + b~\text{B} \rightleftharpoons c~\text{C} + d~\text{D} $
+     \begin{eqnarray*}
+       K_{eq}(T) &=& e^{\Delta S^\circ(T)/k_B}e^{-\Delta H^\circ(T)/k_BT}
+       \\ \\
+            K_c(T) &=&
+          \left(\frac{1}{c^\circ}\right)^{\nu_c+\nu_d-\nu_a-\nu_b}\frac{(q_c/V)^{\nu_c}(q_d/V)^{\nu_d}}{(q_a/V)^{\nu_a}(q_b/V)^{\nu_b}}e^{-\Delta
+            E(0)\beta}\\ \\
+            K_p(T) &=&
+          \left(\frac{k_BT}{P^\circ}\right)^{\nu_c+\nu_d-\nu_a-\nu_b}\frac{(q_c/V)^{\nu_c}(q_d/V)^{\nu_d}}{(q_a/V)^{\nu_a}(q_b/V)^{\nu_b}}e^{-\Delta
+            E(0)\beta}
+\end{eqnarray*}
+\item[Unimolecular Reaction] $\text[A] \rightleftharpoons [\text{A} ]^\ddagger
+  \rightarrow C$
+      \begin{displaymath}
+        k(T)=\nu^\ddagger \bar K^\ddagger=\frac{k_B T}{h} \frac{\bar{q}_\ddagger(T)/V}{q_A(T)/V}
+          e^{-\Delta E^\ddagger(0)\beta}
+      \end{displaymath}
+\begin{center}
+      \begin{tabular}{cc}
+      $ \displaystyle E_a =\Delta H^{\circ\ddagger}+k_B T $
+      & $ \displaystyle A = e^1\frac{k_B T}{h} e^{\Delta S^{\circ\ddagger}} $
+      \end{tabular}
+\end{center}
+\item[Bimolecular Reaction] $
+        \mathrm{A} + \mathrm{B} \rightleftharpoons [ \mathrm{AB}]^\ddagger
+        \rightarrow \text{C}$
+      \begin{displaymath}
+        k(T)=\nu^\ddagger \bar K^\ddagger=\frac{k_B T}{h} \frac{q_\ddagger(T)/V}{(q_A(T)/V)(q_B(T)/V)}\left
+          (\frac{1}{c^\circ}\right )^{-1}
+        e^{-\Delta E^\ddagger(0)\beta}
+      \end{displaymath}
+      \begin{center}
+        \begin{tabular}{cc}
+        $ \displaystyle E_a  =\Delta H^{\circ\ddagger}+2 k_B T $ & $ \displaystyle
+        A  = e^2\frac{k_B T}{h} e^{\Delta S^{\circ\ddagger}} $
+      \end{tabular}
+      \end{center}
+   \end{description}
+ \end{center}
+ \end{table}
+#+END_EXPORT
+
+
 * Mechanisms
 1. simple reaction network
 2. free energy surface
-3. QSSA
-4. Pre-equilibrium
-5. Selectivity
-6. Rate control
+4. QSSA
+5. Pre-equilibrium
+6. Selectivity
+7. Rate control
 
 * Heterogeneous reactions
 1. adsorption, L-H
@@ -292,50 +585,3 @@ plt.savefig('./xylene-int-model.png')
 4. Sabatier analysis
 
 * Liquid-phase reactions
-
-#+BEGIN_EXPORT LaTeX
- \begin{table}
- \begin{center}
-     \caption{\large{Equilibrium and Rate Constants}}
-    \begin{description}
-    \item[Equilibrium Constants] $a~\text{A} + b~\text{B} \rightleftharpoons c~\text{C} + d~\text{D} $
-      \begin{eqnarray*}
-        K_{eq}(T) &=& e^{\Delta S^\circ(T,V)/k_B}e^{-\Delta H^\circ(T,V)/k_BT}
-        \\ \\
-             K_c(T) &=&
-            \left(\frac{1}{c^\circ}\right)^{\nu_c+\nu_d-\nu_a-\nu_b}\frac{(q_c/V)^{\nu_c}(q_d/V)^{\nu_d}}{(q_a/V)^{\nu_a}(q_b/V)^{\nu_b}}e^{-\Delta
-             E(0)\beta}\\ \\
-             K_p(T) &=&
-           \left(\frac{k_BT}{P^\circ}\right)^{\nu_c+\nu_d-\nu_a-\nu_b}\frac{(q_c/V)^{\nu_c}(q_d/V)^{\nu_d}}{(q_a/V)^{\nu_a}(q_b/V)^{\nu_b}}e^{-\Delta
-             E(0)\beta}
- \end{eqnarray*}
- \item[Unimolecular Reaction] $\text[A] \rightleftharpoons [\text{A} ]^\ddagger
-   \rightarrow C$
-       \begin{displaymath}
-         k(T)=\nu^\ddagger \bar K^\ddagger=\frac{k_B T}{h} \frac{\bar{q}_\ddagger(T)/V}{q_A(T)/V}
-           e^{-\Delta E^\ddagger(0)\beta}
-       \end{displaymath}
- \begin{center}
-       \begin{tabular}{cc}
-       $ \displaystyle E_a =\Delta H^{\circ\ddagger}+k_B T $
-       & $ \displaystyle A = e^1\frac{k_B T}{h} e^{\Delta S^{\circ\ddagger}} $
-       \end{tabular}
- \end{center}
- \item[Bimolecular Reaction] $
-         \mathrm{A} + \mathrm{B} \rightleftharpoons [ \mathrm{AB}]^\ddagger
-         \rightarrow \text{C}$
-       \begin{displaymath}
-         k(T)=\nu^\ddagger \bar K^\ddagger=\frac{k_B T}{h} \frac{q_\ddagger(T)/V}{(q_A(T)/V)(q_B(T)/V)}\left
-           (\frac{1}{c^\circ}\right )^{-1}
-         e^{-\Delta E^\ddagger(0)\beta}
-       \end{displaymath}
-       \begin{center}
-         \begin{tabular}{cc}
-         $ \displaystyle E_a  =\Delta H^{\circ\ddagger}+2 k_B T $ & $ \displaystyle
-         A  = e^2\frac{k_B T}{h} e^{\Delta S^{\circ\ddagger}} $
-       \end{tabular}
-       \end{center}
-    \end{description}
-  \end{center}
-  \end{table}
-#+END_EXPORT
