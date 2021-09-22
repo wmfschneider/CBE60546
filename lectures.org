@@ -10,5 +10,5 @@ Reference book: [[https://authors.library.caltech.edu/25070/][Davis and Davis, F
 |           |                      |       |
 | Lecture 3 | Elements of Kinetics | [['./Lectures/3-Essential Kinetics.pdf'][notes]] |
 |           |                      |       |
-| Lecture 4 | Reaction rate theory |       |
+| Lecture 4 | Reaction rate theory | [[./Lectures/4-Reaction Rate Theory.pdf][notes]] |
 

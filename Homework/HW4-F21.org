@@ -22,8 +22,8 @@
 #+LATEX_HEADER:\cfoot{\copyright\ 2021 W.\ F.\ Schneider}
 #+LATEX_HEADER:\rfoot{\thepage}
 #+LATEX_HEADER:\chead{\bf{Advanced Chemical Reaction Engineering (CBE 60546)\vspace{12pt}}}
-#+LATEX_HEADER:\lhead{\bf{Homework 3}}
-#+LATEX_HEADER:\rhead{\bf{Due September 16, 2021}}
+#+LATEX_HEADER:\lhead{\bf{Homework 4}}
+#+LATEX_HEADER:\rhead{\bf{Due October 1, 2021}}
 #+LATEX_HEADER:\usepackage{titlesec}
 #+LATEX_HEADER:\titlespacing*{\section}
 #+LATEX_HEADER:{0pt}{0.6\baselineskip}{0.2\baselineskip}
@@ -151,6 +151,7 @@ At high temperature ethylene can be hydrogenated to ethane.  The proposed mechan
 
 ** What is the apparent rate constant?  Do you expect it to exhibit Arrhenius behavior in general? 
 
-** The opposite of ethylene hydrogenation is ethane dehydrogenation. 
+** The opposite of ethylene hydrogenation is ethane dehydrogenation, \ce{C2H6 -> 2 CH3}. If the reaction is run in a diluent, say \ce{N2}, the rate is observed to be a function of total pressure and to reach a limiting value at high pressure. Why? Can you propose a simple model for this behavior?
 
 
+* Another question coming!!!

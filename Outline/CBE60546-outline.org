@@ -19,7 +19,7 @@
 #+LATEX_HEADER:\renewcommand{\headrulewidth}{0.5pt}
 #+LATEX_HEADER:\renewcommand{\footrulewidth}{0.5pt}
 #+LATEX_HEADER:\lfoot{\today}
-#+LATEX_HEADER:\cfoot{\copyright\ 2017 W.\ F.\ Schneider}
+#+LATEX_HEADER:\cfoot{\copyright\ 2021 W.\ F.\ Schneider}
 #+LATEX_HEADER:\rfoot{\thepage}
 #+LATEX_HEADER:\lhead{\em{Advanced Chemical Reaction Engineering}}
 #+LATEX_HEADER:\rhead{ND CBE 60546}
@@ -437,36 +437,41 @@ k  = kTh * qratio * Exp
 
 thalf = np.log(2)/k
 
-plt.figure()
+plt.figure(figsize=(10,15))
+plt.subplot(3,2,1)
 plt.plot(T,kTh,label="kB T/h")
 plt.xlabel("Temperature (K)")
 plt.ylabel("1/s")
 plt.legend()
-plt.savefig("./Images/kTh.png")
+#plt.savefig("./Images/kTh.png")
 
-plt.figure()
+#plt.figure()
+plt.subplot(3,2,2)
 plt.title("q TS/q vinyl acetate")
 plt.plot(T,qratio,label="qratio")
 plt.xlabel("Temperature (K)")
 plt.legend()
-plt.savefig("./Images/qratio.png")
+#plt.savefig("./Images/qratio.png")
 
-plt.figure()
+#plt.figure()
+plt.subplot(3,2,3)
 plt.title("Exp(-Ea(0)/kT")
 plt.plot(T,Exp,label="exp(-Ea/kT")
 plt.xlabel("Temperature (K)")
 plt.legend()
-plt.savefig("./Images/expEa.png")
+#plt.savefig("./Images/expEa.png")
 
-plt.figure()
+#plt.figure()
+plt.subplot(3,2,4)
 plt.title("Half life")
 plt.plot(T,thalf,label="half life")
 plt.xlabel("Temperature (K)")
 plt.ylabel("s")
 plt.legend()
-plt.savefig("./Images/halflife.png")
+#plt.savefig("./Images/halflife.png")
 
-plt.figure()
+#plt.figure()
+plt.subplot(3,2,5)
 plt.title("Arrhenius plot")
 plt.plot(1./T,np.log(k),label="ln(k)")
 plt.xlabel("1/Temperature (1/K)")
@@ -482,15 +487,19 @@ deltaAd = A(TS.qtot(T)) - A(VA.qtot(T))
 deltaSd = S(deltaAd,deltaUd,T)
 
 plt.figure()
+plt.subplot(1,2,1)
 plt.plot(T,(Ea0+deltaUd)*eVtokJ,label="Internal")
 plt.plot(T,(Ea0+deltaAd)*eVtokJ,label="Free")
+plt.title("VA activation energies")
 plt.xlabel("Temperature (K)")
 plt.ylabel("Activation Energy (kJ/mol)")
 plt.legend()
-plt.savefig("./Images/Uact.png")
+#plt.savefig("./Images/Uact.png")
 
-plt.figure()
+#plt.figure()
+plt.subplot(1,2,2)
 plt.plot(T,deltaSd*eVtokJ*1000,label="Entropy")
+plt.title("VA activation entropy")
 plt.xlabel("Temperature (K)")
 plt.ylabel("Activation Entropy (J/mol/K)")
 plt.legend()
@@ -514,8 +523,13 @@ print('Delta Sddagger (1000 K) = {:4.0f} J/mol K'.format(deltaSd1000))
 : Delta Addagger (1000 K) =  226 kJ/mol
 : Delta Sddagger (1000 K) = -1480 J/mol K
 
+[[./Images/Path.png]]
 
-[[./Images/Uact.png]][[./Images/Sact.png]]
+#+ATTR_ORG: :width 600
+[[./Images/arrhenius.png]]
+[[./Images/Sact.png]]
+
+
 #+BEGIN_EXPORT latex
 \begin{table}
    \caption{Vinyl alcohol to acetaldehyde}

@@ -9,7 +9,7 @@
 |   |             |                                                                    |             |
 |   |             | [[./Homework/Exam1-F21-soln.pdf][Exam 1 solution]]                                                    |             |
 |   |             |                                                                    |             |
-| 4 | 29 Sep 2021 | [[./Homework/HW4-Fa17.pdf][pdf]]                                                                | [[./Homework/HW4-Fa17-soln.pdf][pdf]]         |
+| 4 | 1 Oct 2021  | [[./Homework/HW4-Fa17.pdf][pdf]]   [[./Homework/HW4-F21.org][org]]                                                          | [[./Homework/HW4-Fa17-soln.pdf][pdf]]         |
 |   |             |                                                                    |             |
 | 5 | 6 Oct 2021  | [[./Homework/HW5-Fa17.pdf][pdf]]                                                                | [[./Homework/HW5-Fa17-soln.pdf][pdf]]         |
 |   |             |                                                                    |             |
