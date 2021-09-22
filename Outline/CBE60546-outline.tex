@@ -1,4 +1,4 @@
-% Created 2021-09-19 Sun 23:34
+% Created 2021-09-21 Tue 21:06
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -58,7 +58,7 @@ citecolor=blue,filecolor=blue,menucolor=blue,urlcolor=blue]{hyperref}
 \begin{OPTIONS}
 \end{OPTIONS}
 \section{Lecture 0: Intro to Reaction Engineering}
-\label{sec:org5dddefe}
+\label{sec:org01529f2}
 \begin{enumerate}
 \item Reaction engineering
 \end{enumerate}
@@ -115,7 +115,7 @@ Understanding, modeling, designing, using, controlling, analyzing, improving any
 \end{enumerate}
 
 \section{Stoichiometry and reactions}
-\label{sec:orgd5a9fbe}
+\label{sec:orgff9ba1a}
 \begin{enumerate}
 \item Substances
 \item Amounts
@@ -134,7 +134,7 @@ Understanding, modeling, designing, using, controlling, analyzing, improving any
 \end{enumerate}
 \end{enumerate}
 \section{Chemical thermodynamics and equilibria}
-\label{sec:org34ef235}
+\label{sec:orga83aa4c}
 \begin{enumerate}
 \item Chemical reactions \(\sum_j \nu_j A_j = 0\)
 \item Thermodynamic potential differences
@@ -172,7 +172,7 @@ Understanding, modeling, designing, using, controlling, analyzing, improving any
 
 
 \section{Empirical kinetics}
-\label{sec:orgf833fd1}
+\label{sec:org83c42d5}
 \begin{enumerate}
 \item rates: number per unit time per unit something
 \item reactor mass balance
@@ -244,7 +244,7 @@ plt.savefig('./conc.png')
 \end{center}
 
 \section{Analyzing reactor data}
-\label{sec:org0adc49a}
+\label{sec:orgde859ab}
 \begin{enumerate}
 \item Differential methods
 \begin{enumerate}
@@ -340,7 +340,7 @@ k = 1.450860
 \end{center}
 
 \section{Molecular basis}
-\label{sec:orged18ccb}
+\label{sec:orgcaa6560}
 \begin{enumerate}
 \item reaction pathway, detailed balance
 \item bimolecular, collision theory, TST
@@ -348,12 +348,11 @@ k = 1.450860
 \end{enumerate}
 
 \section{Chemical kinetics}
-\label{sec:org7cd3bee}
+\label{sec:orgae74a0d}
 \subsubsection{Reaction mechanisms}
-\label{sec:org8403234}
+\label{sec:orge356807}
 \begin{enumerate}
 \item Elementary steps and molecularity
-\item Detailed balance and reversibility
 \item Ozone decomposition, rate second-order at high \(P_{\ce{O2}}\), first-order at low \(P_{\ce{O2}}\)
 \begin{center}
 \begin{tabular}{l}
@@ -364,6 +363,9 @@ k = 1.450860
 \ce{O + O3 ->[k_2] 2 O2}\\
 \end{tabular}
 \end{center}
+\item Detailed balance and microscopic reversibility
+\item Equilibrium requirement \(K_{eq}(T) = k_f(T)/k_r(T)\)
+\item Reversibility \(r_\text{net} = r_f ( 1 - \beta)\), \(\beta = Q/K_c = exp(-\Delta G(T,c_j)/RT)\)
 \item Collision theory
 \begin{enumerate}
 \item A + B \(\rightarrow\) products
@@ -375,7 +377,7 @@ k = 1.450860
 \end{enumerate}
 \end{enumerate}
 \subsubsection{Transition state theory (TST)}
-\label{sec:org85d2558}
+\label{sec:org39aa238}
 \begin{enumerate}
 \item Assumptions
 \begin{enumerate}
@@ -394,17 +396,15 @@ k = 1.450860
 \end{eqnarray*}
 \item application to atom - atom collision
 \item application to two molecules - vinyl alcohol to acetaldehyde
-\item microscopic reversibility
-\item equilibrium requirement \(K_{eq}(T) = k_f(T)/k_r(T)\)
 \end{enumerate}
 
 \begin{center}
 \includegraphics[width=0.6\textwidth]{./Images/PES.png}
 \end{center}
 \subsubsection{Locating transition states computationally}
-\label{sec:orgf9a29db}
+\label{sec:org64ebd33}
 \subsubsection{Thermodynamic connection}
-\label{sec:orgcec0b5b}
+\label{sec:orgd3689d6}
 \begin{enumerate}
 \item Relate activated complex equilibrium constant to activation free energy
 \[ \(\bar{K}^\ddagger(T) = e^{-\Delta G^{\circ \ddagger}(T)/kT} = e^{-\Delta H^{\circ \ddagger}(T)/k_BT}e^{\Delta S^{\circ \ddagger}(T)/k_B} \]
@@ -427,12 +427,12 @@ Vinyl alcohol to TS  216 kJ/mol
 \end{table}
 
 \subsubsection{Application: gas-phase reactions}
-\label{sec:orgfb8eff5}
+\label{sec:org03fdffe}
 \begin{enumerate}
 \item Ethane pyrolysis, \ce{C2H6 -> C2H4 + H2}, \href{https://pubs.acs.org/doi/10.1021/jp206503d}{doi:10.1021/jp206503d}
 \end{enumerate}
 \subsubsection{Heterogeneous reactions and catalysis}
-\label{sec:org8543c4b}
+\label{sec:orgd1ae063}
 \begin{enumerate}
 \item molecule-surface collisions
 \item surface reactions
@@ -450,7 +450,7 @@ Vinyl alcohol to TS  216 kJ/mol
 
 \url{./Images/TS-Ethylene.gif}
 \subsubsection{Diffusion-controlled reactions}
-\label{sec:org58e2351}
+\label{sec:org687c865}
 \begin{enumerate}
 \item Intermediate complex
 \item Steady-state approximation
@@ -505,7 +505,7 @@ Vinyl alcohol to TS  216 kJ/mol
 
 
 \section{Mechanisms}
-\label{sec:orgcacd694}
+\label{sec:org4844c1e}
 \begin{enumerate}
 \item simple reaction network
 \item free energy surface
@@ -516,7 +516,7 @@ Vinyl alcohol to TS  216 kJ/mol
 \end{enumerate}
 
 \section{Heterogeneous reactions}
-\label{sec:org7a73fc3}
+\label{sec:org80d0b22}
 \begin{enumerate}
 \item adsorption, L-H
 \item TPD
@@ -525,5 +525,5 @@ Vinyl alcohol to TS  216 kJ/mol
 \end{enumerate}
 
 \section{Liquid-phase reactions}
-\label{sec:org2f795da}
+\label{sec:org2657d72}
 \end{document}

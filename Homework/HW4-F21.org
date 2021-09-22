@@ -1,0 +1,156 @@
+#+BEGIN_OPTIONS
+#+AUTHOR: William F. Schneider
+#+TITLE: CBE 60546 Homework
+#+EMAIL: wschneider@nd.edu
+#+LATEX_CLASS_OPTIONS: [11pt]
+#+LATEX_HEADER:\usepackage[left=1in, right=1in, top=1in, bottom=1in, nohead]{geometry}
+#+LATEX_HEADER:\geometry{margin=1.0in}
+#+LATEX_HEADER:\usepackage{hyperref}
+#+LATEX_HEADER:\usepackage{amsmath}
+#+LATEX_HEADER:\usepackage{graphicx}
+#+LATEX_HEADER:\usepackage{epstopdf}
+#+LATEX_HEADER:\usepackage{fancyhdr}
+#+LATEX_HEADER:\pagestyle{fancy}
+#+LATEX_HEADER:\fancyhf{}
+#+LATEX_HEADER:\usepackage[labelfont=bf]{caption}
+#+LATEX_HEADER:\usepackage{setspace}
+#+LATEX_HEADER:\setlength{\headheight}{10.2pt}
+#+LATEX_HEADER:\setlength{\headsep}{20pt}
+#+LATEX_HEADER:\renewcommand{\headrulewidth}{0.5pt}
+#+LATEX_HEADER:\renewcommand{\footrulewidth}{0.5pt}
+#+LATEX_HEADER:\lfoot{\today}
+#+LATEX_HEADER:\cfoot{\copyright\ 2021 W.\ F.\ Schneider}
+#+LATEX_HEADER:\rfoot{\thepage}
+#+LATEX_HEADER:\chead{\bf{Advanced Chemical Reaction Engineering (CBE 60546)\vspace{12pt}}}
+#+LATEX_HEADER:\lhead{\bf{Homework 3}}
+#+LATEX_HEADER:\rhead{\bf{Due September 16, 2021}}
+#+LATEX_HEADER:\usepackage{titlesec}
+#+LATEX_HEADER:\titlespacing*{\section}
+#+LATEX_HEADER:{0pt}{0.6\baselineskip}{0.2\baselineskip}
+#+LATEX_HEADER:\title{University of Notre Dame\\Advanced Chemical Engineering Thermodynamics\\(CBE 60553)}
+#+LATEX_HEADER:\author{Prof. William F.\ Schneider}
+#+LATEX_HEADER:\usepackage{siunitx}
+#+LATEX_HEADER:\usepackage[version=3]{mhchem}
+#+LATEX_HEADER:\def\dbar{{\mathchar'26\mkern-12mu d}}
+
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+OPTIONS: toc:nil
+#+OPTIONS: H:3 num:3
+#+OPTIONS: ':t
+#+END_OPTIONS
+
+\noindent *Carefully and neatly document your answers.  You may use a mathematical solver like Jupyter/iPython. Use plotting software for all plots.*
+
+* Key ideas                                                        :noexport:
+- rates laws
+- half-lives
+- integrated rate laws
+- differential rate laws
+
+* It's elementary, really...
+** Which of the following reactions can be assumed to be elementary?  If it is elementary, indicate the molecularity. Briefly justify your answers.
+
+|                   <c>                   |
+|     \ce{ O3 (g) -> O2 (g) + O (g) }     |
+|                                         |
+|  \ce{ 2 H2 (g) + O2(g) -> 2 H2O (g) }   |
+|                                         |
+|  \ce{2 NO (g) + O2 (g) -> 2 NO2 (g) }   |
+|                                         |
+|         \ce{H* + I2 -> HI + I*}         |
+|                                         |
+| 2 \ce{Pt(111) + H2 (g) ->  2 Pt(111)-H} |
+ 
+\noindent In the last example, \ce{Pt(111)} indicates the surface of a Pt particle.
+
+* The path less traveled
+Chlorine monoxide, \ce{ClO}, exhibits three different self-reaction channels:
+
+|--------------------------------+---------------------------------------+-----------------------------------|
+| <l>                            |                  <c>                  |                <c>                |
+|                                | $A$ (\si{\liter\per\mole\per\second}) | $E_a$ (\si{\kilo\joule\per\mole}) |
+|--------------------------------+---------------------------------------+-----------------------------------|
+| \ce{ClO* + ClO* -> Cl2 + O2}   |              \SI{6.08e8}              |               13.2                |
+|                                |                                       |                                   |
+| \ce{ClO* + ClO* -> Cl* + ClOO} |             \SI{1.79e10}              |               20.4                |
+|                                |                                       |                                   |
+| \ce{ClO* + ClO* -> Cl* + OClO} |              \SI{2.11e8}              |               11.4                |
+|--------------------------------+---------------------------------------+-----------------------------------|
+
+
+** Make Arrhenius plots of the three reactions from 150 to \SI{500}{K}.  Which reaction dominates at low temperature?  At high temperature?
+ 
+** Can collision theory account for the variations in rate constants amongst the three reactions?  Why or why not?
+
+** The rate constant for a gas-phase bimolecular reaction can be written within transition state theory (using an isobaric standard state) as shown below. Use the definition of $E_a$ to derive relationships between the Arrhenius parameters and the standard activation enthalpy, $\Delta H^{\circ\ddagger}$ and standard activation entropy, $\Delta S^{\circ\ddagger}$, at \SI{1}{bar} standard state.
+
+\[ k = \frac{k_B T}{h} \left ( \frac{RT}{P^\circ} \right ) e^{-\Delta G^\circ(T)/k_B T} \]
+
+** Calculate $\Delta H^{\circ\ddagger}$ and $\Delta S^{\circ\ddagger}$ for each of the three reactions.
+
+** Using chemical intuition and the calculated $\Delta S^{\circ\ddagger}$ as guides, draw candidate transition state structures for each of the three reactions.  Include arrows to show motion along the reaction coordinates.
+
+** Following is some thermodynamic data. Use it to sketch/draw/plot a potential enthalpy surface for the three reactions and a potential free energy surface for the three reactions at \SI{298}{K}.  
+
+| <l>       |               <c>               |                <c>                |
+|-----------+---------------------------------+-----------------------------------|
+|           | $\Delta H_f^\circ(\SI{298}{K})$ |   $\Delta S^\circ(\SI{298}{K})$   |
+|           |   (\si{\kilo\joule\per\mole})   | (\si{\joule\per\mole\per\kelvin}) |
+|-----------+---------------------------------+-----------------------------------|
+| \ce{ClO*} |             101.22              |              226.65               |
+| \ce{OClO} |             104.60              |              257.22               |
+| \ce{ClO2} |              98.0               |              269.32               |
+| \ce{Cl}   |              121.3              |              165.19               |
+| \ce{Cl2}  |                0                |              223.08               |
+| \ce{O2}   |                0                |              205.15               |
+|-----------+---------------------------------+-----------------------------------|
+*** thermo :noexport:
+#+BEGIN_SRC python
+import numpy as np
+
+class Molecule(object):
+    def __init__(self, name, enthalpy, entropy):
+        self.name = name
+        self.enthalpy = enthalpy
+        self.entropy = entropy
+
+ClO = Molecule("ClO", 101.22, 226.65)
+OClO = Molecule("OClO", 104.60, 257.22)
+ClO2 = Molecule("ClO2", 98.0, 269.32)
+Cl = Molecule("Cl", 121.3, 165.19)
+Cl2 = Molecule("Cl2", 0., 223.08)
+O2 = Molecule("O2", 0., 205.15)
+
+reaction1 = np
+#+END_SRC
+
+#+RESULTS:
+
+* The radical path
+At high temperature ethylene can be hydrogenated to ethane.  The proposed mechanism has four steps, all of which are presumed to be elementary and essentially irreversible under realistic conditions.
+ 
+|                          <c>                          |
+|  \ce{ C2H4 (g)+ H2 (g)  ->[k_1] C2H5* (g) + H* (g) }  |
+|                                                       |
+|      \ce{H* (g) + C2H4 (g) ->[k_2]  C2H5* (g) }       |
+|                                                       |
+| \ce{C2H5* (g) + H2 (g) ->[k_3] C2H6(g) (g) + H* (g) } |
+|                                                       |
+|       \ce{C2H5* (g) + H* (g) ->[k_4] C2H6 (g)}        |
+
+
+** Identify the reactants, products, and intermediates, and state whether the mechanism is open or closed.
+ 
+** Why is it reasonable to assume that the first reaction is irreversible (that is, that the forward reaction rate is much greater than the reverse)?  What about the second reaction? 
+
+** Based on the mechanism above, write an expression for the rate of disappearance of ethylene.
+ 
+** Apply the quasi-steady-state approximation separately to H atoms and ethyl radicals.  Use the results to derive expressions for the concentrations of each in terms of only reactants and products.
+
+** Combine your answers to  obtain an expression for the rate of disappearance of ethylene that involves only reactants and products.  What is the apparent reaction order with respect to \ce{H2}?  To \ce{C2H4}?  
+
+** What is the apparent rate constant?  Do you expect it to exhibit Arrhenius behavior in general? 
+
+** The opposite of ethylene hydrogenation is ethane dehydrogenation. 
+
+

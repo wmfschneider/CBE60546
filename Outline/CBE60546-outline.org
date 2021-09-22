@@ -289,14 +289,16 @@ plt.savefig('./xylene-int-model.png')
 * Chemical kinetics
 *** Reaction mechanisms
 1. Elementary steps and molecularity
-2. Detailed balance and reversibility
-3. Ozone decomposition, rate second-order at high \(P_{\ce{O2}}\), first-order at low \(P_{\ce{O2}}\)
+2. Ozone decomposition, rate second-order at high \(P_{\ce{O2}}\), first-order at low \(P_{\ce{O2}}\)
    | \ce{2 O3 -> 3 O2}        |
    |--------------------------|
    | \ce{O3 ->[k_1] O2 + O}   |
    | \ce{O2 + O ->[k_-1] O3}     |
    | \ce{O + O3 ->[k_2] 2 O2} |
-4. Collision theory
+3. Detailed balance and microscopic reversibility
+4. Equilibrium requirement \(K_{eq}(T) = k_f(T)/k_r(T)\)
+5. Reversibility \(r_\text{net} = r_f ( 1 - \beta)\), \( \beta = Q/K_c = exp(-\Delta G(T,c_j)/RT) \)
+6. Collision theory
    1. A + B \rightarrow products
    2. rate proportional to A/B collision frequency $z_{AB}$ weighted by fraction of collisions with energy $> E_a$
       \begin{displaymath}
@@ -319,8 +321,6 @@ plt.savefig('./xylene-int-model.png')
    \end{eqnarray*}
 3. application to atom - atom collision
 4. application to two molecules - vinyl alcohol to acetaldehyde
-5. microscopic reversibility
-6. equilibrium requirement \(K_{eq}(T) = k_f(T)/k_r(T)\)
 
 #+ATTR_ORG: :width 600
 #+ATTR_LATEX: :width 0.6\textwidth
@@ -481,11 +481,41 @@ deltaHd = deltaUd + kB*T
 deltaAd = A(TS.qtot(T)) - A(VA.qtot(T))
 deltaSd = S(deltaAd,deltaUd,T)
 
+plt.figure()
+plt.plot(T,(Ea0+deltaUd)*eVtokJ,label="Internal")
+plt.plot(T,(Ea0+deltaAd)*eVtokJ,label="Free")
+plt.xlabel("Temperature (K)")
+plt.ylabel("Activation Energy (kJ/mol)")
+plt.legend()
+plt.savefig("./Images/Uact.png")
+
+plt.figure()
+plt.plot(T,deltaSd*eVtokJ*1000,label="Entropy")
+plt.xlabel("Temperature (K)")
+plt.ylabel("Activation Entropy (J/mol/K)")
+plt.legend()
+plt.savefig("./Images/Sact.png")
+
+
+T = 1000  # silly A function T defined externally
+deltaUd1000 = (Ea0+TS.Utot(1000) - VA.Utot(1000))*eVtokJ
+deltaAd1000 = (Ea0+A(TS.qtot(1000)) - A(VA.qtot(1000)))*eVtokJ
+deltaSd1000 = S(deltaAd1000,deltaUd1000,T)*eVtokJ*1000
+
+print('Delta Uddagger (1000 K) = {:4.0f} kJ/mol'.format(deltaUd1000))
+print('Delta Addagger (1000 K) = {:4.0f} kJ/mol'.format(deltaAd1000))
+print('Delta Sddagger (1000 K) = {:4.0f} J/mol K'.format(deltaSd1000))
+
 #+END_SRC
 
 #+RESULTS:
 : Vinyl alcohol to TS  216 kJ/mol
+: Delta Uddagger (1000 K) =  211 kJ/mol
+: Delta Addagger (1000 K) =  226 kJ/mol
+: Delta Sddagger (1000 K) = -1480 J/mol K
 
+
+[[./Images/Uact.png]][[./Images/Sact.png]]
 #+BEGIN_EXPORT latex
 \begin{table}
    \caption{Vinyl alcohol to acetaldehyde}
@@ -499,6 +529,20 @@ deltaSd = S(deltaAd,deltaUd,T)
 
 *** Application: gas-phase reactions
 1. Ethane pyrolysis, \ce{C2H6 -> C2H4 + H2}, [[https://pubs.acs.org/doi/10.1021/jp206503d][doi:10.1021/jp206503d]]
+
+* Mechanisms
+1. simple reaction network
+2. free energy surface
+4. QSSA
+5. Pre-equilibrium
+6. Selectivity
+7. Rate control
+
+* Heterogeneous reactions
+1. adsorption, L-H
+2. TPD
+3. catalysis
+4. Sabatier analysis
 *** Heterogeneous reactions and catalysis
 1. molecule-surface collisions
 2. surface reactions
@@ -516,6 +560,8 @@ deltaSd = S(deltaAd,deltaUd,T)
 #+END_EXPORT
 
 [[./Images/TS-Ethylene.gif]]
+
+* Liquid-phase reactions
 *** Diffusion-controlled reactions
 1. Intermediate complex
 2. Steady-state approximation
@@ -569,19 +615,3 @@ deltaSd = S(deltaAd,deltaUd,T)
  \end{table}
 #+END_EXPORT
 
-
-* Mechanisms
-1. simple reaction network
-2. free energy surface
-4. QSSA
-5. Pre-equilibrium
-6. Selectivity
-7. Rate control
-
-* Heterogeneous reactions
-1. adsorption, L-H
-2. TPD
-3. catalysis
-4. Sabatier analysis
-
-* Liquid-phase reactions
