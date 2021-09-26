@@ -281,12 +281,7 @@ plt.savefig('./xylene-int-model.png')
 [[./xylene-int-model.png]]
 #+RESULTS:
 
-* Molecular basis
-1. reaction pathway, detailed balance
-2. bimolecular, collision theory, TST
-3. unimolecular reactions
-
-* Chemical kinetics
+* Molecular chemical kinetics
 *** Reaction mechanisms
 1. Elementary steps and molecularity
 2. Ozone decomposition, rate second-order at high \(P_{\ce{O2}}\), first-order at low \(P_{\ce{O2}}\)
@@ -319,18 +314,24 @@ plt.savefig('./xylene-int-model.png')
         & = & \nu^\ddagger \frac{k_BT}{h\nu^\ddagger}\bar{K}^\ddagger(T) C_A C_B \\
         & = & \frac{k_B T}{h} \frac{q^\ddagger(T)}{q_A(T) q_B(T)}  e^{-{\Delta E(0)/k_BT}} C_A C_B
    \end{eqnarray*}
-3. application to atom - atom collision
-4. application to two molecules - vinyl alcohol to acetaldehyde
 
 #+ATTR_ORG: :width 600
 #+ATTR_LATEX: :width 0.6\textwidth
 [[./Images/PES.png]]
 *** Locating transition states computationally
+1. Reactants/products are minima on potential energy surface
+2. Transition state is first order saddle point. Unique point on pathway from reactant to product valley
+3. vinyl alcohol to acetaldehyde example
+4. [[https://www.webmo.net]]
+
+#+ATTR_ORG: :width 600
+[[./Images/Path.png]]
+
 *** Thermodynamic connection
-1. Relate activated complex equilibrium constant to activation free energy
-   \[ \(\bar{K}^\ddagger(T) = e^{-\Delta G^{\circ \ddagger}(T)/kT} = e^{-\Delta H^{\circ \ddagger}(T)/k_BT}e^{\Delta S^{\circ \ddagger}(T)/k_B} \] 
+1. Relate activated complex equilibrium constant to activation free energy (isochoric standard state)
+   \[ \(\bar{K}^\ddagger(T) = e^{-\Delta A^{\circ \ddagger}(T)/kT} = e^{-\Delta U^{\circ \ddagger}(T)/k_BT}e^{\Delta S^{\circ \ddagger}(T)/k_B} \] 
 2. Compare to Arrhenius expression 
-   \[E_a = \Delta H^{\circ \ddagger}(T) + kT, A = \frac{k_B T}{h}e^1e^{\Delta S^{\circ \ddagger}(T)/k_B}\]
+   \[E_a = \Delta U^{\circ \ddagger}(T) + kT, A = \frac{k_B T}{h}e^1e^{\Delta S^{\circ \ddagger}(T)/k_B}\]
 
 #+BEGIN_SRC python :exports results 
 import numpy as np
@@ -523,34 +524,78 @@ print('Delta Sddagger (1000 K) = {:4.0f} J/mol K'.format(deltaSd1000))
 : Delta Addagger (1000 K) =  226 kJ/mol
 : Delta Sddagger (1000 K) = -1480 J/mol K
 
-[[./Images/Path.png]]
-
 #+ATTR_ORG: :width 600
 [[./Images/arrhenius.png]]
 [[./Images/Sact.png]]
 
+*** Bimolecular reaction 
+1. Diels-Alder example
 
-#+BEGIN_EXPORT latex
-\begin{table}
-   \caption{Vinyl alcohol to acetaldehyde}
-\begin{tabular}{cc}
-\includegraphics[scale=0.5]{./Images/kTh.png} & \includegraphics[scale=0.5]{./Images/qratio.png} \\ \includegraphics[scale=0.5]{./Images/expEa.png} & \includegraphics[scale=0.5]{./Images/halflife.png} \\
-\includegraphics[scale=0.5]{./Images/arrhenius.png} & 
-\includegraphics[scale=0.3]{./Images/Path.png} 
-\end{tabular}
-\end{table}
-#+END_EXPORT
+#+BEGIN_SRC python
+import numpy as np
 
+kB = 8.61733e-5      # eV /K
+h = 4.13566766e-15  # eV s
+eVtokJ = 96.485332
+Nav = 6.022e23      # Avogadro's number 
+R0 = kB * eVtokJ * 1000.       # gas constant in J/mol K
+
+A = 9.2e6 # liter/mole/second
+Ea = 99. # kJ/mole
+
+T = 500.   # K
+
+
+# 1 M standard state
+deltaUdd = Ea - R0 * T /1000   # kJ /mol
+
+SS = 1.0  # mol/liter
+deltaSdd = R0 * ( np.log(A/(1./SS)) - np.log(kB * T / h) - 1.)
+
+deltaAdd = deltaUdd - T * deltaSdd/1000.
+
+print('1 M standard state, 500 K:')
+print('Delta Udd ={:4.0f} kJ/mol    Delta Sdd = {:4.0f} J/mol K   Delta Add = {:4.0f} kJ/mol'.format(deltaUdd,deltaSdd,deltaAdd))
+
+# 1 bar standard state
+P0 = 1.0e5   # 1 bar = 10^5 Pa = 10^5 J/m^3
+P0 = P0 / 1e3  # J/l
+SS = P0/(R0 * T)   #  J/mol / J/l  = mol/liter
+print('1 bar = {:5.3f} mol/liter standard state, 500 K'.format(SS))
+
+deltaHdd = Ea - 2* R0 * T /1000   # kJ /mol
+deltaSdd = R0 * ( np.log(A/(1./SS)) - np.log(kB * T / h) - 2.)
+
+deltaGdd = deltaHdd - T * deltaSdd/1000.
+print('Delta Hdd ={:4.0f} kJ/mol    Delta Sdd = {:4.0f} J/mol K   Delta Gdd = {:4.0f} kJ/mol'.format(deltaHdd,deltaSdd,deltaGdd))
+
+#+END_SRC
+
+#+RESULTS:
+: 1 M standard state, 500 K:
+: Delta Udd =  95 kJ/mol    Delta Sdd = -124 J/mol K   Delta Add =  157 kJ/mol
+: 1 bar = 0.024 mol/liter standard state, 500 K
+: Delta Hdd =  91 kJ/mol    Delta Sdd = -164 J/mol K   Delta Gdd =  172 kJ/mol
+
+*** Correlations across reactions
+1. early vs late transition states
+2. Br\o{}nsted-Evans-Polyani relationship
+   \[ E_a = \alpha \Delta H + \beta \]
+3. linear free energy relationships between similar reactions (substituent effects)
+  \[ \ln (k_1/k_1^\prime) \propto \ln (K_1/K_1^\prime) \]
+4. compensation effect linear correlation across catalysts for the same reaction
+  \[\Delta H^{\circ\ddagger} \propto \Delta S^{\circ\ddagger}\] 
+* Mechanisms
+1. Lindemann-Hinshelwood model for first order reactions
+2. Quasi-steady state approximation
+  \[ r_{\text{intermediate}} \approx 0 \]
+4. simple reaction network
+5. free energy surface
+6. Pre-equilibrium
+7. Selectivity
+8. Rate control
 *** Application: gas-phase reactions
 1. Ethane pyrolysis, \ce{C2H6 -> C2H4 + H2}, [[https://pubs.acs.org/doi/10.1021/jp206503d][doi:10.1021/jp206503d]]
-
-* Mechanisms
-1. simple reaction network
-2. free energy surface
-4. QSSA
-5. Pre-equilibrium
-6. Selectivity
-7. Rate control
 
 * Heterogeneous reactions
 1. adsorption, L-H
@@ -560,8 +605,8 @@ print('Delta Sddagger (1000 K) = {:4.0f} J/mol K'.format(deltaSd1000))
 *** Heterogeneous reactions and catalysis
 1. molecule-surface collisions
 2. surface reactions
-3. Ammonia oxidation, \ce{NH3 + O2 -> NO, N2}, [[http://pubs.acs.org/doi/10.1021/acscatal.8b04251][doi:10.1021/acscatal.8b04251]] 
-
+3. Ammonia oxidation, \ce{NH3 + O2 -> NO + N2}, [[http://pubs.acs.org/doi/10.1021/acscatal.8b04251][doi:10.1021/acscatal.8b04251]] 
+#+BEGIN_COMMENT
 #+BEGIN_EXPORT latex
 \begin{table}
    \caption{DFT PES for ethylene dissociation on Ni2P}
@@ -574,6 +619,8 @@ print('Delta Sddagger (1000 K) = {:4.0f} J/mol K'.format(deltaSd1000))
 #+END_EXPORT
 
 [[./Images/TS-Ethylene.gif]]
+replace. Tab to end.
+#+END_COMMENT
 
 * Liquid-phase reactions
 *** Diffusion-controlled reactions

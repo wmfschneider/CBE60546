@@ -42,10 +42,10 @@
 \noindent *Carefully and neatly document your answers.  You may use a mathematical solver like Jupyter/iPython. Use plotting software for all plots.*
 
 * Key ideas                                                        :noexport:
-- rates laws
-- half-lives
-- integrated rate laws
-- differential rate laws
+- mechanism and pathways
+- transition state theory
+- compensation or linear correlations
+- mechanism analysis
 
 * It's elementary, really...
 ** Which of the following reactions can be assumed to be elementary?  If it is elementary, indicate the molecularity. Briefly justify your answers.
@@ -126,6 +126,20 @@ reaction1 = np
 
 #+RESULTS:
 
+* What do I get in compensation?
+Following are some observed data for the dehydrogenation of /iso/-propanol, \ce{CH3CH(OH)CH3 -> CH3C(O)CH3 + H2}, over a series of catalysts:
+
+|           <c>            |                 <c>                 |
+|--------------------------+-------------------------------------|
+| \(A\) (\si{\per\second}) | \(E_a\) (\si{\kilo\joule\per\mole}) |
+|--------------------------+-------------------------------------|
+|      \SI{4.3e12}{}       |                 172                 |
+|      \SI{2.3e11}{}       |                 159                 |
+|      \SI{2.2e10}{}       |                 146                 |
+|       \SI{1.6e9}{}       |                 134                 |
+|--------------------------+-------------------------------------|
+
+** What can you say about the relationship between \(\Delta S^{\circ\ddagger}\) and \(\Delta Hp^{\circ\ddagger}\)?
 * The radical path
 At high temperature ethylene can be hydrogenated to ethane.  The proposed mechanism has four steps, all of which are presumed to be elementary and essentially irreversible under realistic conditions.
  
@@ -152,6 +166,3 @@ At high temperature ethylene can be hydrogenated to ethane.  The proposed mechan
 ** What is the apparent rate constant?  Do you expect it to exhibit Arrhenius behavior in general? 
 
 ** The opposite of ethylene hydrogenation is ethane dehydrogenation, \ce{C2H6 -> 2 CH3}. If the reaction is run in a diluent, say \ce{N2}, the rate is observed to be a function of total pressure and to reach a limiting value at high pressure. Why? Can you propose a simple model for this behavior?
-
-
-* Another question coming!!!
