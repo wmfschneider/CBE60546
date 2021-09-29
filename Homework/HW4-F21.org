@@ -84,7 +84,7 @@ Chlorine monoxide, \ce{ClO}, exhibits three different self-reaction channels:
 
 ** The rate constant for a gas-phase bimolecular reaction can be written within transition state theory (using an isobaric standard state) as shown below. Use the definition of $E_a$ to derive relationships between the Arrhenius parameters and the standard activation enthalpy, $\Delta H^{\circ\ddagger}$ and standard activation entropy, $\Delta S^{\circ\ddagger}$, at \SI{1}{bar} standard state.
 
-\[ k = \frac{k_B T}{h} \left ( \frac{RT}{P^\circ} \right ) e^{-\Delta G^\circ(T)/k_B T} \]
+\[ k = \frac{k_B T}{h} \left ( \frac{RT}{P^\circ} \right ) e^{-\Delta G^{\circ(T)\ddagger}/k_B T} \]
 
 ** Calculate $\Delta H^{\circ\ddagger}$ and $\Delta S^{\circ\ddagger}$ for each of the three reactions.
 
@@ -165,4 +165,4 @@ At high temperature ethylene can be hydrogenated to ethane.  The proposed mechan
 
 ** What is the apparent rate constant?  Do you expect it to exhibit Arrhenius behavior in general? 
 
-** The opposite of ethylene hydrogenation is ethane dehydrogenation, \ce{C2H6 -> 2 CH3}. If the reaction is run in a diluent, say \ce{N2}, the rate is observed to be a function of total pressure and to reach a limiting value at high pressure. Why? Can you propose a simple model for this behavior?
+** Ethane dissociation \ce{C2H6 -> 2 CH3} is a key step in the initiation of gas-phase ethane reactions. If the reaction is observed in a diluent, say \ce{N2}, the rate is found to be a function of total pressure and to reach a limiting value at high pressure. Why? Can you propose a simple model for this behavior?
