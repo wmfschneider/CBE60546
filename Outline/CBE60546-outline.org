@@ -129,7 +129,6 @@ Understanding, modeling, designing, using, controlling, analyzing, improving any
 #+END_EXPORT
 
 
-
 * Empirical kinetics
 1. rates: number per unit time per unit something
 2. reactor mass balance
@@ -589,11 +588,177 @@ print('Delta Hdd ={:4.0f} kJ/mol    Delta Sdd = {:4.0f} J/mol K   Delta Gdd = {:
 1. Lindemann-Hinshelwood model for first order reactions
 2. Quasi-steady state approximation
   \[ r_{\text{intermediate}} \approx 0 \]
-4. simple reaction network
-5. free energy surface
-6. Pre-equilibrium
-7. Selectivity
-8. Rate control
+
+#+BEGIN_SRC python
+import numpy as np               #this lets up handles arrays of data
+import matplotlib.pyplot as plt
+from scipy.integrate import odeint, solve_ivp
+
+def dCdt(C,t,k):
+    dC_Adt = -k[0]*C[0]     # A ->  B -> C;  r = k CA CB
+    dC_Bdt = k[0]*C[0]-k[1]*C[1]
+    dC_Cdt =  k[1]*C[1]
+    dCdt = [dC_Adt,dC_Bdt,dC_Cdt] 
+    return dCdt
+
+# initialize concentrations
+C_0 = [1., 0, 0.]
+
+# initialize k's
+k = [1,1]
+
+# Range of time to solve over
+t = np.arange(0,6,0.1) 
+t_span = (0., 10.)
+
+p = (k,) # turn parameters into a tuple
+# Solve two ODEs with odeint
+#C = solve_ivp(dCdt,t_span,C_0,p,method='LSODA')
+C = odeint(dCdt,C_0,t,p)
+
+# would be nice to back compute rates
+#print(C)
+#R = dCdt(C,t,k)
+#rate=np.array(R)
+
+#print(R)
+#rate_B = rate.transpose()[1]
+
+#plt.figure()
+#plt.plot(t,rate_B)
+#
+
+C_A = C.transpose()[0] # Get C_A from C
+C_B = C.transpose()[1] # Get C_B from C
+C_C = C.transpose()[2]
+plt.figure(figsize=(10,5))
+plt.subplot(1,2,1)
+
+plt.plot(t,C_A,'-',label=r'$C_{\rm A}$')
+plt.plot(t,C_B,'-',label=r'$C_{\rm B}$')
+plt.plot(t,C_C,'-',label=r'$C_{\rm C}$')
+plt.xlabel('Time (s)')
+plt.ylabel('Concentration (mol/L)')
+plt.legend()
+#plt.savefig('./Images/PSSA.png')
+
+plt.subplot(1,2,2)
+plt.plot(t,k[0]*C_A-k[1]*C_B,label=r'$r_{\rm B}$')
+plt.plot(t,-k[0]*C_A,label=r'$r_{\rm A}$')
+plt.plot(t,k[1]*C_B,label=r'$r_{\rm C}$')
+plt.xlabel('Time (s)')
+plt.ylabel('Rate (mol/L/s)')
+plt.legend()
+plt.savefig('./Images/PSSA.png')
+#+END_SRC
+
+#+RESULTS:
+
+[[./Images/PSSA.png]]
+
+1. free energy surfaces
+2. simplifying reaction networks
+
+#+BEGIN_SRC python
+import numpy as np               #this lets up handles arrays of data
+import matplotlib.pyplot as plt
+from scipy.integrate import odeint, solve_ivp
+from scipy.interpolate import BPoly
+
+kB = 8.61733e-5      # eV /K
+h = 4.13566766e-15  # eV s
+
+def dCdt(C,t,k):
+    dC_Adt = -k[0]*C[0]+k[1]*C[1]     # A ->  B -> C;  r = k CA CB
+    dC_Bdt =  k[0]*C[0]-k[1]*C[1] -k[2]*C[1]+k[3]*C[2]
+    dC_Cdt =  k[2]*C[1]-k[3]*C[2]
+    dCdt = [dC_Adt,dC_Bdt,dC_Cdt] 
+    return dCdt
+
+# initialize concentrations
+C_0 = [1., 0, 0.]
+
+R0 = 8.314
+T = 500.
+
+# initialize k's
+deltaGtot = -100.0
+deltaG1 = -50.0
+deltaG2 = deltaGtot - deltaG1
+deltaG1d = 100.
+deltaG2d = 125.
+
+deltaGn1d = deltaG1d-deltaG1
+deltaGn2d = deltaG2d-deltaG2
+
+p1 = BPoly.from_derivatives([0, 1, 2, 3, 4], [[0, 0], [deltaG1d, 0], [deltaG1, 0], [deltaG1+deltaG2d,0], [deltaGtot,0]])
+
+x=np.linspace(0,4,100)
+y=p1(x)
+
+plt.figure(figsize=(12,5))
+plt.subplot(1,3,1)
+plt.plot(x,y)
+plt.ylabel('Free energy')
+plt.xlabel('Reaction coordinate')
+
+k = (kB*T/h)*np.exp(-np.array([deltaG1d,deltaGn1d,deltaG2d,deltaGn2d])*1000./(R0*T))
+print(deltaG1d,deltaGn1d,deltaG2d,deltaGn2d)
+print(k)
+
+# Range of time to solve over
+t = np.arange(0,6,0.1) 
+# t_span = (0., 10.)
+
+p = (k,) # turn parameters into a tuple
+# Solve two ODEs with odeint
+#C = solve_ivp(dCdt,t_span,C_0,p,method='LSODA')
+C = odeint(dCdt,C_0,t,p)
+
+# would be nice to back compute rates
+#print(C)
+#R = dCdt(C,t,k)
+#rate=np.array(R)
+
+#print(R)
+#rate_B = rate.transpose()[1]
+
+#plt.figure()
+#plt.plot(t,rate_B)
+#
+
+C_A = C.transpose()[0] # Get C_A from C
+C_B = C.transpose()[1] # Get C_B from C
+C_C = C.transpose()[2]
+
+plt.subplot(1,3,2)
+plt.plot(t,C_A,'-',label=r'$C_{\rm A}$')
+plt.plot(t,C_B,'-',label=r'$C_{\rm B}$')
+plt.plot(t,C_C,'-',label=r'$C_{\rm C}$')
+plt.xlabel('Time (s)')
+plt.ylabel('Concentration (mol/L)')
+plt.legend()
+# plt.savefig('./Images/ABC-conc.png')
+
+plt.subplot(1,3,3)
+plt.plot(t,-k[0]*C_A+k[1]*C_B,label=r'$r_{\rm A}$')
+plt.plot(t,k[0]*C_A-k[1]*C_B-k[2]*C_B + k[3]*C_C,label=r'$r_{\rm B}$')
+plt.plot(t,k[2]*C_B-k[3]*C_C,label=r'$r_{\rm C}$')
+plt.xlabel('Time (s)')
+plt.ylabel('Rate (mol/L/s)')
+plt.legend()
+plt.savefig('./Images/ABC-rxn.png')
+#+END_SRC
+
+#+RESULTS:
+: 100.0 150.0 125.0 175.0
+: [3.71956184e+02 2.22248647e-03 9.09212619e-01 5.43266340e-06]
+
+[[./Images/ABC-rxn.png]]
+
+1. Pre-equilibrium
+2. Selectivity
+3. Rate control
 *** Application: gas-phase reactions
 1. Ethane pyrolysis, \ce{C2H6 -> C2H4 + H2}, [[https://pubs.acs.org/doi/10.1021/jp206503d][doi:10.1021/jp206503d]]
 

@@ -1,4 +1,4 @@
-% Created 2021-09-26 Sun 13:37
+% Created 2021-09-30 Thu 17:12
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -58,7 +58,7 @@ citecolor=blue,filecolor=blue,menucolor=blue,urlcolor=blue]{hyperref}
 \begin{OPTIONS}
 \end{OPTIONS}
 \section{Lecture 0: Intro to Reaction Engineering}
-\label{sec:orgcf70e35}
+\label{sec:org5ae1143}
 \begin{enumerate}
 \item Reaction engineering
 \end{enumerate}
@@ -115,7 +115,7 @@ Understanding, modeling, designing, using, controlling, analyzing, improving any
 \end{enumerate}
 
 \section{Stoichiometry and reactions}
-\label{sec:org8163b6c}
+\label{sec:org2c99dec}
 \begin{enumerate}
 \item Substances
 \item Amounts
@@ -134,7 +134,7 @@ Understanding, modeling, designing, using, controlling, analyzing, improving any
 \end{enumerate}
 \end{enumerate}
 \section{Chemical thermodynamics and equilibria}
-\label{sec:orga2f5d0d}
+\label{sec:org8f09e8c}
 \begin{enumerate}
 \item Chemical reactions \(\sum_j \nu_j A_j = 0\)
 \item Thermodynamic potential differences
@@ -170,9 +170,8 @@ Understanding, modeling, designing, using, controlling, analyzing, improving any
 \end{enumerate}
 
 
-
 \section{Empirical kinetics}
-\label{sec:org91ea66f}
+\label{sec:orga02f601}
 \begin{enumerate}
 \item rates: number per unit time per unit something
 \item reactor mass balance
@@ -244,7 +243,7 @@ plt.savefig('./conc.png')
 \end{center}
 
 \section{Analyzing reactor data}
-\label{sec:orgaea4996}
+\label{sec:orge182f42}
 \begin{enumerate}
 \item Differential methods
 \begin{enumerate}
@@ -340,9 +339,9 @@ k = 1.450860
 \end{center}
 
 \section{Molecular chemical kinetics}
-\label{sec:org8aa82f8}
+\label{sec:org1d7ff3e}
 \subsubsection{Reaction mechanisms}
-\label{sec:orge110470}
+\label{sec:orga93950e}
 \begin{enumerate}
 \item Elementary steps and molecularity
 \item Ozone decomposition, rate second-order at high \(P_{\ce{O2}}\), first-order at low \(P_{\ce{O2}}\)
@@ -369,7 +368,7 @@ k = 1.450860
 \end{enumerate}
 \end{enumerate}
 \subsubsection{Transition state theory (TST)}
-\label{sec:orgecf11a0}
+\label{sec:org349e07e}
 \begin{enumerate}
 \item Assumptions
 \begin{enumerate}
@@ -392,7 +391,7 @@ k = 1.450860
 \includegraphics[width=0.6\textwidth]{./Images/PES.png}
 \end{center}
 \subsubsection{Locating transition states computationally}
-\label{sec:org88b2720}
+\label{sec:orgc77a70f}
 \begin{enumerate}
 \item Reactants/products are minima on potential energy surface
 \item Transition state is first order saddle point. Unique point on pathway from reactant to product valley
@@ -405,7 +404,7 @@ k = 1.450860
 \end{center}
 
 \subsubsection{Thermodynamic connection}
-\label{sec:org66abe4d}
+\label{sec:orgf57e5b2}
 \begin{enumerate}
 \item Relate activated complex equilibrium constant to activation free energy (isochoric standard state)
 \[ \(\bar{K}^\ddagger(T) = e^{-\Delta A^{\circ \ddagger}(T)/kT} = e^{-\Delta U^{\circ \ddagger}(T)/k_BT}e^{\Delta S^{\circ \ddagger}(T)/k_B} \]
@@ -429,7 +428,7 @@ Delta Sddagger (1000 K) = -1480 J/mol K
 \end{center}
 
 \subsubsection{Bimolecular reaction}
-\label{sec:org3d68dae}
+\label{sec:orge7011cb}
 \begin{enumerate}
 \item Diels-Alder example
 \end{enumerate}
@@ -482,7 +481,7 @@ Delta Hdd =  91 kJ/mol    Delta Sdd = -164 J/mol K   Delta Gdd =  172 kJ/mol
 \end{verbatim}
 
 \subsubsection{Correlations across reactions}
-\label{sec:orga764804}
+\label{sec:orge0bac76}
 \begin{enumerate}
 \item early vs late transition states
 \item Br\o{}nsted-Evans-Polyani relationship
@@ -493,25 +492,199 @@ Delta Hdd =  91 kJ/mol    Delta Sdd = -164 J/mol K   Delta Gdd =  172 kJ/mol
 \[\Delta H^{\circ\ddagger} \propto \Delta S^{\circ\ddagger}\]
 \end{enumerate}
 \section{Mechanisms}
-\label{sec:org11fab28}
+\label{sec:org9d63fcf}
 \begin{enumerate}
 \item Lindemann-Hinshelwood model for first order reactions
 \item Quasi-steady state approximation
 \[ r_{\text{intermediate}} \approx 0 \]
-\item simple reaction network
-\item free energy surface
+\end{enumerate}
+
+\begin{minted}[frame=lines,fontsize=\scriptsize,linenos]{python}
+import numpy as np               #this lets up handles arrays of data
+import matplotlib.pyplot as plt
+from scipy.integrate import odeint, solve_ivp
+
+def dCdt(C,t,k):
+    dC_Adt = -k[0]*C[0]     # A ->  B -> C;  r = k CA CB
+    dC_Bdt = k[0]*C[0]-k[1]*C[1]
+    dC_Cdt =  k[1]*C[1]
+    dCdt = [dC_Adt,dC_Bdt,dC_Cdt] 
+    return dCdt
+
+# initialize concentrations
+C_0 = [1., 0, 0.]
+
+# initialize k's
+k = [1,1]
+
+# Range of time to solve over
+t = np.arange(0,6,0.1) 
+t_span = (0., 10.)
+
+p = (k,) # turn parameters into a tuple
+# Solve two ODEs with odeint
+#C = solve_ivp(dCdt,t_span,C_0,p,method='LSODA')
+C = odeint(dCdt,C_0,t,p)
+
+# would be nice to back compute rates
+#print(C)
+#R = dCdt(C,t,k)
+#rate=np.array(R)
+
+#print(R)
+#rate_B = rate.transpose()[1]
+
+#plt.figure()
+#plt.plot(t,rate_B)
+#
+
+C_A = C.transpose()[0] # Get C_A from C
+C_B = C.transpose()[1] # Get C_B from C
+C_C = C.transpose()[2]
+plt.figure(figsize=(10,5))
+plt.subplot(1,2,1)
+
+plt.plot(t,C_A,'-',label=r'$C_{\rm A}$')
+plt.plot(t,C_B,'-',label=r'$C_{\rm B}$')
+plt.plot(t,C_C,'-',label=r'$C_{\rm C}$')
+plt.xlabel('Time (s)')
+plt.ylabel('Concentration (mol/L)')
+plt.legend()
+#plt.savefig('./Images/PSSA.png')
+
+plt.subplot(1,2,2)
+plt.plot(t,k[0]*C_A-k[1]*C_B,label=r'$r_{\rm B}$')
+plt.plot(t,-k[0]*C_A,label=r'$r_{\rm A}$')
+plt.plot(t,k[1]*C_B,label=r'$r_{\rm C}$')
+plt.xlabel('Time (s)')
+plt.ylabel('Rate (mol/L/s)')
+plt.legend()
+plt.savefig('./Images/PSSA.png')
+\end{minted}
+
+\begin{center}
+\includegraphics[width=.9\linewidth]{./Images/PSSA.png}
+\end{center}
+
+\begin{enumerate}
+\item free energy surfaces
+\item simplifying reaction networks
+\end{enumerate}
+
+\begin{minted}[frame=lines,fontsize=\scriptsize,linenos]{python}
+import numpy as np               #this lets up handles arrays of data
+import matplotlib.pyplot as plt
+from scipy.integrate import odeint, solve_ivp
+from scipy.interpolate import BPoly
+
+kB = 8.61733e-5      # eV /K
+h = 4.13566766e-15  # eV s
+
+def dCdt(C,t,k):
+    dC_Adt = -k[0]*C[0]+k[1]*C[1]     # A ->  B -> C;  r = k CA CB
+    dC_Bdt =  k[0]*C[0]-k[1]*C[1] -k[2]*C[1]+k[3]*C[2]
+    dC_Cdt =  k[2]*C[1]-k[3]*C[2]
+    dCdt = [dC_Adt,dC_Bdt,dC_Cdt] 
+    return dCdt
+
+# initialize concentrations
+C_0 = [1., 0, 0.]
+
+R0 = 8.314
+T = 500.
+
+# initialize k's
+deltaGtot = -100.0
+deltaG1 = -50.0
+deltaG2 = deltaGtot - deltaG1
+deltaG1d = 100.
+deltaG2d = 125.
+
+deltaGn1d = deltaG1d-deltaG1
+deltaGn2d = deltaG2d-deltaG2
+
+p1 = BPoly.from_derivatives([0, 1, 2, 3, 4], [[0, 0], [deltaG1d, 0], [deltaG1, 0], [deltaG1+deltaG2d,0], [deltaGtot,0]])
+
+x=np.linspace(0,4,100)
+y=p1(x)
+
+plt.figure(figsize=(12,5))
+plt.subplot(1,3,1)
+plt.plot(x,y)
+plt.ylabel('Free energy')
+plt.xlabel('Reaction coordinate')
+
+k = (kB*T/h)*np.exp(-np.array([deltaG1d,deltaGn1d,deltaG2d,deltaGn2d])*1000./(R0*T))
+print(deltaG1d,deltaGn1d,deltaG2d,deltaGn2d)
+print(k)
+
+# Range of time to solve over
+t = np.arange(0,6,0.1) 
+# t_span = (0., 10.)
+
+p = (k,) # turn parameters into a tuple
+# Solve two ODEs with odeint
+#C = solve_ivp(dCdt,t_span,C_0,p,method='LSODA')
+C = odeint(dCdt,C_0,t,p)
+
+# would be nice to back compute rates
+#print(C)
+#R = dCdt(C,t,k)
+#rate=np.array(R)
+
+#print(R)
+#rate_B = rate.transpose()[1]
+
+#plt.figure()
+#plt.plot(t,rate_B)
+#
+
+C_A = C.transpose()[0] # Get C_A from C
+C_B = C.transpose()[1] # Get C_B from C
+C_C = C.transpose()[2]
+
+plt.subplot(1,3,2)
+plt.plot(t,C_A,'-',label=r'$C_{\rm A}$')
+plt.plot(t,C_B,'-',label=r'$C_{\rm B}$')
+plt.plot(t,C_C,'-',label=r'$C_{\rm C}$')
+plt.xlabel('Time (s)')
+plt.ylabel('Concentration (mol/L)')
+plt.legend()
+# plt.savefig('./Images/ABC-conc.png')
+
+plt.subplot(1,3,3)
+plt.plot(t,-k[0]*C_A+k[1]*C_B,label=r'$r_{\rm A}$')
+plt.plot(t,k[0]*C_A-k[1]*C_B-k[2]*C_B + k[3]*C_C,label=r'$r_{\rm B}$')
+plt.plot(t,k[2]*C_B-k[3]*C_C,label=r'$r_{\rm C}$')
+plt.xlabel('Time (s)')
+plt.ylabel('Rate (mol/L/s)')
+plt.legend()
+plt.savefig('./Images/ABC-rxn.png')
+\end{minted}
+
+\begin{verbatim}
+100.0 150.0 125.0 175.0
+[3.71956184e+02 2.22248647e-03 9.09212619e-01 5.43266340e-06]
+\end{verbatim}
+
+
+\begin{center}
+\includegraphics[width=.9\linewidth]{./Images/ABC-rxn.png}
+\end{center}
+
+\begin{enumerate}
 \item Pre-equilibrium
 \item Selectivity
 \item Rate control
 \end{enumerate}
 \subsubsection{Application: gas-phase reactions}
-\label{sec:org58f417b}
+\label{sec:org1dbb5b5}
 \begin{enumerate}
 \item Ethane pyrolysis, \ce{C2H6 -> C2H4 + H2}, \href{https://pubs.acs.org/doi/10.1021/jp206503d}{doi:10.1021/jp206503d}
 \end{enumerate}
 
 \section{Heterogeneous reactions}
-\label{sec:org249651a}
+\label{sec:org7a495a4}
 \begin{enumerate}
 \item adsorption, L-H
 \item TPD
@@ -519,7 +692,7 @@ Delta Hdd =  91 kJ/mol    Delta Sdd = -164 J/mol K   Delta Gdd =  172 kJ/mol
 \item Sabatier analysis
 \end{enumerate}
 \subsubsection{Heterogeneous reactions and catalysis}
-\label{sec:orgd80a702}
+\label{sec:org74bccd1}
 \begin{enumerate}
 \item molecule-surface collisions
 \item surface reactions
@@ -527,9 +700,9 @@ Delta Hdd =  91 kJ/mol    Delta Sdd = -164 J/mol K   Delta Gdd =  172 kJ/mol
 \end{enumerate}
 
 \section{Liquid-phase reactions}
-\label{sec:org198a7f0}
+\label{sec:orga517af0}
 \subsubsection{Diffusion-controlled reactions}
-\label{sec:org411fe4c}
+\label{sec:org19de343}
 \begin{enumerate}
 \item Intermediate complex
 \item Steady-state approximation
