@@ -1,4 +1,4 @@
-% Created 2021-10-04 Mon 00:53
+% Created 2021-10-04 Mon 10:19
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -59,7 +59,7 @@ citecolor=blue,filecolor=blue,menucolor=blue,urlcolor=blue]{hyperref}
 \begin{OPTIONS}
 \end{OPTIONS}
 \section{Lecture 0: Intro to Reaction Engineering}
-\label{sec:org8b5df07}
+\label{sec:org2246e86}
 \begin{enumerate}
 \item Reaction engineering
 \end{enumerate}
@@ -116,7 +116,7 @@ Understanding, modeling, designing, using, controlling, analyzing, improving any
 \end{enumerate}
 
 \section{Lecture 1: Stoichiometry and reactions}
-\label{sec:org9befc62}
+\label{sec:orga559425}
 \begin{enumerate}
 \item Substances
 \item Amounts
@@ -135,7 +135,7 @@ Understanding, modeling, designing, using, controlling, analyzing, improving any
 \end{enumerate}
 \end{enumerate}
 \section{Lecture 2: Chemical thermodynamics and equilibria}
-\label{sec:org096f710}
+\label{sec:orgb5d25fd}
 \begin{enumerate}
 \item Chemical reactions \(\sum_j \nu_j A_j = 0\)
 \item Thermodynamic potential differences
@@ -171,7 +171,7 @@ Understanding, modeling, designing, using, controlling, analyzing, improving any
 \end{enumerate}
 
 \section{Lecture 3: Empirical kinetics}
-\label{sec:orgcae0964}
+\label{sec:org018a727}
 \begin{enumerate}
 \item rates: number per unit time per unit something
 \item reactor mass balance
@@ -243,7 +243,7 @@ plt.savefig('./conc.png')
 \end{center}
 
 \section{Lecture 4: Analyzing reactor data}
-\label{sec:org7bf98b9}
+\label{sec:orge3dba3a}
 \begin{enumerate}
 \item Differential methods
 \begin{enumerate}
@@ -339,9 +339,9 @@ k = 1.450860
 \end{center}
 
 \section{Lecture 5: Molecular chemical kinetics}
-\label{sec:org6beb057}
+\label{sec:orgab9dc76}
 \subsubsection{Reaction mechanisms}
-\label{sec:org1f11c95}
+\label{sec:orgac3d1f0}
 \begin{enumerate}
 \item Elementary steps and molecularity
 \item Ozone decomposition, rate second-order at high \(P_{\ce{O2}}\), first-order at low \(P_{\ce{O2}}\)
@@ -371,7 +371,7 @@ k = 1.450860
 \end{enumerate}
 \end{enumerate}
 \subsubsection{Transition state theory (TST)}
-\label{sec:org29f32ae}
+\label{sec:orgceeb441}
 \begin{enumerate}
 \item Assumptions
 \begin{enumerate}
@@ -394,7 +394,7 @@ k = 1.450860
 \includegraphics[width=0.6\textwidth]{./Images/PES.png}
 \end{center}
 \subsubsection{Locating transition states computationally}
-\label{sec:orgc320b50}
+\label{sec:orga182508}
 \begin{enumerate}
 \item Reactants/products are minima on potential energy surface
 \item Transition state is first order saddle point. Unique point on pathway from reactant to product valley
@@ -407,7 +407,7 @@ k = 1.450860
 \end{center}
 
 \subsubsection{Thermodynamic connection}
-\label{sec:org77d3b3d}
+\label{sec:org9ee3df1}
 \begin{enumerate}
 \item Relate activated complex equilibrium constant to activation free energy (isochoric standard state)
 \[ \(\bar{K}^\ddagger(T) = e^{-\Delta A^{\circ \ddagger}(T)/kT} = e^{-\Delta U^{\circ \ddagger}(T)/k_BT}e^{\Delta S^{\circ \ddagger}(T)/k_B} \]
@@ -431,7 +431,7 @@ Delta Sddagger (1000 K) = -1480 J/mol K
 \end{center}
 
 \subsubsection{Bimolecular reaction}
-\label{sec:org15d6bff}
+\label{sec:orgbac67fa}
 \begin{enumerate}
 \item Diels-Alder example
 \end{enumerate}
@@ -484,7 +484,7 @@ Delta Hdd =  91 kJ/mol    Delta Sdd = -164 J/mol K   Delta Gdd =  172 kJ/mol
 \end{verbatim}
 
 \subsubsection{Correlations across reactions}
-\label{sec:orgbda3545}
+\label{sec:org1b1affc}
 \begin{enumerate}
 \item early vs late transition states
 \item Br\o{}nsted-Evans-Polyani relationship
@@ -495,10 +495,10 @@ Delta Hdd =  91 kJ/mol    Delta Sdd = -164 J/mol K   Delta Gdd =  172 kJ/mol
 \[\Delta H^{\circ\ddagger} \propto \Delta S^{\circ\ddagger}\]
 \end{enumerate}
 \section{Lecture 6: Reaction networks}
-\label{sec:org2c68bbb}
+\label{sec:org880f7a1}
 
 \subsection{Simple and visible}
-\label{sec:orge992b57}
+\label{sec:org1915153}
 \begin{enumerate}
 \item Open vs closed (catalyzed) networks
 \item \ce{A <-> B <-> C} reaction
@@ -612,7 +612,7 @@ k1 = 9.092e-01     k-1 = 5.433e-06         k2 = 9.092e-01      k-2 = 5.433e-06 /
 \includegraphics[width=.9\linewidth]{./Images/ABC-rxn.png}
 \end{center}
 \subsection{Simply and invisible}
-\label{sec:org50cf594}
+\label{sec:org4399ce3}
 \begin{enumerate}
 \item Lindemann-Hinshelwood model for first order reactions
 \item Irreversible steps
@@ -641,12 +641,16 @@ k1 = 9.092e-01     k-1 = 5.433e-06         k2 = 3.720e+02      k-2 = 2.222e-03 /
 
 
 \subsection{Simplifying reaction networks}
-\label{sec:orge2cfdb8}
+\label{sec:org1f2adf1}
 \begin{enumerate}
 \item Simplifications helpful when parameters of full model are unknown or to fit to experimental observations
-\item \ce{2 O3 -> 3 O2} PSSA
+\item Ozone decomposition, \ce{2 O3 -> 3 O2} 
+\[ \ce{O3 <=> O2 + O} \]
+\[ \ce{O + O3 -> 2 O2} \]
 \begin{enumerate}
-\item limiting behaviors
+\item PSSA
+\[ -r_{O3} = \frac{2 k_1 k_2 C^2_{\ce{O3}}}{k_{-1} C_{\ce{O2}} + k_2 C_{\ce{O3}}} \]
+\item Limiting behaviors
 \end{enumerate}
 \item CO chlorination (closed)
 \[ \ce{Cl2 <=>[h\nu] 2 Cl*}\]
@@ -675,13 +679,13 @@ k1 = 9.092e-01     k-1 = 5.433e-06         k2 = 3.720e+02      k-2 = 2.222e-03 /
 \end{enumerate}
 
 \subsection{Complex reaction networks}
-\label{sec:org7bf674b}
+\label{sec:org8197ee5}
 \begin{enumerate}
 \item Ethane pyrolysis redux,  \href{https://pubs.acs.org/doi/10.1021/jp206503d}{doi:10.1021/jp206503d}
 \end{enumerate}
 
 \subsection{Stochastic solutions}
-\label{sec:org9e9b003}
+\label{sec:org599013a}
 
 \begin{minted}[frame=lines,fontsize=\scriptsize,linenos]{python}
 import numpy as np
@@ -772,7 +776,7 @@ plt.savefig('./Images/kMC.png')
 
 
 \section{Heterogeneous reactions}
-\label{sec:org7f89e14}
+\label{sec:org1217c51}
 \begin{enumerate}
 \item adsorption, L-H
 \item TPD
@@ -780,7 +784,7 @@ plt.savefig('./Images/kMC.png')
 \item Sabatier analysis
 \end{enumerate}
 \subsubsection{Heterogeneous reactions and catalysis}
-\label{sec:orgcaa5d04}
+\label{sec:orge7e8ec1}
 \begin{enumerate}
 \item molecule-surface collisions
 \item surface reactions
@@ -788,9 +792,9 @@ plt.savefig('./Images/kMC.png')
 \end{enumerate}
 
 \section{Liquid-phase reactions}
-\label{sec:org2f5ee37}
+\label{sec:org8ba2ad2}
 \subsubsection{Diffusion-controlled reactions}
-\label{sec:orgda20d18}
+\label{sec:org219101c}
 \begin{enumerate}
 \item Intermediate complex
 \item Steady-state approximation

@@ -805,8 +805,12 @@ plt.savefig('./Images/ABC-PSSA.png')
 
 ** Simplifying reaction networks
 1. Simplifications helpful when parameters of full model are unknown or to fit to experimental observations
-2. \ce{2 O3 -> 3 O2} PSSA
-   1. limiting behaviors
+2. Ozone decomposition, \ce{2 O3 -> 3 O2} 
+    \[ \ce{O3 <=> O2 + O} \]
+    \[ \ce{O + O3 -> 2 O2} \]
+   1. PSSA
+     \[ -r_{O3} = \frac{2 k_1 k_2 C^2_{\ce{O3}}}{k_{-1} C_{\ce{O2}} + k_2 C_{\ce{O3}}} \]
+   2. Limiting behaviors
 3. CO chlorination (closed)
    \[ \ce{Cl2 <=>[h\nu] 2 Cl*}\]
    \[ \ce{CO + Cl* <=> COCl*} \]
