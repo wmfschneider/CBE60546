@@ -42,127 +42,86 @@
 \noindent *Carefully and neatly document your answers.  You may use a mathematical solver like Jupyter/iPython. Use plotting software for all plots.*
 
 * Key ideas                                                        :noexport:
-- mechanism and pathways
-- transition state theory
-- compensation or linear correlations
-- mechanism analysis
+- Langmuir isotherm
+- TPD
+- surface reaction
+- Sabatier principle
 
-* It's elementary, really...
-** Which of the following reactions can be assumed to be elementary?  If it is elementary, indicate the molecularity. Briefly justify your answers.
+* Looking only at the surface
+One method of determining the surface area of Pt catalysts is by surface titration with \ce{H2}. \ce{H2} is thought to adsorb dissociatively, one H atom per surface Pt:
 
-|                   <c>                   |
-|     \ce{ O3 (g) -> O2 (g) + O (g) }     |
-|                                         |
-|  \ce{ 2 H2 (g) + O2(g) -> 2 H2O (g) }   |
-|                                         |
-|  \ce{2 NO (g) + O2 (g) -> 2 NO2 (g) }   |
-|                                         |
-|         \ce{H* + I2 -> HI + I*}         |
-|                                         |
-| 2 \ce{Pt(111) + H2 (g) ->  2 Pt(111)-H} |
- 
-\noindent In the last example, \ce{Pt(111)} indicates the surface of a Pt particle.
+  \[ \ce{H2 + 2\ast{} <=> 2 H\ast{}} \]
+** Derive the Langmuir isotherm for dissociative adsorption of \ce{H2}.
 
-* The path less traveled
-Chlorine monoxide, \ce{ClO}, exhibits three different self-reaction channels:
+** The data below were obtained for isothermal \ce{H2} chemisorption on a 3% (w/w) Pt catalyst supported on \gamma-alumina (nominally \ce{Al2O3}). Does the data conform to a dissociative Langmuir adsorption model?
 
-|--------------------------------+---------------------------------------+-----------------------------------|
-| <l>                            |                  <c>                  |                <c>                |
-|                                | $A$ (\si{\liter\per\mole\per\second}) | $E_a$ (\si{\kilo\joule\per\mole}) |
-|--------------------------------+---------------------------------------+-----------------------------------|
-| \ce{ClO* + ClO* -> Cl2 + O2}   |              \SI{6.08e8}              |               13.2                |
-|                                |                                       |                                   |
-| \ce{ClO* + ClO* -> Cl* + ClOO} |             \SI{1.79e10}              |               20.4                |
-|                                |                                       |                                   |
-| \ce{ClO* + ClO* -> Cl* + OClO} |              \SI{2.11e8}              |               11.4                |
-|--------------------------------+---------------------------------------+-----------------------------------|
+|      <c>       |                        <c>                         |
+|----------------+----------------------------------------------------|
+| Pressure (bar) | mass \ce{H2}/catalyst (\si{\micro\gram\per\gram})  |
+|----------------+----------------------------------------------------|
+|     0.0759     |                        1.30                        |
+|     0.152      |                        1.82                        |
+|     0.228      |                        2.30                        |
+|     0.304      |                        2.44                        |
+|     0.378      |                        2.55                        |
+|     1.518      |                        4.51                        |
+|     1.896      |                        4.59                        |
+|     2.276      |                        4.95                        |
+|     2.662      |                        5.21                        |
+|     3.035      |                        5.35                        |
+|     3.408      |                        5.50                        |
+|     3.781      |                        5.65                        |
+|----------------+----------------------------------------------------|
 
+* Langmuir, Hinshelwood, and company
+Bob Davis and students (https://doi.org/10.1006/jcat.1999.2780) studied the reduction of nitrous oxide by carbon monoxide over a ceria-supported Rh catalyst.  Following are rate data obtained at \SI{543}{K}.
 
-** Make Arrhenius plots of the three reactions from 150 to \SI{500}{K}.  Which reaction dominates at low temperature?  At high temperature?
- 
-** Can collision theory account for the variations in rate constants amongst the three reactions?  Why or why not?
+|         <c>          |          <c>          |          <c>           |
+|----------------------+-----------------------+------------------------|
+| $P_{\ce{CO}}$ (torr) | $P_{\ce{N2O}}$ (torr) | TOF (\si{\per\second}) |
+|----------------------+-----------------------+------------------------|
+|         30.4         |          7.6          |         0.005          |
+|         30.4         |         15.2          |         0.0091         |
+|         30.4         |         30.4          |         0.018          |
+|         30.4         |         45.6          |         0.023          |
+|         30.4         |          76           |         0.036          |
+|         7.6          |         30.4          |         0.039          |
+|         15.2         |         30.4          |         0.024          |
+|         45.6         |         30.4          |         0.012          |
+|          76          |         30.4          |         0.0078         |
+|----------------------+-----------------------+------------------------|
 
-** The rate constant for a gas-phase bimolecular reaction can be written within transition state theory (using an isobaric standard state) as shown below. Use the definition of $E_a$ to derive relationships between the Arrhenius parameters and the standard activation enthalpy, $\Delta H^{\circ\ddagger}$ and standard activation entropy, $\Delta S^{\circ\ddagger}$, at \SI{1}{bar} standard state.
+** What is the apparent rate order with respect to \ce{CO}? With respect to \ce{N2O}?
 
-\[ k = \frac{k_B T}{h} \left ( \frac{RT}{P^\circ} \right ) e^{-\Delta G^{\circ(T)\ddagger}/k_B T} \]
+** Following is a candidate mechanism. Derive a Langmuir-Hinshelwood rate expression assuming the first two reactions are quasi-equilibrated and the third reaction is rate-limiting.
 
-** Calculate $\Delta H^{\circ\ddagger}$ and $\Delta S^{\circ\ddagger}$ for each of the three reactions.
+  \[ \ce{N2O + \ast{} <=>[k_1][k_{-1}] N2O^\ast} \]
+  \[ \ce{CO + \ast{} <=>[k_2][k_{-2}] CO^\ast} \]
+  \[ \ce{N2O^\ast{} ->[k_3] N2 + O^\ast} \]
+  \[ \ce{CO^\ast{} + O^\ast{} ->[k_4] CO2 } \]
 
-** Using chemical intuition and the calculated $\Delta S^{\circ\ddagger}$ as guides, draw candidate transition state structures for each of the three reactions.  Include arrows to show motion along the reaction coordinates.
+** Use the observed data and regression to estimate the rate parameters. (/Hint/: Linearize to estimate the rate parameters, and use these as guesses for non-linear regression.)
 
-** Following is some thermodynamic data. Use it to sketch/draw/plot a potential enthalpy surface for the three reactions and a potential free energy surface for the three reactions at \SI{298}{K}.  
+** The reaction rate is observed to be Arrhenius over the temperature range 500 to \SI{550}{K} with apparent activation energy \SI{140}{\kilo\joule\per\mole}. Can you rationalize this result with your model?
 
-| <l>       |               <c>               |                <c>                |
-|-----------+---------------------------------+-----------------------------------|
-|           | $\Delta H_f^\circ(\SI{298}{K})$ |   $\Delta S^\circ(\SI{298}{K})$   |
-|           |   (\si{\kilo\joule\per\mole})   | (\si{\joule\per\mole\per\kelvin}) |
-|-----------+---------------------------------+-----------------------------------|
-| \ce{ClO*} |             101.22              |              226.65               |
-| \ce{OClO} |             104.60              |              257.22               |
-| \ce{ClO2} |              98.0               |              269.32               |
-| \ce{Cl}   |              121.3              |              165.19               |
-| \ce{Cl2}  |                0                |              223.08               |
-| \ce{O2}   |                0                |              205.15               |
-|-----------+---------------------------------+-----------------------------------|
-*** thermo :noexport:
-#+BEGIN_SRC python
-import numpy as np
+* Peak of the volcano
+Ammonia synthesis (\ce{N2 + 3 H2 <=> 2 NH3}) is among the most important heterogeneous catalytic reactions and has been studied extensively. Mehta (https://doi.org/10.1021/acscatal.0c00684) following Grabow write a simple lumped model for the mechanism over a metal catalyst:
 
-class Molecule(object):
-    def __init__(self, name, enthalpy, entropy):
-        self.name = name
-        self.enthalpy = enthalpy
-        self.entropy = entropy
+|                                           |        <c>         |                     <c>                     |
+|-------------------------------------------+--------------------+---------------------------------------------|
+|                                           |     $E_a$ (eV)     | $\Delta S^{\circ\ddagger} = \Delta S^\circ$ |
+|-------------------------------------------+--------------------+---------------------------------------------|
+| $\ce{N2 + 2\ast{} <=> 2 N^\ast{} }$       | $1.57 E_N + 1.56$  |                                             |
+| $\ce{N^\ast{} + 3/2 H2 <=> NH3 + \ast{}}$ | $-0.39 E_N + 1.24$ |                                             |
+|-------------------------------------------+--------------------+---------------------------------------------|
 
-ClO = Molecule("ClO", 101.22, 226.65)
-OClO = Molecule("OClO", 104.60, 257.22)
-ClO2 = Molecule("ClO2", 98.0, 269.32)
-Cl = Molecule("Cl", 121.3, 165.19)
-Cl2 = Molecule("Cl2", 0., 223.08)
-O2 = Molecule("O2", 0., 205.15)
+\noindent The activation energies for both steps are related through a Br\o{}nsted-Evans-Polanyi relationship to the binding energy of N to the metal surface. Determine the rate per site (turnover frequency) at XX conditions from En X to Y.  Typical catalysis Fe and Ru have binding energies X and Y.
+* Temperature programmed desorption
+Temperature-programmed desorption (TPD) is a common way to explore the kinetics of desorption of gases from solid surfaces. Bray et al explored models for the associative desorption of \ce{O2} from a Pt(111) surface, a process that has an activation barrier that depends on the coverage (http://dx.doi.org/10.1016/j.susc.2013.12.005):
 
-reaction1 = np
-#+END_SRC
+   \[ \ce{2 O\ast{} ->[k(\theta)] O2(g) + 2 \ast{}} \]
 
-#+RESULTS:
+\noindent Bray used a desorption prefactor of about \SI{1e14}{\per\second} and found the desorption activation energy to depend approximately linearly on oxygen coverage, from \SI{2.5}{eV} at zero coverage to \SI{2.1}{eV} at \SI{0.3}{ML}.  
 
-* What do I get in compensation?
-Following are some observed data for the dehydrogenation of /iso/-propanol, \ce{CH3CH(OH)CH3 -> CH3C(O)CH3 + H2}, over a series of catalysts:
+** Plot (on one graph) the \ce{O2} desorption rate vs temperature, starting from 0.0.073, 0.093, 0.164, 0.194, and 0.5 ML O and using a temperature ramp rate of \SI{8}{\Kelvin\per\second}. 
 
-|           <c>            |                 <c>                 |
-|--------------------------+-------------------------------------|
-| \(A\) (\si{\per\second}) | \(E_a\) (\si{\kilo\joule\per\mole}) |
-|--------------------------+-------------------------------------|
-|      \SI{4.3e12}{}       |                 172                 |
-|      \SI{2.3e11}{}       |                 159                 |
-|      \SI{2.2e10}{}       |                 146                 |
-|       \SI{1.6e9}{}       |                 134                 |
-|--------------------------+-------------------------------------|
-
-** What can you say about the relationship between \(\Delta S^{\circ\ddagger}\) and \(\Delta Hp^{\circ\ddagger}\)?
-* The radical path
-At high temperature ethylene can be hydrogenated to ethane.  The proposed mechanism has four steps, all of which are presumed to be elementary and essentially irreversible under realistic conditions.
- 
-|                          <c>                          |
-|  \ce{ C2H4 (g)+ H2 (g)  ->[k_1] C2H5* (g) + H* (g) }  |
-|                                                       |
-|      \ce{H* (g) + C2H4 (g) ->[k_2]  C2H5* (g) }       |
-|                                                       |
-| \ce{C2H5* (g) + H2 (g) ->[k_3] C2H6(g) (g) + H* (g) } |
-|                                                       |
-|       \ce{C2H5* (g) + H* (g) ->[k_4] C2H6 (g)}        |
-
-
-** Identify the reactants, products, and intermediates, and state whether the mechanism is open or closed.
- 
-** Why is it reasonable to assume that the first reaction is irreversible (that is, that the forward reaction rate is much greater than the reverse)?  What about the second reaction? 
-
-** Based on the mechanism above, write an expression for the rate of disappearance of ethylene.
- 
-** Apply the quasi-steady-state approximation separately to H atoms and ethyl radicals.  Use the results to derive expressions for the concentrations of each in terms of only reactants and products.
-
-** Combine your answers to  obtain an expression for the rate of disappearance of ethylene that involves only reactants and products.  What is the apparent reaction order with respect to \ce{H2}?  To \ce{C2H4}?  
-
-** What is the apparent rate constant?  Do you expect it to exhibit Arrhenius behavior in general? 
-
-** Ethane dissociation \ce{C2H6 -> 2 CH3} is a key step in the initiation of gas-phase ethane reactions. If the reaction is observed in a diluent, say \ce{N2}, the rate is found to be a function of total pressure and to reach a limiting value at high pressure. Why? Can you propose a simple model for this behavior?

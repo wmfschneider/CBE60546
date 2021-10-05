@@ -1,0 +1,169 @@
+% Created 2021-10-05 Tue 00:25
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage[top=1in, bottom=1.in, left=1in, right=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{marvosym}
+\usepackage{wasysym}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[theorems, skins]{tcolorbox}
+\usepackage[version=3]{mhchem}
+\usepackage[numbers,super,sort&compress]{natbib}
+\usepackage{natmove}
+\usepackage{url}
+\usepackage[cache=false]{minted}
+\usepackage[strings]{underscore}
+\usepackage[linktocpage,pdfstartview=FitH,colorlinks,
+linkcolor=blue,anchorcolor=blue,
+citecolor=blue,filecolor=blue,menucolor=blue,urlcolor=blue]{hyperref}
+\usepackage{attachfile}
+\usepackage{setspace}
+\usepackage[left=1in, right=1in, top=1in, bottom=1in, nohead]{geometry}
+\geometry{margin=1.0in}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\usepackage[labelfont=bf]{caption}
+\usepackage{setspace}
+\setlength{\headheight}{10.2pt}
+\setlength{\headsep}{20pt}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+\lfoot{\today}
+\cfoot{\copyright\ 2021 W.\ F.\ Schneider}
+\rfoot{\thepage}
+\chead{\bf{Advanced Chemical Reaction Engineering (CBE 60546)\vspace{12pt}}}
+\lhead{\bf{Homework 5}}
+\rhead{\bf{Due October 12, 2021}}
+\usepackage{titlesec}
+\titlespacing*{\section}
+{0pt}{0.6\baselineskip}{0.2\baselineskip}
+\title{University of Notre Dame\\Advanced Chemical Engineering Thermodynamics\\(CBE 60553)}
+\author{Prof. William F.\ Schneider}
+\usepackage{siunitx}
+\usepackage[version=3]{mhchem}
+\def\dbar{{\mathchar'26\mkern-12mu d}}
+\setcounter{secnumdepth}{3}
+\author{William F. Schneider}
+\date{\today}
+\title{CBE 60546 Homework}
+\begin{document}
+
+\begin{OPTIONS}
+\end{OPTIONS}
+
+\noindent \textbf{Carefully and neatly document your answers.  You may use a mathematical solver like Jupyter/iPython. Use plotting software for all plots.}
+
+\section{No need to look below the surface}
+\label{sec:org2b2a661}
+One method of determining the surface area of Pt catalysts is by surface titration with \ce{H2}. \ce{H2} is thought to adsorb dissociatively, one H atom per surface Pt:
+
+\[ \ce{H2 + 2\ast{} <=> 2 H\ast{}} \]
+\subsection{Derive the Langmuir isotherm for dissociative adsorption of \ce{H2}.}
+\label{sec:orgb3a7e54}
+
+\subsection{The data below were obtained for isothermal \ce{H2} chemisorption on a 3\% (w/w) Pt catalyst supported on \(\gamma\)-alumina (nominally \ce{Al2O3}). Does the data conform to a dissociative Langmuir adsorption model?}
+\label{sec:orga78d1b7}
+
+\begin{center}
+\begin{tabular}{cc}
+\hline
+Pressure (bar) & mass \ce{H2}/catalyst (\si{\micro\gram\per\gram})\\
+\hline
+0.0759 & 1.30\\
+0.152 & 1.82\\
+0.228 & 2.30\\
+0.304 & 2.44\\
+0.378 & 2.55\\
+1.518 & 4.51\\
+1.896 & 4.59\\
+2.276 & 4.95\\
+2.662 & 5.21\\
+3.035 & 5.35\\
+3.408 & 5.50\\
+3.781 & 5.65\\
+\hline
+\end{tabular}
+\end{center}
+
+\section{Langmuir, Hinshelwood, and company}
+\label{sec:org8df6301}
+Bob Davis and students (\url{https://doi.org/10.1006/jcat.1999.2780}) studied the reduction of nitrous oxide by carbon monoxide over a ceria-supported Rh catalyst.  Following are rate data obtained at \SI{543}{K}.
+
+\begin{center}
+\begin{tabular}{ccc}
+\hline
+\(P_{\ce{CO}}\) (torr) & \(P_{\ce{N2O}}\) (torr) & TOF (\si{\per\second})\\
+\hline
+30.4 & 7.6 & 0.005\\
+30.4 & 15.2 & 0.0091\\
+30.4 & 30.4 & 0.018\\
+30.4 & 45.6 & 0.023\\
+30.4 & 76 & 0.036\\
+7.6 & 30.4 & 0.039\\
+15.2 & 30.4 & 0.024\\
+45.6 & 30.4 & 0.012\\
+76 & 30.4 & 0.0078\\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{What is the apparent rate order with respect to \ce{CO}? With respect to \ce{N2O}?}
+\label{sec:orgede4372}
+
+\subsection{Following is a candidate mechanism. Derive a Langmuir-Hinshelwood rate expression assuming the first two reactions are quasi-equilibrated and the third reaction is rate-limiting.}
+\label{sec:org1a7fc05}
+
+\[ \ce{N2O + \ast{} <=>[k_1][k_{-1}] N2O^\ast} \]
+\[ \ce{CO + \ast{} <=>[k_2][k_{-2}] CO^\ast} \]
+\[ \ce{N2O^\ast{} ->[k_3] N2 + O^\ast} \]
+\[ \ce{CO^\ast{} + O^\ast{} ->[k_4] CO2 } \]
+
+\subsection{Use the observed data and regression to estimate the rate parameters. (\emph{Hint}: Linearize to estimate the rate parameters, and use these as guesses for non-linear regression.)}
+\label{sec:org33ed180}
+
+\subsection{The reaction rate is observed to be Arrhenius over the temperature range 500 to \SI{550}{K} with apparent activation energy \SI{140}{\kilo\joule\per\mole}. Can you rationalize this result with your model?}
+\label{sec:orgdc39ce7}
+
+\section{Peak of the volcano}
+\label{sec:orga0a7d60}
+Ammonia synthesis (\ce{N2 + 3 H2 <=> 2 NH3}) is among the most important heterogeneous catalytic reactions and has been studied extensively. Mehta (\url{https://doi.org/10.1021/acscatal.0c00684}) following Grabow write a simple lumped model for the mechanism over a metal catalyst:
+
+\begin{center}
+\begin{tabular}{lcc}
+\hline
+ & \(E_a\) (eV) & \(\Delta S^{\circ\ddagger} = \Delta S^\circ\)\\
+\hline
+\(\ce{N2 + 2\ast{} <=> 2 N^\ast{} }\) & \(1.57 E_N + 1.56\) & \\
+\(\ce{N^\ast{} + 3/2 H2 <=> NH3 + \ast{}}\) & \(-0.39 E_N + 1.24\) & \\
+\hline
+\end{tabular}
+\end{center}
+
+\noindent The activation energies for both steps are related through a Br\o{}nsted-Evans-Polanyi relationship to the binding energy of N to the metal surface. Determine the rate per site (turnover frequency) at XX conditions from En X to Y.  Typical catalysis Fe and Ru have binding energies X and Y.
+\section{Temperature programmed desorption}
+\label{sec:org63eb7fa}
+Temperature-programmed desorption (TPD) is a common way to explore the kinetics of desorption of gases from solid surfaces. Bray et al explored models for the associative desorption of \ce{O2} from a Pt(111) surface, a process that has an activation barrier that depends on the coverage (\url{http://dx.doi.org/10.1016/j.susc.2013.12.005}):
+
+\[ \ce{2 O\ast{} ->[k(\theta)] O2(g) + 2 \ast{}} \]
+
+\noindent Bray used a desorption prefactor of about \SI{1e14}{\per\second} and found the desorption activation energy to depend approximately linearly on oxygen coverage, from \SI{2.5}{eV} at zero coverage to \SI{2.1}{eV} at \SI{0.3}{ML}.  
+
+\subsection{Plot (on one graph) the \ce{O2} desorption rate vs temperature, starting from 0.0.073, 0.093, 0.164, 0.194, and 0.5 ML O and using a temperature ramp rate of \SI{8}{\Kelvin\per\second}.}
+\label{sec:org4fa5881}
+\end{document}
