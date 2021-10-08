@@ -115,12 +115,27 @@ Bob Davis and students (https://doi.org/10.1006/jcat.1999.2780) studied the redu
 * Peak performance
 Ammonia synthesis (\ce{N2 + 3 H2 <=> 2 NH3}) is among the most important heterogeneous catalytic reactions and has been studied extensively. Mehta (https://doi.org/10.1021/acscatal.0c00684) following Grabow write a simple lumped model for the mechanism over a metal catalyst:
 
-|                                           |        <c>         |                     <c>                     |
-|-------------------------------------------+--------------------+---------------------------------------------|
-|                                           |     $E_a$ (eV)     | $\Delta S^{\circ\ddagger} = \Delta S^\circ$ |
-|-------------------------------------------+--------------------+---------------------------------------------|
-| $\ce{N2 + 2\ast{} <=> 2 N^\ast{} }$       | $1.57 E_N + 1.56$  |                                             |
-| $\ce{N^\ast{} + 3/2 H2 <=> NH3 + \ast{}}$ | $-0.39 E_N + 1.24$ |                                             |
-|-------------------------------------------+--------------------+---------------------------------------------|
+|                                           |        <c>         |             <c>             |     <c>     |       <c>        |
+|-------------------------------------------+--------------------+-----------------------------+-------------+------------------|
+|                                           |       $E_a$        | $\Delta S^{\circ\ddagger}$  | $\Delta E$  | $\Delta S^\circ$ |
+|                                           |        (eV)        |          (J/mol K)          |   (eV)      |    (J/mol K)     |
+|-------------------------------------------+--------------------+-----------------------------+-------------+------------------|
+| $\ce{N2 + 2\ast{} <=> 2 N^\ast{} }$       | $1.57 E_N + 1.56$  |          $-216.9$           |   $2 E_N$   |     $-216.9$     |
+| $\ce{N^\ast{} + 3/2 H2 <=> NH3 + \ast{}}$ | $-0.39 E_N + 1.24$ |           $-5.6$            | $-0.55-E_N$ |      $-5.6$      |
+|-------------------------------------------+--------------------+-----------------------------+-------------+------------------|
 
-\noindent The activation energies for both steps are related through a Br\o{}nsted-Evans-Polanyi relationship to the binding energy of N, $E_N$. Determine and plot the log rate per site (turnover frequency) at \SI{673}{K}, \SI{100}{bar}, and a stoichiometric mixture of \ce{N2} and \ce{H2} at 1% conversion, as a function of $E_N$ from $-1.3$ to $0$ eV.  Typical catalysis Fe and Ru have binding energies $-1.2$  and $-0.5$ eV.  Can you see why these are useful catalysts?
+\noindent The activation energies for both steps are related through a Br\o{}nsted-Evans-Polanyi relationship to the binding energy of N, $E_N$. Those relationships are shown above, alone with some entropy data at \SI{1}{bar} standard state. Note $k_B = \SI{8.6173e-5}{eV/K}$.
+
+** Determine and plot the log rate per site (turnover frequency) at \SI{700}{K}, \SI{100}{bar}, and a stoichiometric mixture of \ce{N2} and \ce{H2} at 1% conversion, as a function of $E_N$ from $-1.3$ to $0$ eV.  (/Hint/: First apply quasi-steady-state approximation to $\theta_N$, then back solve for rate.)
+
+** Typical catalysis Fe and Ru have binding energies $-1.2$  and $-0.5$ eV.  Can you see why these are useful catalysts?
+
+
+** Thermo :noexport:
+700K
+
+| NH3 | 227.8 | -52.6 |
+| N2  | 216.9 |     0 |
+| H2  | 155.6 |     0 |
+
+

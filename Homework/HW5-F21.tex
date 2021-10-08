@@ -1,4 +1,4 @@
-% Created 2021-10-05 Tue 00:49
+% Created 2021-10-08 Fri 08:00
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -70,15 +70,15 @@ citecolor=blue,filecolor=blue,menucolor=blue,urlcolor=blue]{hyperref}
 \noindent \textbf{Carefully and neatly document your answers.  You may use a mathematical solver like Jupyter/iPython. Use plotting software for all plots.}
 
 \section{Looking only at the surface}
-\label{sec:org2fc3401}
+\label{sec:orge08a2d4}
 One method of determining the surface area of Pt catalysts is by surface titration with \ce{H2}. \ce{H2} is thought to adsorb dissociatively, one H atom per surface Pt:
 
 \[ \ce{H2 + 2\ast{} <=> 2 H\ast{}} \]
 \subsection{Derive the Langmuir isotherm for dissociative adsorption of \ce{H2}.}
-\label{sec:orgcba4646}
+\label{sec:org64ab603}
 
 \subsection{The data below were obtained for isothermal \ce{H2} chemisorption on a 3\% (w/w) Pt catalyst supported on \(\gamma\)-alumina (nominally \ce{Al2O3}). Does the data conform to a dissociative Langmuir adsorption model?}
-\label{sec:orgad7b758}
+\label{sec:org15f54ca}
 
 \begin{center}
 \begin{tabular}{cc}
@@ -102,7 +102,7 @@ Pressure (bar) & mass \ce{H2}/catalyst (\si{\micro\gram\per\gram})\\
 \end{center}
 
 \section{Too hot to stick}
-\label{sec:orgd17aa4e}
+\label{sec:orge99cf82}
 Temperature-programmed desorption (TPD) is a common way to explore the kinetics of desorption of gases from solid surfaces. Bray et al explored models for the associative desorption of \ce{O2} from a Pt(111) surface, a process that has an activation barrier that depends on the coverage (\url{http://dx.doi.org/10.1016/j.susc.2013.12.005}):
 
 \[ \ce{2 O\ast{} ->[k(\theta)] O2(g) + 2 \ast{}} \]
@@ -110,9 +110,9 @@ Temperature-programmed desorption (TPD) is a common way to explore the kinetics 
 \noindent Bray used a desorption prefactor of about \SI{1e14}{\per\second} and found the desorption activation energy to depend approximately linearly on oxygen coverage, from \SI{2.5}{eV} at zero coverage to \SI{2.1}{eV} at \SI{0.3}{ML}.  
 
 \subsection{Plot (on one graph) the \ce{O2} desorption rate vs temperature, starting from 0.0.073, 0.093, 0.164, 0.194, and 0.5 ML O and using a temperature ramp rate of \SI{8}{\Kelvin\per\second}.}
-\label{sec:orgd57fc9a}
+\label{sec:orga4621a2}
 \section{Langmuir, Hinshelwood, and company}
-\label{sec:orga07b51c}
+\label{sec:org46299a4}
 Bob Davis and students (\url{https://doi.org/10.1006/jcat.1999.2780}) studied the reduction of nitrous oxide by carbon monoxide over a ceria-supported Rh catalyst.  Following are rate data obtained at \SI{543}{K}.
 
 \begin{center}
@@ -134,10 +134,10 @@ Bob Davis and students (\url{https://doi.org/10.1006/jcat.1999.2780}) studied th
 \end{center}
 
 \subsection{What is the apparent rate order with respect to \ce{CO}? With respect to \ce{N2O}?}
-\label{sec:org78fbcf7}
+\label{sec:org3eb3206}
 
 \subsection{Following is a candidate mechanism. Derive a Langmuir-Hinshelwood rate expression assuming the first two reactions are quasi-equilibrated and the third reaction is rate-limiting.}
-\label{sec:orgb6c4a85}
+\label{sec:org6390e40}
 
 \[ \ce{N2O + \ast{} <=>[k_1][k_{-1}] N2O^\ast} \]
 \[ \ce{CO + \ast{} <=>[k_2][k_{-2}] CO^\ast} \]
@@ -145,25 +145,32 @@ Bob Davis and students (\url{https://doi.org/10.1006/jcat.1999.2780}) studied th
 \[ \ce{CO^\ast{} + O^\ast{} ->[k_4] CO2 } \]
 
 \subsection{Use the observed data and regression to estimate the rate parameters. (\emph{Hint}: Linearize to estimate the rate parameters, and use these as guesses for non-linear regression.)}
-\label{sec:org2c8d555}
+\label{sec:org908bd96}
 
 \subsection{The reaction rate is observed to be Arrhenius over the temperature range 500 to \SI{550}{K} with apparent activation energy \SI{140}{\kilo\joule\per\mole}. Can you rationalize this result with your model?}
-\label{sec:orgff6326a}
+\label{sec:org34b1949}
 
 \section{Peak performance}
-\label{sec:org59624aa}
+\label{sec:orgfcd5369}
 Ammonia synthesis (\ce{N2 + 3 H2 <=> 2 NH3}) is among the most important heterogeneous catalytic reactions and has been studied extensively. Mehta (\url{https://doi.org/10.1021/acscatal.0c00684}) following Grabow write a simple lumped model for the mechanism over a metal catalyst:
 
 \begin{center}
-\begin{tabular}{lcc}
+\begin{tabular}{lcccc}
 \hline
- & \(E_a\) (eV) & \(\Delta S^{\circ\ddagger} = \Delta S^\circ\)\\
+ & \(E_a\) & \(\Delta S^{\circ\ddagger}\) & \(\Delta E\) & \(\Delta S^\circ\)\\
+ & (eV) & (J/mol K) & (eV) & (J/mol K)\\
 \hline
-\(\ce{N2 + 2\ast{} <=> 2 N^\ast{} }\) & \(1.57 E_N + 1.56\) & \\
-\(\ce{N^\ast{} + 3/2 H2 <=> NH3 + \ast{}}\) & \(-0.39 E_N + 1.24\) & \\
+\(\ce{N2 + 2\ast{} <=> 2 N^\ast{} }\) & \(1.57 E_N + 1.56\) & \(-216.9\) & \(2 E_N\) & \(-216.9\)\\
+\(\ce{N^\ast{} + 3/2 H2 <=> NH3 + \ast{}}\) & \(-0.39 E_N + 1.24\) & \(-5.6\) & \(-0.55-E_N\) & \(-5.6\)\\
 \hline
 \end{tabular}
 \end{center}
 
-\noindent The activation energies for both steps are related through a Br\o{}nsted-Evans-Polanyi relationship to the binding energy of N, \(E_N\). Determine and plot the log rate per site (turnover frequency) at \SI{673}{K}, \SI{100}{bar}, and a stoichiometric mixture of \ce{N2} and \ce{H2} at 1\% conversion, as a function of \(E_N\) from \(-1.3\) to \(0\) eV.  Typical catalysis Fe and Ru have binding energies \(-1.2\)  and \(-0.5\) eV.  Can you see why these are useful catalysts?
+\noindent The activation energies for both steps are related through a Br\o{}nsted-Evans-Polanyi relationship to the binding energy of N, \(E_N\). Those relationships are shown above, alone with some entropy data at \SI{1}{bar} standard state. Note \(k_B = \SI{8.6173e-5}{eV/K}\).
+
+\subsection{Determine and plot the log rate per site (turnover frequency) at \SI{700}{K}, \SI{100}{bar}, and a stoichiometric mixture of \ce{N2} and \ce{H2} at 1\% conversion, as a function of \(E_N\) from \(-1.3\) to \(0\) eV.  (\emph{Hint}: First apply quasi-steady-state approximation to \(\theta_N\), then back solve for rate.)}
+\label{sec:org253125e}
+
+\subsection{Typical catalysis Fe and Ru have binding energies \(-1.2\)  and \(-0.5\) eV.  Can you see why these are useful catalysts?}
+\label{sec:org6a630e4}
 \end{document}
