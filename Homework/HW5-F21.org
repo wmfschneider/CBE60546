@@ -80,7 +80,7 @@ Temperature-programmed desorption (TPD) is a common way to explore the kinetics 
 
 \noindent Bray used a desorption prefactor of about \SI{1e14}{\per\second} and found the desorption activation energy to depend approximately linearly on oxygen coverage, from \SI{2.5}{eV} at zero coverage to \SI{2.1}{eV} at \SI{0.3}{ML}.  
 
-** Plot (on one graph) the \ce{O2} desorption rate vs temperature, starting from 0.0.073, 0.093, 0.164, 0.194, and 0.5 ML O and using a temperature ramp rate of \SI{8}{\Kelvin\per\second}. 
+** Plot (on one graph) the \ce{O2} desorption rate vs temperature, starting from 0.0073, 0.093, 0.164, 0.194, and 0.5 ML O and using a temperature ramp rate of \SI{8}{\kelvin\per\second}. 
 * Langmuir, Hinshelwood, and company
 Bob Davis and students (https://doi.org/10.1006/jcat.1999.2780) studied the reduction of nitrous oxide by carbon monoxide over a ceria-supported Rh catalyst.  Following are rate data obtained at \SI{543}{K}.
 
