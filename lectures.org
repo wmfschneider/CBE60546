@@ -1,15 +1,19 @@
 * Lecture notes and other resources
 Reference book: [[https://authors.library.caltech.edu/25070/][Davis and Davis, Fundamentals of Reaction Engineering]].
 
-|-----------+----------------------+-------|
-| Lecture 0 | Introduction         | [[./Lectures/0-Intro.pdf][notes]] |
-|           |                      |       |
-| Lecture 1 | Stoichiometry        | [[./Lectures/1-Stoichiometry.pdf][notes]] |
-|           |                      |       |
-| Lecture 2 | Thermodynamics       | [[./Lectures/2-Thermodynamics.pdf][notes]] |
-|           |                      |       |
-| Lecture 3 | Elements of Kinetics | [['./Lectures/3-Essential Kinetics.pdf'][notes]] |
-|           |                      |       |
-| Lecture 4 | Reaction rate theory | [[./Lectures/4-Reaction Rate Theory.pdf][notes]] |
-|           |                      |       |
-| Lecture 5 | Reaction networks    | [[./Lectures/5-Mechanisms.pdf][notes]] |
+|-----------+-------------------------+--------------|
+| Lecture 0 | Introduction            | [[./Lectures/0-Intro.pdf][notes]]        |
+|           |                         |              |
+| Lecture 1 | Stoichiometry           | [[./Lectures/1-Stoichiometry.pdf][notes]]        |
+|           |                         |              |
+| Lecture 2 | Thermodynamics          | [[./Lectures/2-Thermodynamics.pdf][notes]]        |
+|           |                         |              |
+| Lecture 3 | Elements of Kinetics    | [['./Lectures/3-Essential Kinetics.pdf'][notes]]        |
+|           |                         |              |
+| Lecture 4 | Reaction rate theory    | [[./Lectures/4-Reaction Rate Theory.pdf][notes]]        |
+|           |                         |              |
+| Lecture 5 | Reaction networks       | [[./Lectures/5-Mechanisms.pdf][notes]]        |
+|           |                         |              |
+| Lecture 6 | Heterogeneous Catalysis | [[./Lectures/6-Heterogeneous Catalysis.pdf][notes]]        |
+|           |                         | [[./Lectures/6-Catalysis-presentation.pdf][presentation]] |
+
