@@ -11,6 +11,6 @@
 |   |             |                                                                      |             |
 | 4 | 1 Oct 2021  | [[./Homework/HW4-Fa17.pdf][pdf]]   [[./Homework/HW4-F21.org][org]]   [[https://colab.research.google.com/github/wmfschneider/CBE60546/blob/master/Homework/HW4-F21.ipynb][https://colab.research.google.com/assets/colab-badge.svg]] | [[./Homework/HW4-Fa21-soln.pdf][pdf]]  [[./Homework/HW4-F21-soln.ipynb][ipynb]]  |
 |   |             |                                                                      |             |
-| 5 | 12 Oct 2021 | [[./Homework/HW5-Fa21.pdf][pdf]]   [[./HW5-F21.org][org]]                                                            | [[./Homework/HW5-Fa17-soln.pdf][pdf]]         |
+| 5 | 12 Oct 2021 | [[./Homework/HW5-Fa21.pdf][pdf]]   [[./HW5-F21.org][org]]   [[https://colab.research.google.com/github/wmfschneider/CBE60546/blob/master/Homework/HW5-F21.ipynb][https://colab.research.google.com/assets/colab-badge.svg]] | [[./Homework/HW5-Fa17-soln.pdf][pdf]]         |
 |   |             |                                                                      |             |
 
