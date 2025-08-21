@@ -23,6 +23,6 @@ More varsity Python tutorial focused on plotting and curve fitting. Great for ex
 Git cheat sheet [here](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf)
 
 ## Office hours
-James Carpenter, T 11-12, 366 Nieuwland
-Bo Wei Cynthia Chen, M 1-2, 303 McCourtney
+Henry Lee,
+Bill Schneider, T 3-4, 370 Nieuwland
 
