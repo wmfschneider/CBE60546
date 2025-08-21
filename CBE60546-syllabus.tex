@@ -1,10 +1,10 @@
-% Created 2021-09-06 Mon 12:58
+% Created 2025-08-21 Thu 17:10
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage{lmodern}
 \usepackage[T1]{fontenc}
-\usepackage[top=1in, bottom=1.in, left=1in, right=1in]{geometry}
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
 \usepackage{graphicx}
 \usepackage{longtable}
 \usepackage{float}
@@ -65,46 +65,36 @@ citecolor=blue,filecolor=blue,menucolor=blue,urlcolor=blue]{hyperref}
 \end{OPTIONS}
 
 \begin{center}
-\textsc{\Large Advanced Chemical Reaction Engineering (CBE 60546)}\\University of Notre Dame, Fall 2021
+\textsc{\Large Advanced Chemical Reaction Engineering (CBE 60546)}\\University of Notre Dame, Fall 2025
+Prof.\ Bill Schneider (\email{wschneider@nd.edu})
 \end{center}
 \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}l r}
 \hline
-Prof.\ Mark McCready (\email{mjm@nd.edu})   & Classroom: 118 DBRT\\
-Prof.\ Bill Schneider (\email{wschneider@nd.edu}) & Lecture MWF 10:30-11:20\\
+283 Galvin Hall & Lecture MW 8:35-9:50 am\\
 \hline
 \end{tabular*}
-
 \section{Reactions and Reactors}
-\label{sec:org93384a1}
+\label{sec:orgd86bf55}
 Chemical reaction engineering is ``par excellence the domain of the chemical engineer'' (R. Aris)---the analysis and design of chemical reactors (big and small) to economically produce useful products.  The utility of the concepts, though, go well beyond the Haber-Bosch reactors that launched the field or the fluidized catalytic crackers responsible for the wide availability of inexpensive and high quality gasoline.  Reaction engineering ties together virtually all elements of Chemical Engineering, from thermodynamics and chemical kinetics to mass and energy balances to mass and heat transfer.  
 
-We will approach this from a bottom up perspective, starting from the most basic concepts of chemical reactions, reaction thermodynamics, and chemical kinetics, to the development and application of mass and energy balances for simple to more complicated reactors. 
+We will approach this from a bottom up perspective, starting from the most basic concepts of chemical reactions, reaction thermodynamics, chemical kinetics, and catalysis, to the development and application of mass and energy balances for simple to more complicated reactors. 
 
-We strongly encourage you to keep up with the material and homework, to use the resources available and to find your own resources, and to bring up questions in class. Don’t be bashful: if you don’t understand something, chances are that many of your classmates (and quite possibly your instructor!) don’t either.
-
+I strongly encourage you to keep up with the material and homework, to use the resources available and to find your own resources, and to bring up questions in class. Don’t be bashful: if you don’t understand something, chances are that many of your classmates (and quite possibly your instructor!) don’t either.
 \section{Text}
-\label{sec:orge603ed0}
-\subsection{Primary}
-\label{sec:org94754ff}
+\label{sec:orge9b432f}
+There are many good reaction engineering texts. We won't use or follow any one in particular. Some that I find useful include: 
+
 \begin{itemize}
 \item Hill and Root, \emph{Introduction to Chemical Engineering Kinetcs \& Reactor Design}, 2nd edition, Wiley 2014
-\end{itemize}
-\subsection{Supplementary}
-\label{sec:org4d6c5f6}
-\begin{itemize}
 \item Davis and Davis, \emph{Fundamentals of Chemical Reaction Engineering}, McGraw-Hill. Available online \href{https://authors.library.caltech.edu/25070/}{here}.
+\item Rawlings and Ekerdt, \emph{Chemical Reactor Analysis and Design Fundamentals}, 2nd edition, Nob Hill. Useful information \href{https://sites.engineering.ucsb.edu/\~jbraw/chemreacfun/}{here}.
+\item Schmidt, \emph{The Engineering of Chemical Reactions}, 2nd edition, Oxford 2005. Available online \href{https://app.knovel.com/kn/resources/kpECRE0001/toc}{here}.
 \end{itemize}
-
-\section{Web}
-\label{sec:org1b8b4b7}
-This syllabus, reading assignment, the homework assignments and solutions, a course outline, and supplementary materials are available on the web at \url{https://github.com/wmfschneider/CBE60546}.
-
 \section{Format}
-\label{sec:orge86b09f}
-The topics will be presented in a series of self-contained lectures as outlined on the website. Lecture notes for each lecture will be posted on-line. Attendance is expected, and you should be prepared to ask and answer questions.
-
-\section{Topics}
-\label{sec:org2339794}
+\label{sec:orgb104ccf}
+The topics will be presented in a series of self-contained lectures as outlined on the website. Lecture notes for each lecture will be posted on-line. Attendance is expected, and you should be prepared to ask and answer questions. \textbf{All electronic devices will be turned off and put away during lecture.}
+\subsection{Brief Outline of Course Topics (aspirational!)}
+\label{sec:org3c63e3e}
 \begin{enumerate}
 \item Stoichiometry
 \item Chemical Thermodynamics and Equilibria
@@ -112,109 +102,110 @@ The topics will be presented in a series of self-contained lectures as outlined 
 \item Molecular Basis of Chemical Kinetics
 \item Mechanisms of Chemical Reactions
 \item Heterogeneous Reactions and Catalysis
-\item Liquid Phase Reactions
+\item Liquid Phase Reactions-maybe
 \item Ideal Reactor Design
 \item Reactor Optimization
 \item Non-isothermal Reactors
-\item Non-ideal Flow
-\item Catalytic Reactor Design
+\item Non-ideal flow
+\item Catalytic reactor design
 \item Bioreactors
 \end{enumerate}
+\section{Online Resources}
+\label{sec:orgb748ad3}
+This syllabus, the homework assignments and solutions, and written lecture notes are available on the web at \url{https://github.com/wmfschneider/CBE60546}.  If you want to get your own copy of all this material and understand a bit about how git works, see \url{http://rogerdudler.github.io/git-guide/}.  Or just download files directly from the git site. The source files are written using Org Mode (\url{https://orgmode.org/}), but you can read them using a regular text editor if you want to see under the hood.
 
+A course calendar is available on Google at \href{https://calendar.google.com/calendar/b/1?cid=NWJwN2pmMjI5bTdoYmFvM2R0cXM2NjYzOThAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ}{WFS Courses}.
 \section{Homework}
-\label{sec:org442a260}
-Ten problem sets will be distributed during the semester and will be due at the beginning of class on dates to be announced. The problem sets will be designed to reinforce your knowledge and ability to apply the course material.  \textbf{Assignments turned in late will automatically lose 20\%, and those turned in after the solutions are posted will not be accepted.}  Your lowest two score on homework will be dropped.  You may discuss the homework with your classmates, but \textbf{what you turn in must be your own work.}
+\label{sec:org1335114}
+Ten problem sets will be distributed during the semester and will be due at the beginning of class on dates to be announced. The problem sets will be designed to reinforce your knowledge and ability to apply the course material.  \textbf{Assignments turned in late will automatically lose 20\%, and those turned in after the solutions are posted will not be accepted.}  Your lowest two scores on homework will be dropped.  You may discuss the homework with your classmates, but \textbf{what you turn in must be your own work.} You will turn in your homework on \href{https://www.gradescope.com/courses/933965}{Gradescope}.
+\subsection{Jupyter/Python}
+\label{sec:orgace344b}
+Homework will be distributed as \href{https://jupyter.org/}{Jupyter notebooks} (\url{https://jupyter.org}), an open source computing notebook environment that works within a web browser. Jupyter allows one to do among other things, create and execute \href{https://www.python.org/}{Python} (\url{https:/www.python.org}) programs, which are similar in syntax to Matlab. The easiest way to work within a notebook is through Google's \href{https://colab.research.google.com/notebooks/welcome.ipynb}{Colaboratory} (\url{https://colab.research.google.com/notebooks/welcome.ipynb}), a web-based platform, integrated with your Google drive, that allows you to create and execute notebooks without installing anything on your computer. Alternatively, you can download Jupyter and Python as one distribution, at \url{http://anaconda.com/download}. 
 
-Homework will in general require some computations. You may write out solutions by hand or you may use Python or Mathematica notebooks. In any case, the solution of each problem must begin with a complete description of the problem, and the solution must be structured for ease of interpretation by the instructor and TAs.
-
+You are not required to write solutions within a notebook. Clear, hand-written solutions are acceptable and may even teach you the material more effectively.
+\subsection{Good practices}
+\label{sec:orgb8e0958}
+\textbf{Always} start solutions on a piece of paper. If the solution requires some python code, first write down pseudocode before creating in a notebook. 
+\section{Homework Defense}
+\label{sec:org3e41d9e}
+To help me get to know you and how you are doing with the course, after each homework assignment two of you will be chosen at random to meet with me to discuss your homework. Defenses will be in my office during office hours.
 \section{Grading}
-\label{sec:orgd43c401}
-Grades will be based on the homework (30\%), two in-class exams (20\%), and two out-of-class exams  (50\%).
-
+\label{sec:org763f292}
+Grades will be based on the homework (40\%) and three exams (60\%).
 \section{Academic honesty}
-\label{sec:orgd93545f}
-Should go without saying. Any cheating or misrepresenting of work as your own will be dealt with according to the Honor Code policies of the University. WE reserve the right to relocate any students during an examination at my discretion.
+\label{sec:org1b335fc}
+Should go without saying. This class follows the binding Code of Honor at Notre Dame.  Any cheating or misrepresenting of work as your own will be dealt with according to the policies of the University.  See \url{https://honorcode.nd.edu/}.
 
-\section{Professional courtesy}
-\label{sec:org4a0a02a}
-As a courtesy to the instructor and your classmates, please refrain from
-texting, web browsing, tweeting, updating, or using your phone or laptop for any
-purpose during class time.  If you must use an electronic device, excuse
-yourself from class.
-
+Within that policy, you are welcome and even encouraged to take advantage of modern online resources, including generative large language models like \href{https://chatgpt.comm}{ChatGPT} or \href{https://gemini.google.com/app}{Gemini}, to find information or generate code. Document your usage of these or any resources in whatever you turn in, be aware that they are fallible, and be prepared to take responsibility for and defend whatever you turn in as your work. Further, you will work with paper and pencil on exams.
 \section{Teaching Assistants and Office Hours}
-\label{sec:org6be3cf2}
+\label{sec:orgfb771c3}
 
 \begin{center}
 \begin{tabular}{llll}
-Bo Wei Cynthia Chen & \href{mailto:bchen8@nd.edu}{bchen8@nd.edu} & M 1-2 & 303 McCourtney\\
-James Carpenter & \href{mailto:jcarpen3@nd.edu}{jcarpen3@nd.edu} & T 11-12 & 366 Nieuwland\\
-Mark McCready & \href{mailto:mjm@nd.edu}{mjm@nd.edu} &  & \\
-Bill Schneider & \href{mailto:wschneider@nd.edu}{wschneider@nd.edu} & Th 4-5 & \href{https://www.google.com/url?q=https://notredame.zoom.us/j/94668744704?pwd\%3DbXF2Q1RuSTZOamYxc2RpZUNSM1BKUT09\&sa=D\&source=calendar\&ust=1629999731737672\&usg=AOvVaw3KPyMONj9lQaVPwtRlCPVG}{Zoom}\\
+Henry Lee & \href{mailto:slee75@nd.edu}{slee75@nd.edu} & M 1-2 & NSH\\
+Bill Schneider & \href{mailto:wschneider@nd.edu}{wschneider@nd.edu} & T 3-4 & 370 NSH\\
 \end{tabular}
 \end{center}
-
 \section{Health and Well-Being}
-\label{sec:org2ddfca0}
-Resources for students experiencing stress or difficulty coping are available at \url{http://care.nd.edu}. COVID has certainly added to everyone's stress level in one way or another. Information regarding University policies is available at \url{http://covid.nd.edu}.  Please feel free to raise any questions or concerns with the instructors.
-
+\label{sec:org1a8dafd}
+Resources for students experiencing stress or difficulty coping are available at \url{http://care.nd.edu}. 
 \section{Course calendar}
-\label{sec:orgfe251df}
+\label{sec:orgcac3221}
 \begin{table}[htbp]
 \caption{Tentative Course Calendar}
 \centering
-\begin{tabular}{lll}
+\begin{tabular}{ll}
 \hline
-8/23 & 8/25 & 8/27\\
-Welcome! & \textbf{Python notebooks} & \\
+8/25 & 8/27\\
+Welcome! & \textbf{Python notebooks}\\
 \hline
-8/30 & 9/1 & 9/3\\
- & \textbf{HW 1} & \\
+9/1 & 9/3\\
+ & \textbf{HW 1}\\
 \hline
-9/6 & 9/8 & 9/10\\
- & \textbf{HW 2} & \\
+9/8 & 9/10\\
+ & \textbf{HW 2}\\
 \hline
-9/13 & 9/15 & 9/17\\
- & \textbf{HW 3} & \textbf{Exam 1}\\
+9/15 & 9/17\\
+ & \textbf{HW 3}\\
 \hline
-9/20 & 9/22 & 9/24\\
- &  & \textbf{Grad Symp}\\
+9/22 & 9/24\\
+\textbf{Exam 1} & \\
 \hline
-9/27 & 9/29 & 10/1\\
- & \textbf{HW 4} & \\
+9/29 & 10/1\\
+ & \textbf{HW 4}\\
 \hline
-10/4 & 10/6 & 10/8\\
- & \textbf{HW 5} & \\
+10/6 & 10/8\\
+ & \textbf{HW 5}\\
 \hline
-10/11 & 10/13 & 10/15\\
-\textbf{Exam 2} &  & \\
+10/13 & 10/15\\
+ & \textbf{HW 6}\\
 \hline
-10/18 & 10/20 & 10/22\\
-\textbf{BREAK} & \textbf{BREAK} & \textbf{BREAK}\\
+10/20 & 10/22\\
+\textbf{BREAK} & \textbf{BREAK}\\
 \hline
-10/25 & 10/27 & 10/29\\
- & \textbf{HW 6} & \\
+10/27 & 10/29\\
+ & \textbf{HW 7}\\
 \hline
-11/1 & 11/3 & 11/5\\
- & \textbf{HW 7} & \\
+11/3 & 11/5\\
+\textbf{Exam 2} & \\
 \hline
-11/8 & 11/10 & 11/12\\
- & \textbf{HW 8} & \textbf{Exam 3}\\
+11/10 & 11/12\\
+ & \textbf{HW 8}\\
 \hline
-11/15 & 11/17 & 11/19\\
- &  & \\
+11/17 & 11/19\\
+ & \\
 \hline
-11/22 & 11/24 & 11/26\\
-\textbf{HW 9} & \textbf{Thanksgiving} & \textbf{Thanksgiving}\\
+11/24 & 11/26\\
+\textbf{HW 9} & \textbf{Thanksgiving}\\
 \hline
-11/29 & 12/1 & 12/3\\
- &  & \\
+12/1 & 12/3\\
+ & \textbf{HW 10}\\
 \hline
-12/6 & 12/8 & 12/10\\
-\textbf{HW 10} & \textbf{Last class} & \textbf{Study day}\\
+12/8 & 12/10\\
+ & \textbf{HW 11}\\
 \hline
-12/13 & 12/15 & \\
- & \textbf{Final Exam} & \\
+12/15 & 12/15\\
+ & \textbf{Final Exam}\\
 \hline
 \end{tabular}
 \end{table}
