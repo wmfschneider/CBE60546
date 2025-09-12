@@ -1,0 +1,1169 @@
+#+BEGIN_OPTIONS
+#+AUTHOR: William F. Schneider
+#+TITLE: CBE 60546 Outline
+#+EMAIL: wschneider@nd.edu
+#+LATEX_CLASS_OPTIONS: [11pt]
+#+LATEX_HEADER:\usepackage{geometry}
+#+LATEX_HEADER:\geometry{margin=1.0in}
+#+LATEX_HEADER:\usepackage{outline}
+#+LATEX_HEADER:\usepackage{amsmath}
+#+LATEX_HEADER:\usepackage{graphicx}
+#+LATEX_HEADER:\usepackage{epstopdf}
+#+LATEX_HEADER:\usepackage{fancyhdr}
+#+LATEX_HEADER:\usepackage{hyperref}
+#+LATEX_HEADER:\usepackage{siunitx}
+#+LATEX_HEADER:\usepackage[labelfont=bf]{caption}
+#+LATEX_HEADER:\setlength{\headheight}{15.2pt}
+#+LATEX_HEADER:\def\dbar{{\mathchar'26\mkern-12mu d}}
+#+LATEX_HEADER:\pagestyle{fancy}
+#+LATEX_HEADER:\fancyhf{}
+#+LATEX_HEADER:\renewcommand{\headrulewidth}{0.5pt}
+#+LATEX_HEADER:\renewcommand{\footrulewidth}{0.5pt}
+#+LATEX_HEADER:\lfoot{\today}
+#+LATEX_HEADER:\cfoot{\copyright\ 2021 W.\ F.\ Schneider}
+#+LATEX_HEADER:\rfoot{\thepage}
+#+LATEX_HEADER:\lhead{\em{Advanced Chemical Reaction Engineering}}
+#+LATEX_HEADER:\rhead{ND CBE 60546}
+
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+OPTIONS: toc:nil
+#+OPTIONS: H:3 num:3
+#+OPTIONS: ':t
+#+END_OPTIONS
+* Lecture 0: Intro to Reaction Engineering
+1. Reaction engineering
+#+BEGIN_QUOTE
+Understanding, modeling, designing, using, controlling, analyzing, improving anything in which chemical reactions happen.
+#+END_QUOTE
+1. Reaction engineering applications
+   1. Traditional
+      1. Industrial chemical/petroleum processes
+      2. Fine chemical/pharmaceutical processes
+      3. Emerging, eg biorefinergy, shale gas, [[http://cistar.us]]
+   2. Energy storage, batteries, fuel cells
+   3. Environmental systems
+      1. Atmosphere, lake, bioreactor (water purification), catalytic convertor
+   4. Biological systems
+      1. Cell, organ, body
+   5. Laboratory reactors - interrogate, quantify
+   6. Research - improved materials (catalysts), improved processes, understand limitations
+      1. Sabatier plot, [[https://doi.org/10.1038/nchem.121]]
+2. Course structure
+   1. Quantifying chemical reactions
+      1. Stoichiometry
+      2. Thermodynamics - heat flow, direction, equilibrium
+      3. Kinetics - rates, mechanisms
+   2. Physical/chemical interactions
+      1. Transport, mixing, diffusion resistance, ...
+   3. Chemical reactors
+      1. Ideal 0 and 1-dimensional
+      2. Non-ideal
+      3. Non-isothermal
+      4. Non-steady state
+      5. Multiphase
+   4. Chemical processes (beyond us)
+   5. Markets (beyond us)
+
+* Lecture 1: Stoichiometry and reactions
+1. Substances
+2. Amounts
+   1. mass, moles, volumes
+   2. flow rates
+3. compositions
+   1. amount/total amount
+4. Reactions and stoichiometric coefficients
+   1. Advancements \(n_j = \sum_i \nu_{ij} \xi_i \)
+   2. Limiting reagents 
+* Lecture 2: Chemical thermodynamics and equilibria
+1. Chemical reactions \( \sum_j \nu_j A_j = 0 \)
+2. Thermodynamic potential differences
+   1. Standard states
+   2. Formation reactions
+   3. Reaction enthalpy $\Delta H^\circ (T) = \sum_j \vu_j H^\circ_j (T) = \sum_j \nu_j H^\circ_{f,j}(T)$
+   4. Reaction entropy $\Delta S^\circ (T) =  \sum_j \vu_j S^\circ_j (T)$
+3. Equilibrium-closed system
+   1. Free energy vs reaction advancement, \(G(\xi,T) = \sum_j n_j\mu_j = \sum_j \left (n_{j0} + \nu_j \xi \right ) \left (\mu_j^\circ(T) + RT \ln a(\xi,T) \right ) \)
+   2. Equilibrium \( (\partial G / \partial \xi)_{T,P} = 0 \)
+   3. Equilibrium constants and algebraic solutions
+   4. Multiple reactions
+4. Le'Chatlier principle - system at equilibrium responds to oppose any perturbation
+   1. Pressure, composition
+   2. Temperature: Gibbs-Helmholtz and van't Hoff
+5. Equilibrium-open system
+   1. Reaction phase diagrams, see [[http://pubs.acs.org/doi/abs/10.1021/jacs.6b02651]] for an example
+   2. Electrochemical reactions
+6. The molecular interpretation
+7. Non-ideal activities
+8. Surface adsorption
+   1. Langmuir
+
+** Non-equilibrium thermodynamics :noexport:
+#+BEGIN_EXPORT LaTeX
+\begin{table}
+\begin{center}
+\caption{Physical units}
+\begin{tabular}{|lrlrl|}
+  \hline
+  $N_\mathrm{Av}$: & $6.02214 \times 10^{23}$& mol$^{-1}$  & & \\
+  1 amu: & $1.6605\times 10^{-27}$ & kg & & \\
+  $k_\mathrm{B}$: & $1.38065\times 10^{-23}$ & J~K$^{-1}$ & $8.61734\times
+  10^{-5}$ & eV K$^{-1}$\\
+  $R$: & 8.314472 & J K$^{-1}$ mol$^{-1}$ & $8.2057 \times 10^{-2}$ & l atm mol$^{-1}$ K$^{-1}$\\
+  $\sigma_\mathrm{SB}$: & $5.6704\times 10^{-8}$ & J s$^{-1}$ m$^{-2}$ K$^{-4}$ & & \\
+  $c$: & $2.99792458\times 10^8$ & m s$^{-1}$ & & \\
+  $h$: & $6.62607\times 10^{-34}$ & J s & $4.13566\times 10^{-15}$ & eV s
+  \\
+  $\hbar$: & $1.05457\times 10^{-34}$ & J s & $6.58212\times 10^{-16}$&  eV s \\
+  $hc$: & 1239.8 & eV nm  & & \\
+  $e$: & $1.60218\times 10^{-19}$ &  C & & \\
+  $m_e:$ & $9.10938215\times 10^{-31}$ & kg &0.5109989 & MeV c$^{-2}$  \\
+  $\epsilon_0$: & $8.85419 \times 10^{-12}$ & C$^2$ J$^{-1}$ m$^{-1}$ & $5.52635\times
+  10^{-3}$ & $e^2$ \AA$^{-1}$ eV$^{-1}$ \\
+  $e^2/4\pi\epsilon_0$: & $2.30708 \times 10^{-28}$&  J m & 14.39964 & eV \AA\\
+  $a_0$: & $0.529177 \times 10^{-10}$ & m & 0.529177 & \AA\\
+  $E_\mathrm{H} $: & 1 & Ha & 27.212 & eV \\
+  \hline
+\end{tabular}
+\end{center}
+\end{table}
+#+END_EXPORT
+
+* Lecture 3: Empirical kinetics
+1. rates: number per unit time per unit something
+2. reactor mass balance
+3. rate expressions, Functions of $T$, $P$, composition $C_i$
+4. rate orders
+5. apparent orders
+6. integrated rate expressions
+7. temperature and Arrhenius expression, $k=A e^{-E_a/k_BT}$
+   1. Arrhenius plot, \(\ln k\) vs \(1/T\)
+
+#+CAPTION: Basic kinetic rate laws
+|--------------+-------------------+-----------------------------+---------------|
+|              | differential rate | integrated rate             | half-life     |
+|--------------+-------------------+-----------------------------+---------------|
+| First order  | $r = kC_A$        | $C_A = C_{A0} e^{-k \tau}$  | $\ln 2/k$     |
+| Second order | $r = kC_A^2$      | $1/C_A = 1/C_{A0} + k \tau$ | $1/kC_{A0}$   |
+
+
+#+BEGIN_SRC python
+~import numpy as np               #this lets up handles arrays of data~
+~import matplotlib.pyplot as plt~
+~from scipy.integrate import odeint, solve_ivp~
+
+~def dCdt(C,t,k):~
+~dC_Adt = -k*C[0]*C[1]     # A + B -> C;  r = k CA CB~
+~dC_Bdt = -k*C[0]*C[1]~
+~dC_Cdt =  k*C[0]*C[1]~
+~dCdt = [dC_Adt,dC_Bdt,dC_Cdt]~
+~return dCdt~
+
+~# initialize concentrations~
+~C_0 = [1., 1.5, 0.]~
+
+~# initialize k's~
+~k = 0.2~
+
+~# Range of time to solve over~
+~t = np.arange(0,10,0.1)~
+~t_span = (0., 10.)~
+
+~p = (k,) # turn parameters into a tuple~
+~# Solve two ODEs with odeint~
+~#C = solve_ivp(dCdt,t_span,C_0,p,method='LSODA')~
+~C = odeint(dCdt,C_0,t,p)~
+
+~C_A = C.transpose()[0] # Get C_A from C~
+~C_B = C.transpose()[1] # Get C_B from C~
+~C_C = C.transpose()[2]~
+~plt.figure()~
+~plt.plot(t,C_A,'-',label=r'$C_{\rm A}$')~
+~plt.plot(t,C_B,'-',label=r'$C_{\rm B}$')~
+~plt.plot(t,C_C,'-',label=r'$C_{\rm C}$')~
+~plt.xlabel('Time (s)')~
+~plt.ylabel('Concentration (mol/L)')~
+~plt.legend()~
+~plt.savefig('./conc.png')~
+~#+END~_SRC
+
+#+RESULTS:
+
+[[./conc.png]]
+#+RESULTS:
+
+* Lecture 4: Analyzing reactor data
+1. Differential methods
+   1. Measuring rates
+2. Integral methods
+3. Half-lives
+
+
+#+BEGIN_SRC python
+import numpy as np               #this lets up handles arrays of data
+import matplotlib.pyplot as plt
+from scipy.optimize import curve_fit
+
+def differential(x, k, alpha):
+    return k*x**alpha
+
+def integral(t, a, b):
+    return (2*a/(2+a*b*t))**2
+
+t = np.array([0.00, 2.25, 4.50, 6.33, 8.00, 10.25, 12.00, 13.50, 15.60, 17.85, 19.60, 27.00, 30.00, 38.00, 41.00, 45.00, 47.00, 57.00, 63.00])
+
+C_Br2 = np.array([0.3335, 0.2965, 0.2660, 0.2450, 0.2255, 0.2050, 0.1910, 0.1794, 0.1632, 0.1500, 0.1429, 0.1160, 0.1053, 0.0830, 0.0767, 0.0705, 0.0678, 0.0553, 0.0482])
+
+plt.figure()
+plt.plot(t,C_Br2,'o')
+plt.xlabel('Time (s)')
+plt.ylabel('Concentration (mol/L)')
+plt.legend()
+plt.savefig('./xylene-conc.png')
+
+delta_t = np.ediff1d(t)        # finite difference between adjacent points
+delta_C = np.ediff1d(C_Br2)
+
+grad_t = np.gradient(t)            # second order approximation to gradient, allowing for unequal step size
+grad_C = np.gradient(C_Br2)
+rate = -np.divide(grad_C,grad_t)
+
+plt.figure()
+plt.plot(C_Br2,rate,'o')
+plt.xlabel('Concentration (mol/L)')
+plt.ylabel('Rate (mol/L/x)')
+plt.legend()
+
+popt, pcov = curve_fit(differential, C_Br2, rate )
+
+print('k = {0:f}, alpha={1:f}'.format(popt[0],popt[1]))
+
+model = differential(C_Br2,popt[0],popt[1])
+plt.plot(C_Br2,model,'-')
+
+plt.savefig('./xylene-rate.png')
+
+difference_array = np. subtract(rate, model)
+squared_array = np. square(difference_array)
+mse = squared_array. mean()
+print(mse)
+
+# Suggests order of 1.5
+popt1, pcov1 = curve_fit(integral, t, C_Br2)
+print('k = {0:f}'.format(popt[1]))
+
+model1 = integral(t, popt1[0], popt1[1])
+
+plt.figure()
+plt.plot(t,C_Br2,'o')
+plt.plot(t,model1,'-')
+plt.xlabel('Time (s)')
+plt.ylabel('Concentration (mol/L)')
+plt.legend()
+plt.savefig('./xylene-int-model.png')
+
+
+#+END_SRC
+
+#+RESULTS:
+: k = 0.085277, alpha=1.450860
+: 2.4942019231742367e-07
+: k = 1.450860
+
+
+#+BEGIN_SRC python  
+
+#+END_SRC
+
+[[./xylene-conc.png]]
+[[./xylene-rate.png]]
+[[./xylene-int-model.png]]
+#+RESULTS:
+
+* Lecture 5: Molecular chemical kinetics
+*** Reaction mechanisms
+1. Elementary steps and molecularity
+2. Ozone decomposition, rate second-order at high \(P_{\ce{O2}}\), first-order at low \(P_{\ce{O2}}\)
+   | \ce{2 O3 -> 3 O2}        |
+   |--------------------------|
+   | \ce{O3 ->[k_1] O2 + O}   |
+   | \ce{O2 + O ->[k_-1] O3}     |
+   | \ce{O + O3 ->[k_2] 2 O2} |
+3. Detailed balance and microscopic reversibility
+4. Equilibrium requirement \(K_{eq}(T) = k_f(T)/k_r(T)\)
+5. Reversibility \(r_\text{net} = r_f ( 1 - \beta)\), \( \beta = Q/K_c = \exp(-\Delta G(T,c_j)/RT) \)
+   1. \ce{A <=> B} example
+6. Collision theory
+   1. A + B \rightarrow products
+   2. rate proportional to A/B collision frequency $z_{AB}$ weighted by fraction of collisions with energy $> E_a$
+      \begin{displaymath}
+         r = k C_A C_B , k = \left ( \frac{8 k_B T}{\pi \mu} \right )^{1/2} \sigma_{AB} N_{av} e^{-E_a/k_BT}
+      \end{displaymath}
+   3. upper bound on real rates
+*** Transition state theory (TST)
+1. Assumptions
+   1. Existence of reaction coordinate (PES)
+   2. Existence of dividing surface
+   3. Equilibrium between reactants and "transition state"
+   4. Harmonic approximation for transition state
+2. rate proportional to concentration of "activated complex" over reactants times crossing frequency
+   \begin{eqnarray*}
+      r & = & k C_AC_B \\
+        & = & k^\ddagger C_{AB}^\ddagger \\
+        & = & \nu^\ddagger K^\ddagger C_A C_ B \\
+        & = & \nu^\ddagger \frac{k_BT}{h\nu^\ddagger}\bar{K}^\ddagger(T) C_A C_B \\
+        & = & \frac{k_B T}{h} \frac{q^\ddagger(T)}{q_A(T) q_B(T)}  e^{-{\Delta E(0)/k_BT}} C_A C_B
+   \end{eqnarray*}
+
+#+ATTR_ORG: :width 600
+#+ATTR_LATEX: :width 0.6\textwidth
+[[./Images/PES.png]]
+*** Locating transition states computationally
+1. Reactants/products are minima on potential energy surface
+2. Transition state is first order saddle point. Unique point on pathway from reactant to product valley
+3. vinyl alcohol to acetaldehyde example
+4. [[https://www.webmo.net]]
+
+#+ATTR_ORG: :width 600
+[[./Images/Path.png]]
+
+*** Thermodynamic connection
+1. Relate activated complex equilibrium constant to activation free energy (isochoric standard state)
+   \[ \(\bar{K}^\ddagger(T) = e^{-\Delta A^{\circ \ddagger}(T)/kT} = e^{-\Delta U^{\circ \ddagger}(T)/k_BT}e^{\Delta S^{\circ \ddagger}(T)/k_B} \] 
+2. Compare to Arrhenius expression 
+   \[E_a = \Delta U^{\circ \ddagger}(T) + kT, A = \frac{k_B T}{h}e^1e^{\Delta S^{\circ \ddagger}(T)/k_B}\]
+
+#+BEGIN_SRC python :exports results 
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.optimize import fsolve
+
+kB = 8.61733e-5      # eV /K
+h = 4.13566766e-15  # eV s
+eVtokJ = 96.485332
+autoeV= 27.212      # eV
+Nav = 6.022e23      # Avogadro's number 
+amutoeVc2 = 931494095.17 # convert amu to eV/c^2
+R0 = kB * eVtokJ * 1000.       # gas constant in J/mol K
+c = 299792458 # m / s
+
+class Molecule(object):
+    def __init__(self, name, mass, energy, rot, vib, helmholtz):
+        self.name = name
+        self.mass = mass
+        self.energy = energy
+        self.rot = rot
+        self.vib = vib
+        self.helmholtz = helmholtz
+
+    def Hello(self):
+        return "Hello {}".format(self.name)
+
+    def Lambda(self, T):
+        m = self.mass * amutoeVc2
+        return h/np.sqrt(2*np.pi*m*kB*T)*c
+
+    def qtrans(self,T):  #  mole/m^3
+        m = self.mass * amutoeVc2
+        l = h/np.sqrt(2*np.pi*m*kB*T)*c
+        return (1./Nav)*(1./l)**3
+
+    def qrot(self,T):
+        if self.rot[1] > 0:
+            return np.sqrt((np.pi*(T/self.rot[0])*(T/self.rot[1])*(T/self.rot[2])))
+        else:
+            return T/self.rot[0]
+
+    def qvib(self,T):
+        qvib = 1
+        for mode in self.vib:
+            qvib = qvib*(1.-np.exp(-mode/T))**-1
+        return qvib
+
+    def qtot(self,T):
+        return self.qtrans(T)*self.qrot(T)*self.qvib(T)
+
+    def ZPE(self):
+        ZPE=0.
+        for mode in self.vib:
+            ZPE = ZPE + mode
+        return ZPE * (0.5)*kB
+
+    def Utrans(self,T):
+        return 1.5*kB*T
+
+    def Urot(self,T):
+        return 1.5*kB*T
+
+    def Uvib(self,T):
+        Uvib=0.
+        for mode in self.vib:
+            Uvib=Uvib+kB*(mode/(np.exp(mode/T)-1.0))
+        return Uvib
+
+    def Utot(self,T):
+        return self.Utrans(T)+self.Urot(T)+self.Uvib(T)
+
+# Fundamental relationships
+def A(q):
+   return -kB*T*np.log(q)
+
+def S(A,U,T):
+   return (U - A)/T
+
+def Delta(nu,A):
+    return np.dot(nu,A)
+
+VA = Molecule("Vinyl alcohol", 44., -153.802227784, [3.06869, 0.49808, 0.42852],[342.12,   692.39,  1032.15,  1198.36,  1386.62, 1411.99,  1670.11,  1880.98,  1967.27,  2101.01, 2532.91,  4541.20,  4591.62,  4716.63,  5454.14],[])
+
+Ac = Molecule("Acetaldehyde", 44., -153.830119460, [2.72923, 0.48351, 0.43371], [222.94,  729.92,  1121.87,  1285.63,  1636.17, 1646.79,  2018.97,  2080.76, 2143.85,  2157.44,  2651.18,  4169.12,  4379.22,  4459.71,  4553.14],[])
+
+TS = Molecule("TS", 44., -153.714172988, [2.33148, 0.58652, 0.48832], [857.94,   939.84,  1148.55,  1395.88,  1536.40, 1678.69,  1744.34,  1877.98,  2155.56,  2261.86, 2665.34,  4471.92,  4522.04,  4596.48], [])
+
+T = np.linspace(600,1500,500)
+
+#
+# Ethane dehydrogenation at 1 bar
+#
+stdconc = (1e5/(R0*T)) # (1 bar/ R T) = mol/m3
+
+Ea0 = (TS.energy-VA.energy)*autoeV + (TS.ZPE() - VA.ZPE())
+
+print('Vinyl alcohol to TS {:4.0f} kJ/mol'.format(Ea0*eVtokJ))
+
+kTh = (kB/h) * T 
+qratio = (TS.qtot(T)/VA.qtot(T))
+Exp = np.exp(-Ea0/(kB*T))
+k  = kTh * qratio * Exp
+
+thalf = np.log(2)/k
+
+plt.figure(figsize=(10,15))
+plt.subplot(3,2,1)
+plt.plot(T,kTh,label="kB T/h")
+plt.xlabel("Temperature (K)")
+plt.ylabel("1/s")
+plt.legend()
+#plt.savefig("./Images/kTh.png")
+
+#plt.figure()
+plt.subplot(3,2,2)
+plt.title("q TS/q vinyl acetate")
+plt.plot(T,qratio,label="qratio")
+plt.xlabel("Temperature (K)")
+plt.legend()
+#plt.savefig("./Images/qratio.png")
+
+#plt.figure()
+plt.subplot(3,2,3)
+plt.title("Exp(-Ea(0)/kT")
+plt.plot(T,Exp,label="exp(-Ea/kT")
+plt.xlabel("Temperature (K)")
+plt.legend()
+#plt.savefig("./Images/expEa.png")
+
+#plt.figure()
+plt.subplot(3,2,4)
+plt.title("Half life")
+plt.plot(T,thalf,label="half life")
+plt.xlabel("Temperature (K)")
+plt.ylabel("s")
+plt.legend()
+#plt.savefig("./Images/halflife.png")
+
+#plt.figure()
+plt.subplot(3,2,5)
+plt.title("Arrhenius plot")
+plt.plot(1./T,np.log(k),label="ln(k)")
+plt.xlabel("1/Temperature (1/K)")
+plt.ylabel("s")
+plt.legend()
+plt.savefig("./Images/arrhenius.png")
+
+
+deltaUd = TS.Utot(T) - VA.Utot(T)
+deltaHd = deltaUd + kB*T
+
+deltaAd = A(TS.qtot(T)) - A(VA.qtot(T))
+deltaSd = S(deltaAd,deltaUd,T)
+
+plt.figure()
+plt.subplot(1,2,1)
+plt.plot(T,(Ea0+deltaUd)*eVtokJ,label="Internal")
+plt.plot(T,(Ea0+deltaAd)*eVtokJ,label="Free")
+plt.title("VA activation energies")
+plt.xlabel("Temperature (K)")
+plt.ylabel("Activation Energy (kJ/mol)")
+plt.legend()
+#plt.savefig("./Images/Uact.png")
+
+#plt.figure()
+plt.subplot(1,2,2)
+plt.plot(T,deltaSd*eVtokJ*1000,label="Entropy")
+plt.title("VA activation entropy")
+plt.xlabel("Temperature (K)")
+plt.ylabel("Activation Entropy (J/mol/K)")
+plt.legend()
+plt.savefig("./Images/Sact.png")
+
+
+T = 1000  # silly A function T defined externally
+deltaUd1000 = (Ea0+TS.Utot(1000) - VA.Utot(1000))*eVtokJ
+deltaAd1000 = (Ea0+A(TS.qtot(1000)) - A(VA.qtot(1000)))*eVtokJ
+deltaSd1000 = S(deltaAd1000,deltaUd1000,T)*eVtokJ*1000
+
+print('Delta Uddagger (1000 K) = {:4.0f} kJ/mol'.format(deltaUd1000))
+print('Delta Addagger (1000 K) = {:4.0f} kJ/mol'.format(deltaAd1000))
+print('Delta Sddagger (1000 K) = {:4.0f} J/mol K'.format(deltaSd1000))
+
+#+END_SRC
+
+#+RESULTS:
+: Vinyl alcohol to TS  216 kJ/mol
+: Delta Uddagger (1000 K) =  211 kJ/mol
+: Delta Addagger (1000 K) =  226 kJ/mol
+: Delta Sddagger (1000 K) = -1480 J/mol K
+
+#+ATTR_ORG: :width 600
+[[./Images/arrhenius.png]]
+[[./Images/Sact.png]]
+
+*** Bimolecular reaction 
+1. Diels-Alder example
+
+#+BEGIN_SRC python
+import numpy as np
+
+kB = 8.61733e-5      # eV /K
+h = 4.13566766e-15  # eV s
+eVtokJ = 96.485332
+Nav = 6.022e23      # Avogadro's number 
+R0 = kB * eVtokJ * 1000.       # gas constant in J/mol K
+
+A = 9.2e6 # liter/mole/second
+Ea = 99. # kJ/mole
+
+T = 500.   # K
+
+
+# 1 M standard state
+deltaUdd = Ea - R0 * T /1000   # kJ /mol
+
+SS = 1.0  # mol/liter
+deltaSdd = R0 * ( np.log(A/(1./SS)) - np.log(kB * T / h) - 1.)
+
+deltaAdd = deltaUdd - T * deltaSdd/1000.
+
+print('1 M standard state, 500 K:')
+print('Delta Udd ={:4.0f} kJ/mol    Delta Sdd = {:4.0f} J/mol K   Delta Add = {:4.0f} kJ/mol'.format(deltaUdd,deltaSdd,deltaAdd))
+
+# 1 bar standard state
+P0 = 1.0e5   # 1 bar = 10^5 Pa = 10^5 J/m^3
+P0 = P0 / 1e3  # J/l
+SS = P0/(R0 * T)   #  J/mol / J/l  = mol/liter
+print('1 bar = {:5.3f} mol/liter standard state, 500 K'.format(SS))
+
+deltaHdd = Ea - 2* R0 * T /1000   # kJ /mol
+deltaSdd = R0 * ( np.log(A/(1./SS)) - np.log(kB * T / h) - 2.)
+
+deltaGdd = deltaHdd - T * deltaSdd/1000.
+print('Delta Hdd ={:4.0f} kJ/mol    Delta Sdd = {:4.0f} J/mol K   Delta Gdd = {:4.0f} kJ/mol'.format(deltaHdd,deltaSdd,deltaGdd))
+
+#+END_SRC
+
+#+RESULTS:
+: 1 M standard state, 500 K:
+: Delta Udd =  95 kJ/mol    Delta Sdd = -124 J/mol K   Delta Add =  157 kJ/mol
+: 1 bar = 0.024 mol/liter standard state, 500 K
+: Delta Hdd =  91 kJ/mol    Delta Sdd = -164 J/mol K   Delta Gdd =  172 kJ/mol
+
+*** Correlations across reactions
+1. early vs late transition states
+2. Br\o{}nsted-Evans-Polyani relationship
+   \[ E_a = \alpha \Delta H + \beta \]
+3. linear free energy relationships between similar reactions (substituent effects)
+  \[ \ln (k_1/k_1^\prime) \propto \ln (K_1/K_1^\prime) \]
+4. compensation effect linear correlation across catalysts for the same reaction
+  \[\Delta H^{\circ\ddagger} \propto \Delta S^{\circ\ddagger}\] 
+* Lecture 6: Reaction networks
+
+** Simple and visible
+# perhaps move all this up to after Lecture 4? Or organize according to single reactions vs multiple competing reactions?
+1. Open vs closed (catalyzed) networks
+2. \ce{A <-> B <-> C} reaction
+3. free energy surface
+4. Characterizations
+   1. instantaneous selectivity
+   2. overall selectivity
+   3. yield
+5. species rates vs reaction rates
+   1. Vector representations of rates
+6. Rate determining and degree of rate control
+7. Equilibrium limited
+
+#+BEGIN_SRC python
+import numpy as np               #this lets up handles arrays of data
+import matplotlib.pyplot as plt
+from scipy.integrate import odeint, solve_ivp
+from scipy.interpolate import BPoly
+
+kB = 8.61733e-5      # eV /K
+h = 4.13566766e-15  # eV s
+
+def dCdt(C,t,k):
+    dC_Adt = -k[0]*C[0]+k[1]*C[1]     # A <->  B <-> C;  r = k CA CB
+    dC_Bdt =  k[0]*C[0]-k[1]*C[1] -k[2]*C[1]+k[3]*C[2]
+    dC_Cdt =  k[2]*C[1]-k[3]*C[2]
+    dCdt = [dC_Adt,dC_Bdt,dC_Cdt] 
+    return dCdt
+
+# initialize concentrations
+C_0 = [1., 0, 0.]
+
+R0 = 8.314
+T = 500.
+
+# initialize k's
+deltaGtot = -100.0; deltaG1 = -50.0; deltaG1d = 125. ; deltaG2d = 125.
+
+deltaG2 = deltaGtot - deltaG1
+deltaGn1d = deltaG1d-deltaG1
+deltaGn2d = deltaG2d-deltaG2
+
+p1 = BPoly.from_derivatives([0, 1, 2, 3, 4], [[0, 0], [deltaG1d, 0], [deltaG1, 0], [deltaG1+deltaG2d,0], [deltaGtot,0]])
+
+x=np.linspace(0,4,100)
+y=p1(x)
+
+plt.figure(figsize=(10,12))
+plt.subplot(2,2,1)
+plt.plot(x,y)
+plt.ylabel('Free energy')
+plt.xlabel('Reaction coordinate')
+
+k = (kB*T/h)*np.exp(-np.array([deltaG1d,deltaGn1d,deltaG2d,deltaGn2d])*1000./(R0*T))
+print('T = {:4.1f}'.format(T))
+print('Delta G1 = {:4.1f}  deltaG1dagger = {:4.1f}  delta G2 = {:4.1f}   deltaG2d = {:4.1f} kJ/mol'.format(deltaG1,deltaG1d,deltaG2,deltaG2d))
+print('k1 = {:6.3e}     k-1 = {:6.3e}         k2 = {:6.3e}      k-2 = {:6.3e} /s'.format(k[0],k[1],k[2],k[3]))
+
+# Range of time to solve over
+t = np.arange(0,6,0.1) 
+
+p = (k,) # turn parameters into a tuple
+C = odeint(dCdt,C_0,t,p)
+C_A = C.transpose()[0] # Get C_A from C
+C_B = C.transpose()[1] # Get C_B from C
+C_C = C.transpose()[2]
+
+plt.subplot(2,2,2)
+plt.plot(t,C_A,'-',label=r'$C_{\rm A}$')
+plt.plot(t,C_B,'-',label=r'$C_{\rm B}$')
+plt.plot(t,C_C,'-',label=r'$C_{\rm C}$')
+plt.xlabel('Time (s)')
+plt.ylabel('Concentration (mol/L)')
+plt.legend()
+
+plt.subplot(2,2,3)
+plt.plot(t,-k[0]*C_A+k[1]*C_B,label=r'$r_{\rm A}$')
+plt.plot(t,k[0]*C_A-k[1]*C_B-k[2]*C_B + k[3]*C_C,label=r'$r_{\rm B}$')
+plt.plot(t,k[2]*C_B-k[3]*C_C,label=r'$r_{\rm C}$')
+plt.xlabel('Time (s)')
+plt.ylabel('Rate (mol/L/s)')
+plt.title('Species rates')
+plt.legend()
+
+plt.subplot(2,2,4)
+plt.plot(t,k[0]*C_A,label=r'$r_1$')
+plt.plot(t,k[1]*C_B,label=r'$r_{-1}$')
+plt.plot(t,k[2]*C_B,label=r'$r_2$')
+plt.plot(t,k[3]*C_C,label=r'$r_{-2}$')
+plt.xlabel('Time (s)')
+plt.ylabel('Rate (mol/L/s)')
+plt.title('Reaction rates')
+plt.legend()
+
+plt.savefig('./Images/ABC-rxn.png')
+#+END_SRC
+
+#+RESULTS:
+: T = 500.0
+: Delta G1 = -50.0  deltaG1dagger = 125.0  delta G2 = -50.0   deltaG2d = 125.0 kJ/mol
+: k1 = 9.092e-01     k-1 = 5.433e-06         k2 = 9.092e-01      k-2 = 5.433e-06 /s
+
+#+ATTR_ORG: :width 800
+[[./Images/ABC-rxn.png]]
+** Simply and invisible
+1. Lindemann-Hinshelwood model for first order reactions
+2. Irreversible steps
+3. Pseudo-steady state approximation
+   1. \ce{A -> B -> C} in limit \(k_2 > k_1 \) 
+   \[ r_{\text{B}} \approx 0 \]     \[C_\text{B,max} \approx 0 \]
+     \[C_A = C_{A0} e^{-k_1 t}\]    \[C_B= C_{A0}\frac{k_1}{k_2-k_1} \left ( e^{-k_1 t} - e^{-k_2 t} \right ) \]
+   1. B intermediate $\rightarrow$ reactive intermediate
+
+
+#+BEGIN_SRC python :exports results
+import numpy as np               #this lets up handles arrays of data
+import matplotlib.pyplot as plt
+from scipy.integrate import odeint, solve_ivp
+from scipy.interpolate import BPoly
+
+kB = 8.61733e-5      # eV /K
+h = 4.13566766e-15  # eV s
+
+def dCdt(C,t,k):
+    dC_Adt = -k[0]*C[0]+k[1]*C[1]     # A <->  B <-> C;  r = k CA CB
+    dC_Bdt =  k[0]*C[0]-k[1]*C[1] -k[2]*C[1]+k[3]*C[2]
+    dC_Cdt =  k[2]*C[1]-k[3]*C[2]
+    dCdt = [dC_Adt,dC_Bdt,dC_Cdt] 
+    return dCdt
+
+# initialize concentrations
+C_0 = [1., 0, 0.]
+
+R0 = 8.314
+T = 500.
+
+# initialize k's
+deltaGtot = -100.0
+deltaG1 = -50.0
+deltaG2 = deltaGtot - deltaG1
+deltaG1d = 125.
+deltaG2d = 100.
+
+deltaGn1d = deltaG1d-deltaG1
+deltaGn2d = deltaG2d-deltaG2
+
+p1 = BPoly.from_derivatives([0, 1, 2, 3, 4], [[0, 0], [deltaG1d, 0], [deltaG1, 0], [deltaG1+deltaG2d,0], [deltaGtot,0]])
+
+x=np.linspace(0,4,100)
+y=p1(x)
+
+plt.figure(figsize=(10,12))
+plt.subplot(2,2,1)
+plt.plot(x,y)
+plt.ylabel('Free energy')
+plt.xlabel('Reaction coordinate')
+
+k = (kB*T/h)*np.exp(-np.array([deltaG1d,deltaGn1d,deltaG2d,deltaGn2d])*1000./(R0*T))
+print('T = {:4.1f}'.format(T))
+print('Delta G1 = {:4.1f}  deltaG1dagger = {:4.1f}  delta G2 = {:4.1f}   deltaG2d = {:4.1f} kJ/mol'.format(deltaG1,deltaG1d,deltaG2,deltaG2d))
+print('k1 = {:6.3e}     k-1 = {:6.3e}         k2 = {:6.3e}      k-2 = {:6.3e} /s'.format(k[0],k[1],k[2],k[3]))
+
+# Range of time to solve over
+t = np.arange(0,6,0.1) 
+# t_span = (0., 10.)
+
+p = (k,) # turn parameters into a tuple
+C = odeint(dCdt,C_0,t,p)
+
+
+C_A = C.transpose()[0] # Get C_A from C
+C_B = C.transpose()[1] # Get C_B from C
+C_C = C.transpose()[2]
+
+plt.subplot(2,2,2)
+plt.plot(t,C_A,'-',label=r'$C_{\rm A}$')
+plt.plot(t,C_B,'-',label=r'$C_{\rm B}$')
+plt.plot(t,C_C,'-',label=r'$C_{\rm C}$')
+plt.xlabel('Time (s)')
+plt.ylabel('Concentration (mol/L)')
+plt.legend()
+# plt.savefig('./Images/ABC-conc.png')
+
+plt.subplot(2,2,3)
+plt.plot(t,-k[0]*C_A+k[1]*C_B,label=r'$r_{\rm A}$')
+plt.plot(t,k[0]*C_A-k[1]*C_B-k[2]*C_B + k[3]*C_C,label=r'$r_{\rm B}$')
+plt.plot(t,k[2]*C_B-k[3]*C_C,label=r'$r_{\rm C}$')
+plt.xlabel('Time (s)')
+plt.ylabel('Rate (mol/L/s)')
+#plt.ylim(-2.5, 2.5)
+plt.title('Species rates')
+plt.legend()
+
+plt.subplot(2,2,4)
+plt.plot(t,k[0]*C_A,label=r'$r_1$')
+plt.plot(t,k[1]*C_B,label=r'$r_{-1}$')
+plt.plot(t,k[2]*C_B,label=r'$r_2$')
+plt.plot(t,k[3]*C_C,label=r'$r_{-2}$')
+#plt.ylim(0, 2.5)
+plt.xlabel('Time (s)')
+plt.ylabel('Rate (mol/L/s)')
+plt.title('Reaction rates')
+plt.legend()
+
+plt.savefig('./Images/ABC-PSSA.png')
+#+END_SRC
+
+#+RESULTS:
+: T = 500.0
+: Delta G1 = -50.0  deltaG1dagger = 125.0  delta G2 = -50.0   deltaG2d = 100.0 kJ/mol
+: k1 = 9.092e-01     k-1 = 5.433e-06         k2 = 3.720e+02      k-2 = 2.222e-03 /s
+
+#+ATTR_ORG: :width 800
+[[./Images/ABC-PSSA.png]]
+
+
+** Simplifying reaction networks
+1. Simplifications helpful when parameters of full model are unknown or to fit to experimental observations
+2. Ozone decomposition, \ce{2 O3 -> 3 O2} 
+    \[ \ce{O3 <=> O2 + O} \]
+    \[ \ce{O + O3 -> 2 O2} \]
+   1. PSSA
+     \[ -r_{O3} = \frac{2 k_1 k_2 C^2_{\ce{O3}}}{k_{-1} C_{\ce{O2}} + k_2 C_{\ce{O3}}} \]
+   2. Limiting behaviors
+3. CO chlorination (closed)
+   \[ \ce{Cl2 <=>[h\nu] 2 Cl*}\]
+   \[ \ce{CO + Cl* <=> COCl*} \]
+   \[ \ce{COCl* + Cl2 <=> COCl2 + Cl*} \]
+4. Ethane pyrolysis \ce{C2H6 -> C2H4 + H2} (open)
+|--------------------------------+------------------------+----------------------------------|
+|                                | $A$ (\si{\per\second}) | $E_a$ (\si{\kilo\joule\per\mole}) |
+|--------------------------------+------------------------+----------------------------------|
+| \ce{C2H6 -> 2 CH3}             | \SI{1.0e17}{}          |                              356 |
+| \ce{CH3 + C2H6 -> CH4 + C2H5 } | \SI{2.0e11}{}          |                               44 |
+| \ce{C2H5 -> C2H4 + H }         | \SI{3.0e14}{}          |                              165 |
+| \ce{H + C2H6 -> H2 + C2H5}     | \SI{3.4e12}{}          |                               28 |
+| \ce{H + C2H5 -> C2H6}          | \SI{1.6e13}{}          |                                0 |
+|--------------------------------+------------------------+----------------------------------|
+4. Chain reactions
+   1. Polymerization
+
+** Complex reaction networks
+1. Ethane pyrolysis redux,  [[https://pubs.acs.org/doi/10.1021/jp206503d][doi:10.1021/jp206503d]]
+
+** Stochastic solutions
+
+#+BEGIN_SRC python
+import numpy as np
+import matplotlib.pyplot as plt 
+from scipy.integrate import odeint, solve_ivp
+
+Nav = 6.022e23
+l_to_nm3 = 1e21
+
+def dCdt(C,t,k):
+    dC_Adt = -k[0]*C[0]     # A ->  B -> C;  r = k CA CB
+    dC_Bdt = k[0]*C[0]-k[1]*C[1]
+    dC_Cdt =  k[1]*C[1]
+    dCdt = [dC_Adt,dC_Bdt,dC_Cdt] 
+    return dCdt
+
+Ntot = 75  # set total number of particles
+
+CA0 = 1.0  # set initial concentrations, mol/l
+CB0 = 0.0
+CC0 = 0.0
+
+k = np.array([1.0,1.0])   # /second
+
+Ctot = CA0 + CB0 + CC0
+
+Volume = Ntot/Ctot # number/mol/liter
+side = Volume**(1/3)
+
+na = Ntot *(CA0/Ctot); nb = Ntot *(CB0/Ctot); nc = Ntot *(CC0/Ctot); tnow = 0.
+
+NA = np.array([na])
+NB = np.array([nb])
+NC = np.array([nc])
+t = np.array([tnow])
+
+while na > 0 or nb > 0:  # While there is still A and B left, there will be reaction occurring.
+    p1 = np.random.random_sample()  # Get random number from 0 to 1.
+    p2 = np.random.random_sample()
+    r1 = k[0] * na  # Definition for the reaction mechanism.
+    r2 = k[1] * nb
+    if p2 < (r1/(r1+r2)):  # Monte Carlo step
+        na-=1;  nb+=1
+    else:
+        nb-=1;  nc+=1
+
+    dt = -np.log(p1) / (r1 + r2)  # This is the time interval until the next reaction to occur.
+    tnow+= dt  # To refresh the time for next circulation.
+    
+    NA = np.append(NA,na)  # inelegant and wasteful
+    NB = np.append(NB,nb)
+    NC = np.append(NC,nc)
+    t  = np.append(t,tnow)
+
+#    open('KMC_data.txt','w+').write('\n'.join('%f, %i, %i, %i' %x for x in data))
+    # Record data of this circulation to the .txt file.
+
+# analytical solution
+C_0 = [CA0, CB0, CC0]
+ta = np.arange(0,10,0.1) 
+p = (k,) # turn parameters into a tuple
+C = odeint(dCdt,C_0,ta,p)
+
+C_A = C.transpose()[0] # Get C_A from C
+C_B = C.transpose()[1] # Get C_B from C
+C_C = C.transpose()[2]
+
+# Plot with the data acquired above.
+plt.figure()
+plt.plot(t, NA, 'o', markersize = '3', label=r'$N_{\rm A}$')  # Configure for the first line.
+plt.plot(t, NB, 'o', markersize = '3', label=r'$N_{\rm B}$')
+plt.plot(t, NC, 'o', markersize = '3', label=r'$N_{\rm C}$')
+plt.plot(ta,C_A*Volume,'-',color='blue')
+plt.plot(ta,C_B*Volume,'-',color='orange')
+plt.plot(ta,C_C*Volume,'-',color='green')
+plt.legend()
+plt.title('Stochastic vs analytical evolution of A->B->C')
+plt.xlabel('time (s)')  # Labeling the axis.
+plt.ylabel('Molecules')
+plt.savefig('./Images/kMC.png')
+#+END_SRC
+
+#+RESULTS:
+
+[[./Images/kMC.png]]
+
+
+
+
+* Heterogeneous reactions
+1. adsorption, L-H
+2. TPD
+3. catalysis
+4. Sabatier analysis
+*** Heterogeneous reactions and catalysis
+1. molecule-surface collisions
+2. surface reactions
+3. Ammonia oxidation, \ce{NH3 + O2 -> NO + N2}, [[http://pubs.acs.org/doi/10.1021/acscatal.8b04251][doi:10.1021/acscatal.8b04251]] 
+#+BEGIN_COMMENT
+#+BEGIN_EXPORT latex
+\begin{table}
+   \caption{DFT PES for ethylene dissociation on Ni2P}
+\begin{tabular}{cc}
+\includegraphics[scale=0.33]{./Images/ethylene-001.png} & \includegraphics[scale=0.33]{./Images/ethylene-002.png} \\ \includegraphics[scale=0.33]{./Images/ethylene-003.png} & \includegraphics[scale=0.33]{./Images/ethylene-004.png} \\
+\includegraphics[scale=0.33]{./Images/ethylene-005.png} & 
+\includegraphics[scale=0.18]{./Images/ethylene-pes-animation.png} 
+\end{tabular}
+\end{table}
+#+END_EXPORT
+
+[[./Images/TS-Ethylene.gif]]
+replace. Tab to end.
+#+END_COMMENT
+
+* Liquid-phase reactions
+*** Diffusion-controlled reactions
+1. Intermediate complex
+2. Steady-state approximation
+3. Diffusion-controlled limit ($k_D = 4\pi (r_A + r_B) D_{AB}$)
+4. Reaction-controlled limit ($k_{app}=(k_D/k_{-D})k_r$)
+
+#+BEGIN_EXPORT latex
+\begin{table}
+\begin{center}
+    \caption{\large{Equilibrium and Rate Constants}}
+   \begin{description}
+   \item[Equilibrium Constants] $a~\text{A} + b~\text{B} \rightleftharpoons c~\text{C} + d~\text{D} $
+     \begin{eqnarray*}
+       K_{eq}(T) &=& e^{\Delta S^\circ(T)/k_B}e^{-\Delta H^\circ(T)/k_BT}
+       \\ \\
+            K_c(T) &=&
+          \left(\frac{1}{c^\circ}\right)^{\nu_c+\nu_d-\nu_a-\nu_b}\frac{(q_c/V)^{\nu_c}(q_d/V)^{\nu_d}}{(q_a/V)^{\nu_a}(q_b/V)^{\nu_b}}e^{-\Delta
+            E(0)\beta}\\ \\
+            K_p(T) &=&
+          \left(\frac{k_BT}{P^\circ}\right)^{\nu_c+\nu_d-\nu_a-\nu_b}\frac{(q_c/V)^{\nu_c}(q_d/V)^{\nu_d}}{(q_a/V)^{\nu_a}(q_b/V)^{\nu_b}}e^{-\Delta
+            E(0)\beta}
+\end{eqnarray*}
+\item[Unimolecular Reaction] $\text[A] \rightleftharpoons [\text{A} ]^\ddagger
+  \rightarrow C$
+      \begin{displaymath}
+        k(T)=\nu^\ddagger \bar K^\ddagger=\frac{k_B T}{h} \frac{\bar{q}_\ddagger(T)/V}{q_A(T)/V}
+          e^{-\Delta E^\ddagger(0)\beta}
+      \end{displaymath}
+\begin{center}
+      \begin{tabular}{cc}
+      $ \displaystyle E_a =\Delta H^{\circ\ddagger}+k_B T $
+      & $ \displaystyle A = e^1\frac{k_B T}{h} e^{\Delta S^{\circ\ddagger}} $
+      \end{tabular}
+\end{center}
+\item[Bimolecular Reaction] $
+        \mathrm{A} + \mathrm{B} \rightleftharpoons [ \mathrm{AB}]^\ddagger
+        \rightarrow \text{C}$
+      \begin{displaymath}
+        k(T)=\nu^\ddagger \bar K^\ddagger=\frac{k_B T}{h} \frac{q_\ddagger(T)/V}{(q_A(T)/V)(q_B(T)/V)}\left
+          (\frac{1}{c^\circ}\right )^{-1}
+        e^{-\Delta E^\ddagger(0)\beta}
+      \end{displaymath}
+      \begin{center}
+        \begin{tabular}{cc}
+        $ \displaystyle E_a  =\Delta H^{\circ\ddagger}+2 k_B T $ & $ \displaystyle
+        A  = e^2\frac{k_B T}{h} e^{\Delta S^{\circ\ddagger}} $
+      \end{tabular}
+      \end{center}
+   \end{description}
+ \end{center}
+ \end{table}
+#+END_EXPORT
+
+* Other stuff :noexport:
+
+#+BEGIN_SRC python 
+import numpy as np               #this lets up handles arrays of data
+import matplotlib.pyplot as plt
+from scipy.integrate import odeint, solve_ivp
+
+def dCdt(C,t,k):
+    dC_Adt = -k[0]*C[0]     # A ->  B -> C;  r = k CA CB
+    dC_Bdt = k[0]*C[0]-k[1]*C[1]
+    dC_Cdt =  k[1]*C[1]
+    dCdt = [dC_Adt,dC_Bdt,dC_Cdt] 
+    return dCdt
+
+# initialize concentrations
+C_0 = [1., 0, 0.]
+
+# initialize k's
+k = [1,1]
+
+# Range of time to solve over
+t = np.arange(0,6,0.1) 
+t_span = (0., 10.)
+
+p = (k,) # turn parameters into a tuple
+C = odeint(dCdt,C_0,t,p)
+
+C_A = C.transpose()[0] # Get C_A from C
+C_B = C.transpose()[1] # Get C_B from C
+C_C = C.transpose()[2]
+plt.figure(figsize=(10,5))
+plt.subplot(1,2,1)
+
+plt.plot(t,C_A,'-',label=r'$C_{\rm A}$')
+plt.plot(t,C_B,'-',label=r'$C_{\rm B}$')
+plt.plot(t,C_C,'-',label=r'$C_{\rm C}$')
+plt.xlabel('Time (s)')
+plt.ylabel('Concentration (mol/L)')
+plt.legend()
+#plt.savefig('./Images/PSSA.png')
+
+plt.subplot(1,2,2)
+plt.plot(t,k[0]*C_A-k[1]*C_B,label=r'$r_{\rm B}$')
+plt.plot(t,-k[0]*C_A,label=r'$r_{\rm A}$')
+plt.plot(t,k[1]*C_B,label=r'$r_{\rm C}$')
+plt.xlabel('Time (s)')
+plt.ylabel('Rate (mol/L/s)')
+plt.legend()
+plt.savefig('./Images/PSSA.png')
+#+END_SRC
+
+#+RESULTS:
+
+#+ATTR_ORG: :width 800
+[[./Images/PSSA.png]]
+
+#+BEGIN_SRC python 
+import numpy as np               #this lets up handles arrays of data
+import matplotlib.pyplot as plt
+from scipy.integrate import odeint, solve_ivp
+from scipy.interpolate import BPoly
+
+kB = 8.61733e-5      # eV /K
+h = 4.13566766e-15  # eV s
+
+def dCO3dt(C,t,k):   # 0: O3   1: O  2: 02
+    r1 =  k[0]*C[0]
+    rn1 = k[1]*C[1]*C[2]
+    r2  = k[2]*C[0]*C[1]
+    rn2 = k[3]*C[2]*C[2]
+
+    dC_O3dt = -r1 + rn1 -r2 + rn2
+    dC_Odt  =  r1 - rn1 - r2 + rn2
+    dC_O2dt =  r1 - rn1 + 2*r2 - 2 * rn2
+    dCdt = [dC_O3dt,dC_Odt,dC_O2dt]    # O3  O  O2
+    return dCdt
+#     
+
+# initialize concentrations
+C_0 = [1., 0., 2.]
+
+R0 = 8.314
+T = 500.
+
+# initialize k's
+deltaGtot = -100.0
+deltaG1 = -50.0
+deltaG2 = deltaGtot - deltaG1
+deltaG1d = 120.
+deltaG2d = 220.
+
+deltaGn1d = deltaG1d-deltaG1
+deltaGn2d = deltaG2d-deltaG2
+
+p1 = BPoly.from_derivatives([0, 1, 2, 3, 4], [[0, 0], [deltaG1d, 0], [deltaG1, 0], [deltaG1+deltaG2d,0], [deltaGtot,0]])
+
+x=np.linspace(0,4,100)
+y=p1(x)
+
+plt.figure(figsize=(10,12))
+plt.subplot(2,2,1)
+plt.plot(x,y)
+plt.ylabel('Free energy')
+plt.xlabel('Reaction coordinate')
+
+k = (kB*T/h)*np.exp(-np.array([deltaG1d,deltaGn1d,deltaG2d,deltaGn2d])*1000./(R0*T))
+print(deltaG1d,deltaGn1d,deltaG2d,deltaGn2d)
+print(k)
+
+# Range of time to solve over
+t = np.arange(0,6,0.1) 
+# t_span = (0., 10.)
+
+p = (k,) # turn parameters into a tuple
+C = odeint(dCO3dt,C_0,t,p)
+
+
+C_O3 = C.transpose()[0] # Get C_A from C
+C_O = C.transpose()[1] # Get C_B from C
+C_O2 = C.transpose()[2]
+
+plt.subplot(2,2,2)
+plt.plot(t,C_O3,'-',label=r'$C_{\rm O3}$')
+plt.plot(t,C_O,'-',label=r'$C_{\rm O}$')
+plt.plot(t,C_O2,'-',label=r'$C_{\rm O2}$')
+plt.xlabel('Time (s)')
+plt.ylabel('Concentration (mol/L)')
+plt.legend()
+# plt.savefig('./Images/ABC-conc.png')
+
+r1 = k[0]*C_O3
+rn1 = k[1]*C_O*C_O2
+r2 = k[2]*C_O*C_O3
+rn2 = k[3]*C_O2*C_O2
+
+plt.subplot(2,2,3)
+plt.plot(t,-r1+rn1-r2+rn2,label=r'$r_{\rm O3}$')
+plt.plot(t,r1-rn1-r2+rn2,label=r'$r_{\rm O}$')
+plt.plot(t,r1-rn1+2*r2-2*rn2,label=r'$r_{\rm O2}$')
+plt.xlabel('Time (s)')
+plt.ylabel('Rate (mol/L/s)')
+#plt.ylim(-2.5, 2.5)
+plt.title('Species rates')
+plt.legend()
+
+plt.subplot(2,2,4)
+plt.plot(t,r1,label=r'$r_1$')
+plt.plot(t,rn1,label=r'$r_{-1}$')
+plt.plot(t,r2,label=r'$r_2$')
+plt.plot(t,rn2,label=r'$r_{-2}$')
+#plt.ylim(0, 2.5)
+plt.xlabel('Time (s)')
+plt.ylabel('Rate (mol/L/s)')
+plt.title('Reaction rates')
+plt.legend()
+
+
+
+plt.savefig('./Images/O3-rxn.png')
+#+END_SRC
+
+#+RESULTS:
+: 120.0 170.0 220.0 270.0
+: [3.02712755e+00 1.80874800e-05 1.08075040e-10 6.45762392e-16]
+
+#+ATTR_ORG: :width 800
+
