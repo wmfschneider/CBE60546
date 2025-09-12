@@ -5,10 +5,10 @@
 |   |             |                                                          |             |
 | 2 | 12 Sep 2025 | [[https://colab.research.google.com/github/wmfschneider/CBE60546/blob/master/Homework/HW2-F25.ipynb][https://colab.research.google.com/assets/colab-badge.svg]] | [[./Homework/HW2-F21-soln.pdf][pdf]]   [[http://nbviewer.jupyter.org/github/wmfschneider/CBE60546/blob/main/Homework/HW2-F21-soln.ipynb][ipynb]] |
 |   |             |                                                          |             |
-| 3 | 19 Sep 2025 | https://colab.research.google.com/assets/colab-badge.svg | [[./Homework/HW3-F21-soln.pdf][pdf]]   [[http://nbviewer.jupyter.org/github/wmfschneider/CBE60546/blob/main/Homework/HW3-F21-soln.ipynb][ipynb]] |
+| 3 | 19 Sep 2025 | [[https://colab.research.google.com/github/wmfschneider/CBE60546/blob/master/Homework/HW3-F25.ipynb][https://colab.research.google.com/assets/colab-badge.svg]] | [[./Homework/HW3-F21-soln.pdf][pdf]]   [[http://nbviewer.jupyter.org/github/wmfschneider/CBE60546/blob/main/Homework/HW3-F21-soln.ipynb][ipynb]] |
 |   |             |                                                          |             |
-| 4 | 1 Oct 2021  | [[https://colab.research.google.com/github/wmfschneider/CBE60546/blob/master/Homework/HW4-F21.ipynb][https://colab.research.google.com/assets/colab-badge.svg]] | [[./Homework/HW4-Fa21-soln.pdf][pdf]]  [[./Homework/HW4-F21-soln.ipynb][ipynb]]  |
+| 4 | 1 Oct 2021  |                                                          | [[./Homework/HW4-Fa21-soln.pdf][pdf]]  [[./Homework/HW4-F21-soln.ipynb][ipynb]]  |
 |   |             |                                                          |             |
-| 5 | 12 Oct 2021 | [[https://colab.research.google.com/github/wmfschneider/CBE60546/blob/master/Homework/HW5-F21.ipynb][https://colab.research.google.com/assets/colab-badge.svg]] | [[./Homework/HW5-F21-soln.pdf][pdf]]  [[./Homework/HW5-F21-soln.ipynb][ipynb]]  |
+| 5 | 12 Oct 2021 |                                                          | [[./Homework/HW5-F21-soln.pdf][pdf]]  [[./Homework/HW5-F21-soln.ipynb][ipynb]]  |
 |   |             |                                                          |             |
 
