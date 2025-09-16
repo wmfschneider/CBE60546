@@ -59,7 +59,7 @@ I strongly encourage you to keep up with the material and homework, to use the r
 There are many good reaction engineering texts. We won't use or follow any one in particular. Some that I find useful include: 
 
 - Hill and Root, /Introduction to Chemical Engineering Kinetcs & Reactor Design/, 2nd edition, Wiley 2014
-- Davis and Davis, /Fundamentals of Chemical Reaction Engineering/, McGraw-Hill. Available online [[https://authors.library.caltech.edu/25070/][here]].
+- Davis and Davis, /Fundamentals of Chemical Reaction Engineering/, McGraw-Hill. Available online [[https://authors.library.caltech.edu/records/arr0q-97509][here]].
 - Rawlings and Ekerdt, /Chemical Reactor Analysis and Design Fundamentals/, 2nd edition, Nob Hill. Useful information [[https://sites.engineering.ucsb.edu/~jbraw/chemreacfun/][here]].
 - Schmidt, /The Engineering of Chemical Reactions/, 2nd edition, Oxford 2005. Available online [[https://app.knovel.com/kn/resources/kpECRE0001/toc][here]].
 
