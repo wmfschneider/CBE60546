@@ -60,7 +60,7 @@
 |                   |                                           |                                               |
 | advancement       | \(n_j = n_{j0} + \nu_j \xi \)             | \(n_j = n_{j0} + \sum_i \nu_{ij} \xi_i \)     |
 |                   |                                           |                                               |
-| in flow           | \(F_j = F_{j0} + \nu_j \dot{\xi} \)       | \(F_j = F_{j0} + \sum_i \nu{ij} \dot{\xi_i}\) |
+| in flow           | \(F_j = F_{j0} + \nu_j \dot{\xi} \)       | \(F_j = F_{j0} + \sum_i \nu_{ij} \dot{\xi_i}\) |
 |                   |                                           |                                               |
 | mole fraction     | \(y_j = n_j/\sum_j n_j = F_j/\sum_j F_j\) |                                               |
 |                   |                                           |                                               |
@@ -82,7 +82,7 @@
 
 #+CAPTION:Thermodynamic Equations
 |-------------------------------+--------------------------------------------------------------------------------|
-| First Law                     | (dU = 0\) in any process in a closed system                                    |
+| First Law                     | \(dU = 0\) in any process in a closed system                                   |
 | Second Law                    | \(dS \ge 0\) in any spontaneous process in a closed system                     |
 | Third Law                     | \(S(\SI{0}{\kelvin} = 0 \)                                                     |
 |                               |                                                                                |
