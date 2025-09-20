@@ -1,0 +1,124 @@
+:OPTIONS:
+#+AUTHOR: William F. Schneider
+#+TITLE: CBE 60546 Key Equations
+#+EMAIL: wschneider@nd.edu
+#+LATEX_CLASS_OPTIONS:[11pt]
+#+LATEX_HEADER:\usepackage[left=1in, right=1in, top=1in, bottom=1in, nohead]{geometry}
+#+LATEX_HEADER:\geometry{margin=1.0in}
+#+LATEX_HEADER:\usepackage{amsmath}
+#+LATEX_HEADER:\usepackage{siunitx}
+#+LATEX_HEADER:\usepackage{graphicx}
+#+LATEX_HEADER:\usepackage{epstopdf}
+#+LATEX_HEADER:\usepackage{fancyhdr}
+#+LATEX_HEADER:\usepackage{hyperref}
+#+LATEX_HEADER:\usepackage[labelfont=bf]{caption}
+#+LATEX_HEADER:\usepackage{setspace}
+#+LATEX_HEADER:\usepackage{sectsty}
+#+LATEX_HEADER:\subsectionfont{\rm}
+
+#+LATEX_HEADER:\usepackage{titlesec}
+#+LATEX_HEADER:\titlespacing*{\section}
+#+LATEX_HEADER:{0pt}{0.4\baselineskip}{0.1\baselineskip}
+#+LATEX_HEADER:\titlespacing*{\subsection}
+#+LATEX_HEADER:{0pt}{0.3\baselineskip}{0.1\baselineskip}
+#+LATEX_HEADER:\titlespacing*{\subsubsection}
+#+LATEX_HEADER:{0pt}{0.1\baselineskip}{0.0\baselineskip}
+
+#+LATEX_HEADER:\setlength{\headheight}{5.2pt}
+#+LATEX_HEADER:\setlength{\headsep}{14pt}
+#+LATEX_HEADER:\def\dbar{{\mathchar'26\mkern-12mu d}}
+#+LATEX_HEADER:\pagestyle{fancy}
+#+LATEX_HEADER:\fancyhf{}
+#+LATEX_HEADER:\renewcommand{\headrulewidth}{0.5pt}
+#+LATEX_HEADER:\renewcommand{\footrulewidth}{0.5pt}
+#+LATEX_HEADER:\rfoot{\thepage}
+#+LATEX_HEADER:\rhead{\bf{Fall 2025}}
+#+LATEX_HEADER:\lhead{\bf{ND CBE 60546}}
+#+LATEX_HEADER:\chead{\bf{Equation Sheet}}
+
+#+OPTIONS: toc:nil
+#+OPTIONS: H:2 num:3
+#+OPTIONS: ':t
+:END:
+
+#+CAPTION:Key Units
+|-------------------+------------------------------------------------|
+| \(N_\mathrm{av}\) | \SI{6.02214e23}{\per\mole}                     |
+| \(R\)             | \SI{8.314472}{\joule\per\mole\per\kelvin}      |
+| \(R\)             | \SI{8.2057e-2}{\liter\atm\per\mole\per\kelvin} |
+| \(k_B\)           | \SI{1.38065e-23}{\joule\per\kelvin}            |
+| \(k_B\)           | \SI{8.61734e-5}{\eV\per\kelvin}                |
+| \(h\)             | \SI{6.62607e-34}{\joule\second}                |
+| \(k_B/h\)         | \SI{20836619123.3}{\per\kelvin\per\second}     |
+| \(c\)             | \SI{2.99792458e8}{\meter\per\second}           |
+|-------------------+------------------------------------------------|
+
+#+CAPTION:Stoichiometry Equations
+|-------------------+-------------------------------------------+-----------------------------------------------|
+|                   | one reaction                              | reaction network                              |
+| balanced reaction | \(\sum_j \nu_j A_j = 0\)                  | \(\sum_j \nu_{ij} A_j =0, \forall i\)         |
+|                   |                                           |                                               |
+| advancement       | \(n_j = n_{j0} + \nu_j \xi \)             | \(n_j = n_{j0} + \sum_i \nu_{ij} \xi_i \)     |
+|                   |                                           |                                               |
+| in flow           | \(F_j = F_{j0} + \nu_j \dot{\xi} \)       | \(F_j = F_{j0} + \sum_i \nu{ij} \dot{\xi_i}\) |
+|                   |                                           |                                               |
+| mole fraction     | \(y_j = n_j/\sum_j n_j = F_j/\sum_j F_j\) |                                               |
+|                   |                                           |                                               |
+| partial pressure  | \(P_j = \y_j P \)                         |                                               |
+|                   |                                           |                                               |
+| concentration     | \(C_j = n_j / V = F_j/v \)                |                                               |
+|                   |                                           |                                               |
+| ideal gas law     | \(V = (R T/P) \sum_j n_j \)               |                                               |
+| in flow           | \(v = (R T/P) \sum_j F_j \)               |                                               |
+|-------------------+-------------------------------------------+-----------------------------------------------|
+
+
+#+CAPTION:Activity Models
+|----------------+------------------------|
+| pure substance | \(a_j = 1\)            |
+| ideal gas      | \(a_j =y_j P/P^\circ\) |
+| solute         | \(a_j = C_j/C^\circ\)  |
+|----------------+------------------------|
+
+#+CAPTION:Thermodynamic Equations
+|-------------------------------+--------------------------------------------------------------------------------|
+| First Law                     | (dU = 0\) in any process in a closed system                                    |
+| Second Law                    | \(dS \ge 0\) in any spontaneous process in a closed system                     |
+| Third Law                     | \(S(\SI{0}{\kelvin} = 0 \)                                                     |
+|                               |                                                                                |
+| Enthalpy                      | \( H = U + PV \)                                                               |
+| Gibbs energy                  | \( G = H - T S \)  minimized in any spontaneous reaction                       |
+|                               |                                                                                |
+| std reaction enthalpy         | \(\Delta H_\text{rxn}^\circ(T) = \sum_j \nu_j \Delta H_{f,j}^\circ(T)   \)     |
+|                               |                                                                                |
+| std reaction entropy          | \(\Delta S_\text{rxn}^\circ(T) = \sum_j \nu_j S^\circ_j(T)  \)                 |
+|                               |                                                                                |
+| mixture free energy           | \(G(n_j,T,P) = \sum_j n_j \mu_j    \)                                          |
+|                               |                                                                                |
+| reaction free energy gradient | \(dG = \sum_j \mu_j dn_j\)                                                     |
+|                               |                                                                                |
+| chemical potential            | \( \mu_j = \mu_j^\circ(T) + RT \ln a_j    \)                                   |
+|                               |                                                                                |
+| chemical equilibrium          | \(\partial G/\partial \xi = 0\)                                                |
+|                               |                                                                                |
+| mass action expression        | \(Q(\xi) = \prod_j a_j^{\nu_j} \)                                              |
+|                               |                                                                                |
+| equilibrium constant          | \( K_{eq}(T)  = \exp(-\Delta G^\circ(T)/RT ) = \prod_j a_{j,\text{eq}}^\nu_j\) |
+|                               |                                                                                |
+| Gibbs-Helholtz relation       | \( \partial (G/T) /\partial T  = -H/T^2 \)                                     |
+|                               |                                                                                |
+| van't Hoff approximation      | \(K_\text{eq}(T_2)/T_2 - K_\text{eq}(T_1)/T_1 = -\Delta H^\circ (T)/R \)       |
+|-------------------------------+--------------------------------------------------------------------------------|
+
+#+CAPTION:Kinetics equations
+|-----------------------+----------------------+--------------------------+---------------------------|
+| Arrhenius expression  | \(\ln k = -E_a/RT \) |                          |                           |
+|                       |                      |                          |                           |
+|                       | Rate                 | Integrated rate          | half-life                 |
+| First-order reaction  | \(r=k C_A \)         | \(C_A = C_{A0} e^{-kt}\) | \(t_{1/2} = \ln 2/k \)    |
+|                       |                      |                          |                           |
+| Second-order reaction | \(r=k C_A^2 \)       | \(1/C_A = 1/C_{A0} -kt\) | \(t_{1/2} = 1/C_{A0} k \) |
+|-----------------------+----------------------+--------------------------+---------------------------|
+
+
+

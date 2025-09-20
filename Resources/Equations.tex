@@ -1,0 +1,172 @@
+% Created 2025-09-20 Sat 10:55
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{marvosym}
+\usepackage{wasysym}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[theorems, skins]{tcolorbox}
+\usepackage[version=3]{mhchem}
+\usepackage[numbers,super,sort&compress]{natbib}
+\usepackage{natmove}
+\usepackage{url}
+\usepackage[cache=false]{minted}
+\usepackage[strings]{underscore}
+\usepackage[linktocpage,pdfstartview=FitH,colorlinks,
+linkcolor=blue,anchorcolor=blue,
+citecolor=blue,filecolor=blue,menucolor=blue,urlcolor=blue]{hyperref}
+\usepackage{attachfile}
+\usepackage{setspace}
+\usepackage[left=1in, right=1in, top=1in, bottom=1in, nohead]{geometry}
+\geometry{margin=1.0in}
+\usepackage{amsmath}
+\usepackage{siunitx}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage[labelfont=bf]{caption}
+\usepackage{setspace}
+\usepackage{sectsty}
+\subsectionfont{\rm}
+\usepackage{titlesec}
+\titlespacing*{\section}
+{0pt}{0.4\baselineskip}{0.1\baselineskip}
+\titlespacing*{\subsection}
+{0pt}{0.3\baselineskip}{0.1\baselineskip}
+\titlespacing*{\subsubsection}
+{0pt}{0.1\baselineskip}{0.0\baselineskip}
+\setlength{\headheight}{5.2pt}
+\setlength{\headsep}{14pt}
+\def\dbar{{\mathchar'26\mkern-12mu d}}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+\rfoot{\thepage}
+\rhead{\bf{Fall 2025}}
+\lhead{\bf{ND CBE 60546}}
+\chead{\bf{Equation Sheet}}
+\setcounter{secnumdepth}{3}
+\author{William F. Schneider}
+\date{\today}
+\title{CBE 60546 Key Equations}
+\begin{document}
+
+
+\begin{table}[htbp]
+\caption{Key Units}
+\centering
+\begin{tabular}{ll}
+\hline
+\(N_\mathrm{av}\) & \SI{6.02214e23}{\per\mole}\\
+\(R\) & \SI{8.314472}{\joule\per\mole\per\kelvin}\\
+\(R\) & \SI{8.2057e-2}{\liter\atm\per\mole\per\kelvin}\\
+\(k_B\) & \SI{1.38065e-23}{\joule\per\kelvin}\\
+\(k_B\) & \SI{8.61734e-5}{\eV\per\kelvin}\\
+\(h\) & \SI{6.62607e-34}{\joule\second}\\
+\(k_B/h\) & \SI{20836619123.3}{\per\kelvin\per\second}\\
+\(c\) & \SI{2.99792458e8}{\meter\per\second}\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\caption{Stoichiometry Equations}
+\centering
+\begin{tabular}{lll}
+\hline
+ & one reaction & reaction network\\
+balanced reaction & \(\sum_j \nu_j A_j = 0\) & \(\sum_j \nu_{ij} A_j =0, \forall i\)\\
+ &  & \\
+advancement & \(n_j = n_{j0} + \nu_j \xi\) & \(n_j = n_{j0} + \sum_i \nu_{ij} \xi_i\)\\
+ &  & \\
+in flow & \(F_j = F_{j0} + \nu_j \dot{\xi}\) & \(F_j = F_{j0} + \sum_i \nu{ij} \dot{\xi_i}\)\\
+ &  & \\
+mole fraction & \(y_j = n_j/\sum_j n_j = F_j/\sum_j F_j\) & \\
+ &  & \\
+partial pressure & \(P_j = \y_j P\) & \\
+ &  & \\
+concentration & \(C_j = n_j / V = F_j/v\) & \\
+ &  & \\
+ideal gas law & \(V = (R T/P) \sum_j n_j\) & \\
+in flow & \(v = (R T/P) \sum_j F_j\) & \\
+\hline
+\end{tabular}
+\end{table}
+
+
+\begin{table}[htbp]
+\caption{Activity Models}
+\centering
+\begin{tabular}{ll}
+\hline
+pure substance & \(a_j = 1\)\\
+ideal gas & \(a_j =y_j P/P^\circ\)\\
+solute & \(a_j = C_j/C^\circ\)\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\caption{Thermodynamic Equations}
+\centering
+\begin{tabular}{ll}
+\hline
+First Law & (dU = 0$\backslash$) in any process in a closed system\\
+Second Law & \(dS \ge 0\) in any spontaneous process in a closed system\\
+Third Law & \(S(\SI{0}{\kelvin} = 0\)\\
+ & \\
+Enthalpy & \(H = U + PV\)\\
+Gibbs energy & \(G = H - T S\)  minimized in any spontaneous reaction\\
+ & \\
+std reaction enthalpy & \(\Delta H_\text{rxn}^\circ(T) = \sum_j \nu_j \Delta H_{f,j}^\circ(T)\)\\
+ & \\
+std reaction entropy & \(\Delta S_\text{rxn}^\circ(T) = \sum_j \nu_j S^\circ_j(T)\)\\
+ & \\
+mixture free energy & \(G(n_j,T,P) = \sum_j n_j \mu_j\)\\
+ & \\
+reaction free energy gradient & \(dG = \sum_j \mu_j dn_j\)\\
+ & \\
+chemical potential & \(\mu_j = \mu_j^\circ(T) + RT \ln a_j\)\\
+ & \\
+chemical equilibrium & \(\partial G/\partial \xi = 0\)\\
+ & \\
+mass action expression & \(Q(\xi) = \prod_j a_j^{\nu_j}\)\\
+ & \\
+equilibrium constant & \(K_{eq}(T)  = \exp(-\Delta G^\circ(T)/RT ) = \prod_j a_{j,\text{eq}}^\nu_j\)\\
+ & \\
+Gibbs-Helholtz relation & \(\partial (G/T) /\partial T  = -H/T^2\)\\
+ & \\
+van't Hoff approximation & \(K_\text{eq}(T_2)/T_2 - K_\text{eq}(T_1)/T_1 = -\Delta H^\circ (T)/R\)\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\caption{Kinetics equations}
+\centering
+\begin{tabular}{llll}
+\hline
+Arrhenius expression & \(\ln k = -E_a/RT\) &  & \\
+ &  &  & \\
+ & Rate & Integrated rate & half-life\\
+First-order reaction & \(r=k C_A\) & \(C_A = C_{A0} e^{-kt}\) & \(t_{1/2} = \ln 2/k\)\\
+ &  &  & \\
+Second-order reaction & \(r=k C_A^2\) & \(1/C_A = 1/C_{A0} -kt\) & \(t_{1/2} = 1/C_{A0} k\)\\
+\hline
+\end{tabular}
+\end{table}
+\end{document}
