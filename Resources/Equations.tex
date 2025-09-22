@@ -1,4 +1,4 @@
-% Created 2025-09-20 Sat 10:59
+% Created 2025-09-20 Sat 17:48
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -65,7 +65,6 @@ citecolor=blue,filecolor=blue,menucolor=blue,urlcolor=blue]{hyperref}
 \title{CBE 60546 Key Equations}
 \begin{document}
 
-
 \begin{table}[htbp]
 \caption{Key Units}
 \centering
@@ -73,7 +72,7 @@ citecolor=blue,filecolor=blue,menucolor=blue,urlcolor=blue]{hyperref}
 \hline
 \(N_\mathrm{av}\) & \SI{6.02214e23}{\per\mole}\\
 \(R\) & \SI{8.314472}{\joule\per\mole\per\kelvin}\\
-\(R\) & \SI{8.2057e-2}{\liter\atm\per\mole\per\kelvin}\\
+\(R\) & \SI{8.2057e-2}{\liter.atm\per\mole\per\kelvin}\\
 \(k_B\) & \SI{1.38065e-23}{\joule\per\kelvin}\\
 \(k_B\) & \SI{8.61734e-5}{\eV\per\kelvin}\\
 \(h\) & \SI{6.62607e-34}{\joule\second}\\
@@ -102,6 +101,7 @@ partial pressure & \(P_j = \y_j P\) & \\
 concentration & \(C_j = n_j / V = F_j/v\) & \\
  &  & \\
 ideal gas law & \(V = (R T/P) \sum_j n_j\) & \\
+ &  & \\
 in flow & \(v = (R T/P) \sum_j F_j\) & \\
 \hline
 \end{tabular}
@@ -130,6 +130,7 @@ Second Law & \(dS \ge 0\) in any spontaneous process in a closed system\\
 Third Law & \(S(\SI{0}{\kelvin} = 0\)\\
  & \\
 Enthalpy & \(H = U + PV\)\\
+ & \\
 Gibbs energy & \(G = H - T S\)  minimized in any spontaneous reaction\\
  & \\
 std reaction enthalpy & \(\Delta H_\text{rxn}^\circ(T) = \sum_j \nu_j \Delta H_{f,j}^\circ(T)\)\\
@@ -156,16 +157,19 @@ van't Hoff approximation & \(K_\text{eq}(T_2)/T_2 - K_\text{eq}(T_1)/T_1 = -\Del
 \end{table}
 
 \begin{table}[htbp]
-\caption{Kinetics equations}
+\caption{Kinetics Equations}
 \centering
 \begin{tabular}{llll}
 \hline
 Arrhenius expression & \(\ln k = -E_a/RT\) &  & \\
  &  &  & \\
- & Rate & Integrated rate & half-life\\
-First-order reaction & \(r=k C_A\) & \(C_A = C_{A0} e^{-kt}\) & \(t_{1/2} = \ln 2/k\)\\
+ & Rate & Integrated rate & half-life  (\(t_{1/2}\))\\
+\hline
+Zeroth-order reaction & \(r = k\) & \(C_A = C_{A0} t\) & \(C_{A0}/2k\)\\
  &  &  & \\
-Second-order reaction & \(r=k C_A^2\) & \(1/C_A = 1/C_{A0} -kt\) & \(t_{1/2} = 1/C_{A0} k\)\\
+First-order reaction & \(r=k C_A\) & \(C_A = C_{A0} e^{-kt}\) & \(\ln 2/k\)\\
+ &  &  & \\
+Second-order reaction & \(r=k C_A^2\) & \(1/C_A = 1/C_{A0} -kt\) & \(1/C_{A0} k\)\\
 \hline
 \end{tabular}
 \end{table}
