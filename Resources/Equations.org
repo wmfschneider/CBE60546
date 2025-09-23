@@ -81,35 +81,35 @@
 |----------------+------------------------|
 
 #+CAPTION:Thermodynamic Equations
-|-------------------------------+--------------------------------------------------------------------------------|
-| First Law                     | \(dU = 0\) in any process in a closed system                                   |
-| Second Law                    | \(dS \ge 0\) in any spontaneous process in a closed system                     |
-| Third Law                     | \(S(\SI{0}{\kelvin} = 0 \)                                                     |
-|                               |                                                                                |
-| Enthalpy                      | \( H = U + PV \)                                                               |
-|                               |                                                                                |
-| Gibbs energy                  | \( G = H - T S \)  minimized in any spontaneous reaction                       |
-|                               |                                                                                |
-| std reaction enthalpy         | \(\Delta H_\text{rxn}^\circ(T) = \sum_j \nu_j \Delta H_{f,j}^\circ(T)   \)     |
-|                               |                                                                                |
-| std reaction entropy          | \(\Delta S_\text{rxn}^\circ(T) = \sum_j \nu_j S^\circ_j(T)  \)                 |
-|                               |                                                                                |
-| mixture free energy           | \(G(n_j,T,P) = \sum_j n_j \mu_j    \)                                          |
-|                               |                                                                                |
-| reaction free energy gradient | \(dG = \sum_j \mu_j dn_j\)                                                     |
-|                               |                                                                                |
-| chemical potential            | \( \mu_j = \mu_j^\circ(T) + RT \ln a_j    \)                                   |
-|                               |                                                                                |
-| chemical equilibrium          | \(\partial G/\partial \xi = 0\)                                                |
-|                               |                                                                                |
-| mass action expression        | \(Q(\xi) = \prod_j a_j^{\nu_j} \)                                              |
-|                               |                                                                                |
-| equilibrium constant          | \( K_{eq}(T)  = \exp(-\Delta G^\circ(T)/RT ) = \prod_j a_{j,\text{eq}}^\nu_j\) |
-|                               |                                                                                |
-| Gibbs-Helholtz relation       | \(\partial (G/T) /\partial T  = -H/T^2 \)                                      |
-|                               |                                                                                |
-| van't Hoff approximation      | \(K_\text{eq}(T_2)/T_2 - K_\text{eq}(T_1)/T_1 = -\Delta H^\circ (T)/R \)       |
-|-------------------------------+--------------------------------------------------------------------------------|
+|-------------------------------+-----------------------------------------------------------------------------------------------------------------------------------|
+| First Law                     | \(dU = 0\) in any process in a closed system                                                                                      |
+| Second Law                    | \(dS \ge 0\) in any spontaneous process in a closed system                                                                        |
+| Third Law                     | \(S(\SI{0}{\kelvin} = 0 \)                                                                                                        |
+|                               |                                                                                                                                   |
+| Enthalpy                      | \( H = U + PV \)                                                                                                                  |
+|                               |                                                                                                                                   |
+| Gibbs energy                  | \( G = H - T S \)  minimized in any spontaneous reaction                                                                          |
+|                               |                                                                                                                                   |
+| std reaction enthalpy         | \(\Delta H_\text{rxn}^\circ(T) = \sum_j \nu_j \Delta H_{f,j}^\circ(T)   \)                                                        |
+|                               |                                                                                                                                   |
+| std reaction entropy          | \(\Delta S_\text{rxn}^\circ(T) = \sum_j \nu_j S^\circ_j(T)  \)                                                                    |
+|                               |                                                                                                                                   |
+| mixture free energy           | \(G(n_j,T,P) = \sum_j n_j \mu_j    \)                                                                                             |
+|                               |                                                                                                                                   |
+| reaction free energy gradient | \(dG = \sum_j \mu_j dn_j\)                                                                                                        |
+|                               |                                                                                                                                   |
+| chemical potential            | \( \mu_j = \mu_j^\circ(T) + RT \ln a_j    \)                                                                                      |
+|                               |                                                                                                                                   |
+| chemical equilibrium          | \(\partial G/\partial \xi = 0\)                                                                                                   |
+|                               |                                                                                                                                   |
+| mass action expression        | \(Q(\xi) = \prod_j a_j^{\nu_j} \)                                                                                                 |
+|                               |                                                                                                                                   |
+| equilibrium constant          | \( K_{eq}(T)  = \exp(-\Delta G^\circ(T)/RT ) = \prod_j a_{j,\text{eq}}^\nu_j\)                                                    |
+|                               |                                                                                                                                   |
+| Gibbs-Helholtz relation       | \(\partial (G/T) /\partial T  = -H/T^2 \)                                                                                         |
+|                               |                                                                                                                                   |
+| van't Hoff approximation      | \[\ln\left ( K_\text{eq}(T_2)/K_\text{eq}(T_1) \right ) = -\left ( \Delta H^\circ /R\right ) \left ( 1/T_2 - 1/T_1 \right ) \]    |
+|-------------------------------+-----------------------------------------------------------------------------------------------------------------------------------|
 
 #+CAPTION:Kinetics Equations
 |-----------------------+----------------------+--------------------------+--------------------------|
