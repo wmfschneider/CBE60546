@@ -1,0 +1,11 @@
+jobName=TS
+jobEngine=orca
+jobDescription=Vibrational Frequencies
+jobDate=9/30/2025 19:34
+jobHistory=1755861,1755867,1755868,1755872,1755875,1755903
+inputFile=input.inp
+outputLog=output.log
+inputGeometry=input.xyz
+outputGeometry=output.xyz
+checkpoint=output.chk
+jobStatus=complete

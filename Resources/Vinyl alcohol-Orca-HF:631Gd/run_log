@@ -1,0 +1,10 @@
+Executing script: /home/webmodemo/public_html/cgi-bin/webmo/run_orca.cgi
+Creating working directory: /scratch/webmodemo/webmo-4350/1755845
+Script execution node: webserver
+Job execution node(s): webserver
+Executing command: /share/apps/orca/orca input.inp
+Reading the input file input.gbw               ... done
+Writing the output file input.molden.input     ... done
+/bin/mv: cannot stat '/scratch/webmodemo/webmo-4350/1755845/NBODATA.*': No such file or directory
+/bin/mv: cannot stat '/scratch/webmodemo/webmo-4350/1755845/output.trj': No such file or directory
+/bin/mv: cannot stat '/scratch/webmodemo/webmo-4350/1755845/*.csv': No such file or directory

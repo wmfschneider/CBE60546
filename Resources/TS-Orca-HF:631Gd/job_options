@@ -1,0 +1,15 @@
+jobEngine=orca
+charge=0
+nlayer=1
+geometry2=
+calculation=
+hasStructureChanged=false
+multiplicity=1
+jobHistory=1755861,1755867,1755868,1755872,1755875,1755903
+templateId=global,3
+solvent=
+jobName=TS
+auxBasisSet=
+method=HF
+basisSet=6-31G(d)
+ppn=1

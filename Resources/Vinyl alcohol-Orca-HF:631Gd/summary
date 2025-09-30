@@ -1,0 +1,11 @@
+jobName=C2H4O
+jobEngine=orca
+jobDescription=Optimize + Vib Freq
+jobDate=9/30/2025 18:45
+jobHistory=
+inputFile=input.inp
+outputLog=output.log
+inputGeometry=input.xyz
+outputGeometry=output.xyz
+checkpoint=output.chk
+jobStatus=complete

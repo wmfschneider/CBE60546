@@ -1,0 +1,15 @@
+jobEngine=orca
+geometry2=
+solvent=
+hasStructureChanged=true
+jobName=C2H4O
+basisSet=6-31G(d)
+nlayer=1
+charge=0
+ppn=1
+jobHistory=
+auxBasisSet=
+method=HF
+multiplicity=1
+templateId=global,4
+calculation=
