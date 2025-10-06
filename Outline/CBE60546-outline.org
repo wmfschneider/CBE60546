@@ -802,7 +802,6 @@ plt.savefig('./Images/ABC-PSSA.png')
 #+ATTR_ORG: :width 800
 [[./Images/ABC-PSSA.png]]
 
-
 ** Simplifying reaction networks
 1. Simplifications helpful when parameters of full model are unknown or to fit to experimental observations
 2. Ozone decomposition, \ce{2 O3 -> 3 O2} 
