@@ -11,4 +11,4 @@
 |   |             |                                                          |             |
 | 5 | 13 Oct 2025 | [[https://colab.research.google.com/github/wmfschneider/CBE60546/blob/master/Homework/HW5-F25.ipynb][https://colab.research.google.com/assets/colab-badge.svg]] | [[./Homework/HW5-F21-soln.pdf][pdf]]  [[./Homework/HW5-F25-soln.ipynb][ipynb]]  |
 |   |             |                                                          |             |
-| 6 | 27 Oct 2025 |                                                          |             |
+| 6 | 29 Oct 2025 | [[https://colab.research.google.com/github/wmfschneider/CBE60546/blob/master/Homework/HW5-F26.ipynb][https://colab.research.google.com/assets/colab-badge.svg]] |             |
