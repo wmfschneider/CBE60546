@@ -16,4 +16,6 @@ Reference book: [[https://authors.library.caltech.edu/25070/][Davis and Davis, F
 |           |                         |              |
 | Lecture 6 | Heterogeneous Catalysis | [[./Lectures/6-Heterogeneous Catalysis.pdf][notes]]        |
 |           |                         | [[./Lectures/6-Catalysis-presentation.pdf][presentation]] |
+| Lecture 7 | Ideal reactors          | [[./Lectures/7-Ideal Reactors.pdf][notes]]        |
+|           |                         |              |
 
