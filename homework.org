@@ -13,6 +13,8 @@
 |   |             |                                                          |             |
 | 6 | 3 Nov 2025  | [[https://colab.research.google.com/github/wmfschneider/CBE60546/blob/master/Homework/HW6-F25.ipynb][https://colab.research.google.com/assets/colab-badge.svg]] | [[./Homework/HW6-F25-soln.ipynb][ipynb]]       |
 |   |             |                                                          |             |
-| 7 | 17 Nov 2025 | [[https://colab.research.google.com/github/wmfschneider/CBE60546/blob/master/Homework/HW7-F26.ipynb][https://colab.research.google.com/assets/colab-badge.svg]] | [[./Homework/HW7-F25-soln.ipynb][ipynb]]       |
+| 7 | 17 Nov 2025 | [[https://colab.research.google.com/github/wmfschneider/CBE60546/blob/master/Homework/HW7-F25.ipynb][https://colab.research.google.com/assets/colab-badge.svg]] | [[./Homework/HW7-F25-soln.ipynb][ipynb]]       |
+|   |             |                                                          |             |
+| 8 | 3 Dec 2025  | [[https://colab.research.google.com/github/wmfschneider/CBE60546/blob/master/Homework/HW8-F25.ipynb][https://colab.research.google.com/assets/colab-badge.svg]] | [[./Homework/HW7-F25-soln.ipynb][ipynb]]       |
 |   |             |                                                          |             |
 
