@@ -18,4 +18,6 @@ Reference book: [[https://authors.library.caltech.edu/25070/][Davis and Davis, F
 |           |                         | [[./Lectures/6-Catalysis-presentation.pdf][presentation]] |
 | Lecture 7 | Ideal reactors          | [[./Lectures/7-Ideal Reactors.pdf][notes]]        |
 |           |                         |              |
+| Lecture 8 | Transport               | [[./Lectures/8-Transport.pdf][notes]]        |
+|           |                         |              |
 
