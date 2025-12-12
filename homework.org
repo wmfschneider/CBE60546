@@ -1,22 +1,25 @@
-|---+-------------+----------------------------------------------------------+-------------|
-|   | Due Date    | Homework                                                 | Solution    |
-|---+-------------+----------------------------------------------------------+-------------|
-| 1 | 5 Sep 2025  | [[https://colab.research.google.com/github/wmfschneider/CBE60546/blob/master/Homework/HW1-F25.ipynb][https://colab.research.google.com/assets/colab-badge.svg]] | [[./Homework/HW1-Fa25-soln.pdf][pdf]]   [[http://nbviewer.jupyter.org/github/wmfschneider/CBE60546/blob/main/Homework/HW1-F25-soln.ipynb][ipynb]] |
-|   |             |                                                          |             |
-| 2 | 12 Sep 2025 | [[https://colab.research.google.com/github/wmfschneider/CBE60546/blob/master/Homework/HW2-F25.ipynb][https://colab.research.google.com/assets/colab-badge.svg]] | [[./Homework/HW2-F21-soln.pdf][pdf]]   [[http://nbviewer.jupyter.org/github/wmfschneider/CBE60546/blob/main/Homework/HW2-F25-soln.ipynb][ipynb]] |
-|   |             |                                                          |             |
-| 3 | 19 Sep 2025 | [[https://colab.research.google.com/github/wmfschneider/CBE60546/blob/master/Homework/HW3-F25.ipynb][https://colab.research.google.com/assets/colab-badge.svg]] | [[./Homework/HW3-F25-soln.pdf][pdf]]   [[http://nbviewer.jupyter.org/github/wmfschneider/CBE60546/blob/main/Homework/HW3-F25-soln.ipynb][ipynb]] |
-|   |             |                                                          |             |
-| 4 | 5 Oct 2025  | [[https://colab.research.google.com/github/wmfschneider/CBE60546/blob/master/Homework/HW4-F25.ipynb][https://colab.research.google.com/assets/colab-badge.svg]] | [[./Homework/HW4-Fa25-soln.pdf][pdf]]  [[./Homework/HW4-F25-soln.ipynb][ipynb]]  |
-|   |             |                                                          |             |
-| 5 | 13 Oct 2025 | [[https://colab.research.google.com/github/wmfschneider/CBE60546/blob/master/Homework/HW5-F25.ipynb][https://colab.research.google.com/assets/colab-badge.svg]] | [[./Homework/HW5-F21-soln.pdf][pdf]]  [[./Homework/HW5-F25-soln.ipynb][ipynb]]  |
-|   |             |                                                          |             |
-| 6 | 3 Nov 2025  | [[https://colab.research.google.com/github/wmfschneider/CBE60546/blob/master/Homework/HW6-F25.ipynb][https://colab.research.google.com/assets/colab-badge.svg]] | [[./Homework/HW6-F25-soln.ipynb][ipynb]]       |
-|   |             |                                                          |             |
-| 7 | 17 Nov 2025 | [[https://colab.research.google.com/github/wmfschneider/CBE60546/blob/master/Homework/HW7-F25.ipynb][https://colab.research.google.com/assets/colab-badge.svg]] | [[./Homework/HW7-F25-soln.ipynb][ipynb]]       |
-|   |             |                                                          |             |
-| 8 | 3 Dec 2025  | [[https://colab.research.google.com/github/wmfschneider/CBE60546/blob/master/Homework/HW8-F25.ipynb][https://colab.research.google.com/assets/colab-badge.svg]] | [[./Homework/HW8-F25-soln.ipynb][ipynb]]       |
-|   |             |                                                          |             |
-| 9 | 10 Dec 2025 | [[https://colab.research.google.com/github/wmfschneider/CBE60546/blob/master/Homework/HW9-F25.ipynb][https://colab.research.google.com/assets/colab-badge.svg]] | [[./Homework/HW7-F25-soln.ipynb][ipynb]]       |
-|   |             |                                                          |             |
+|-------+-------------+----------------------------------------------------------+-------------|
+|       | Due Date    | Homework                                                 | Solution    |
+|-------+-------------+----------------------------------------------------------+-------------|
+|     1 | 5 Sep 2025  | [[https://colab.research.google.com/github/wmfschneider/CBE60546/blob/master/Homework/HW1-F25.ipynb][https://colab.research.google.com/assets/colab-badge.svg]] | [[./Homework/HW1-Fa25-soln.pdf][pdf]]   [[http://nbviewer.jupyter.org/github/wmfschneider/CBE60546/blob/main/Homework/HW1-F25-soln.ipynb][ipynb]] |
+|       |             |                                                          |             |
+|     2 | 12 Sep 2025 | [[https://colab.research.google.com/github/wmfschneider/CBE60546/blob/master/Homework/HW2-F25.ipynb][https://colab.research.google.com/assets/colab-badge.svg]] | [[./Homework/HW2-F21-soln.pdf][pdf]]   [[http://nbviewer.jupyter.org/github/wmfschneider/CBE60546/blob/main/Homework/HW2-F25-soln.ipynb][ipynb]] |
+|       |             |                                                          |             |
+|     3 | 19 Sep 2025 | [[https://colab.research.google.com/github/wmfschneider/CBE60546/blob/master/Homework/HW3-F25.ipynb][https://colab.research.google.com/assets/colab-badge.svg]] | [[./Homework/HW3-F25-soln.pdf][pdf]]   [[http://nbviewer.jupyter.org/github/wmfschneider/CBE60546/blob/main/Homework/HW3-F25-soln.ipynb][ipynb]] |
+|       |             |                                                          |             |
+|     4 | 5 Oct 2025  | [[https://colab.research.google.com/github/wmfschneider/CBE60546/blob/master/Homework/HW4-F25.ipynb][https://colab.research.google.com/assets/colab-badge.svg]] | [[./Homework/HW4-Fa25-soln.pdf][pdf]]  [[./Homework/HW4-F25-soln.ipynb][ipynb]]  |
+|       |             |                                                          |             |
+|     5 | 13 Oct 2025 | [[https://colab.research.google.com/github/wmfschneider/CBE60546/blob/master/Homework/HW5-F25.ipynb][https://colab.research.google.com/assets/colab-badge.svg]] | [[./Homework/HW5-F21-soln.pdf][pdf]]  [[./Homework/HW5-F25-soln.ipynb][ipynb]]  |
+|       |             |                                                          |             |
+|     6 | 3 Nov 2025  | [[https://colab.research.google.com/github/wmfschneider/CBE60546/blob/master/Homework/HW6-F25.ipynb][https://colab.research.google.com/assets/colab-badge.svg]] | [[./Homework/HW6-F25-soln.ipynb][ipynb]]       |
+|       |             |                                                          |             |
+|     7 | 17 Nov 2025 | [[https://colab.research.google.com/github/wmfschneider/CBE60546/blob/master/Homework/HW7-F25.ipynb][https://colab.research.google.com/assets/colab-badge.svg]] | [[./Homework/HW7-F25-soln.ipynb][ipynb]]       |
+|       |             |                                                          |             |
+|     8 | 3 Dec 2025  | [[https://colab.research.google.com/github/wmfschneider/CBE60546/blob/master/Homework/HW8-F25.ipynb][https://colab.research.google.com/assets/colab-badge.svg]] | [[./Homework/HW8-F25-soln.ipynb][ipynb]]       |
+|       |             |                                                          |             |
+|     9 | 10 Dec 2025 | [[https://colab.research.google.com/github/wmfschneider/CBE60546/blob/master/Homework/HW9-F25.ipynb][https://colab.research.google.com/assets/colab-badge.svg]] | [[./Homework/HW7-F25-soln.ipynb][ipynb]]       |
+|       |             |                                                          |             |
+| Final | 12 Dec 2025 | [[https://colab.research.google.com/github/wmfschneider/CBE60546/blob/master/Homework/Final-F25.ipynb][https://colab.research.google.com/assets/colab-badge.svg]] |             |
+|       |             |                                                          |             |
+
 
